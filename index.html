@@ -5,18 +5,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>АГстрой - Строительная компания</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <style>
         :root {
             --primary: #4fc3f7; /* Голубой */
             --secondary: #29b6f6; /* Более светлый голубой */
             --accent: #e91e63; /* Акцентный цвет (розовый) */
-            --light: #121212; /* Темный фон */
+            --light: #1a1a1a; /* Осветленный фон (было #121212) */
             --dark: #e0e0e0; /* Светлый текст */
             --success: #66bb6a;
             --promo: #ffb74d;
-            --header-bg: rgba(33, 33, 33, 0.9); /* Темный полупрозрачный */
-            --card-bg: #1e1e1e;
-            --border: #333;
+            --header-bg: rgba(35, 35, 35, 0.9); /* Осветленный полупрозрачный */
+            --card-bg: #222222; /* Осветленный (было #1e1e1e) */
+            --border: #3a3a3a; /* Осветленный (было #333) */
         }
         
         * {
@@ -42,7 +43,7 @@
             height: 100%;
             background: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1920') no-repeat center center;
             background-size: cover;
-            opacity: 0.1;
+            opacity: 0.15; /* Немного осветлили */
             z-index: -1;
         }
         
@@ -75,12 +76,12 @@
             transition: all 0.3s ease;
         }
         
-        .logo {
-            max-height: 60px;
-            max-width: 200px;
-            object-fit: contain;
-            transition: all 0.3s ease;
-            filter: brightness(0) invert(1);
+        .logo-text {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--primary);
+            text-align: center;
+            margin-bottom: 10px;
         }
         
         .slogan {
@@ -97,6 +98,7 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 1.5rem;
+            margin-top: 20px; /* Опустили навигацию ниже */
         }
         
         nav a {
@@ -1624,7 +1626,7 @@
         
         <div class="header-container">
             <div class="logo-container" id="logoContainer">
-                <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=200" alt="Логотип АГстрой" class="logo" id="logoImage">
+                <div class="logo-text">АГстрой</div>
                 <div class="slogan" id="headerSlogan">Качественные решения для вашего комфорта</div>
             </div>
             
@@ -1867,14 +1869,6 @@
                 <div class="admin-editor">
                     <div class="editor-row">
                         <div class="editor-group">
-                            <label for="headerLogo">Логотип</label>
-                            <input type="file" id="headerLogo" class="editor-control">
-                            <div class="upload-btn" id="logoUploadBtn" style="margin-top: 10px;">
-                                <i class="fas fa-upload"></i> Загрузить логотип
-                            </div>
-                            <img src="https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=200" alt="Логотип" class="image-preview" id="logoPreview">
-                        </div>
-                        <div class="editor-group">
                             <label for="headerSlogan">Слоган</label>
                             <input type="text" id="headerSloganInput" class="editor-control" value="Качественные решения для вашего комфорта">
                         </div>
@@ -1911,8 +1905,8 @@
                         </div>
                         <div class="editor-group">
                             <label for="bgOpacity">Прозрачность фона</label>
-                            <input type="range" id="bgOpacity" class="editor-control" min="0" max="1" step="0.05" value="0.1">
-                            <div id="opacityValue">10%</div>
+                            <input type="range" id="bgOpacity" class="editor-control" min="0" max="1" step="0.05" value="0.15">
+                            <div id="opacityValue">15%</div>
                         </div>
                     </div>
                     
@@ -2172,6 +2166,45 @@
                     </div>
                     <button class="btn btn-primary" id="saveVkBtn">Сохранить настройки</button>
                     <button class="btn btn-secondary" id="loadVkBtn">Загрузить посты</button>
+                </div>
+            </div>
+            
+            <!-- Настройка Telegram -->
+            <div class="admin-section">
+                <h4><i class="fab fa-telegram"></i> Настройка Telegram</h4>
+                <div class="admin-editor">
+                    <div class="editor-group">
+                        <label for="telegramBotToken">Токен бота Telegram</label>
+                        <input type="text" id="telegramBotToken" class="editor-control" value="7895837790:AAGcCjxt1m1PX1QxCLNcqwoY0Q9PC_vMXWk">
+                    </div>
+                    <div class="editor-group">
+                        <label for="telegramChatId">ID чата</label>
+                        <input type="text" id="telegramChatId" class="editor-control" value="1240604782">
+                        <button class="btn btn-secondary" id="detectChatIdBtn" style="margin-top: 10px;">Определить автоматически</button>
+                        <p id="chatIdResult" style="margin-top: 10px;"></p>
+                    </div>
+                    <button class="btn btn-primary" id="saveTelegramBtn">Сохранить настройки</button>
+                    <button class="btn btn-secondary" id="testTelegramBtn">Тест отправки</button>
+                </div>
+            </div>
+            
+            <!-- Настройка EmailJS -->
+            <div class="admin-section">
+                <h4><i class="fas fa-envelope"></i> Настройка EmailJS</h4>
+                <div class="admin-editor">
+                    <div class="editor-group">
+                        <label for="emailjsServiceId">Service ID</label>
+                        <input type="text" id="emailjsServiceId" class="editor-control" value="gmail_service">
+                    </div>
+                    <div class="editor-group">
+                        <label for="emailjsTemplateId">Template ID</label>
+                        <input type="text" id="emailjsTemplateId" class="editor-control" value="template_l4bhp9h">
+                    </div>
+                    <div class="editor-group">
+                        <label for="emailjsUserId">User ID</label>
+                        <input type="text" id="emailjsUserId" class="editor-control" value="0Y5XcvC3vwg6QPzZm">
+                    </div>
+                    <button class="btn btn-primary" id="saveEmailjsBtn">Сохранить настройки</button>
                 </div>
             </div>
         </div>
@@ -2456,7 +2489,7 @@
     
     <script>
         // Состояние приложения
-        const state = {
+        let state = {
             isLoggedIn: false,
             news: [
                 {
@@ -2835,15 +2868,35 @@
                 logo: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=200",
                 slogan: "Качественные решения для вашего комфорта",
                 bgImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200",
-                opacity: 0.1,
+                opacity: 0.15,
                 logoPosition: "center",
                 sloganPosition: "bottom",
                 banner: ""
+            },
+            telegram: {
+                botToken: "7895837790:AAGcCjxt1m1PX1QxCLNcqwoY0Q9PC_vMXWk",
+                chatId: "1240604782"
+            },
+            emailjs: {
+                serviceId: "gmail_service",
+                templateId: "template_l4bhp9h",
+                userId: "0Y5XcvC3vwg6QPzZm"
             }
         };
 
         // Инициализация при загрузке страницы
         document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка состояния из localStorage
+            const savedState = localStorage.getItem('agstroyState');
+            if (savedState) {
+                state = JSON.parse(savedState);
+            }
+            
+            // Инициализация EmailJS
+            if (state.emailjs.userId) {
+                emailjs.init(state.emailjs.userId);
+            }
+            
             renderAdvantages();
             renderWorkSteps();
             renderGallery();
@@ -2857,9 +2910,13 @@
             loadVKNews();
         });
 
+        // Сохранение состояния
+        function saveState() {
+            localStorage.setItem('agstroyState', JSON.stringify(state));
+        }
+
         // Обновление шапки сайта
         function updateHeader() {
-            document.getElementById('logoImage').src = state.header.logo;
             document.getElementById('headerSlogan').textContent = state.header.slogan;
             document.getElementById('heroSlogan').textContent = state.header.slogan;
             document.getElementById('mainHero').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${state.header.bgImage})`;
@@ -3200,6 +3257,7 @@
                         };
                         
                         state.reviews.push(newReview);
+                        saveState();
                         alert('Ваш отзыв отправлен на модерацию. Спасибо!');
                         reviewForm.reset();
                         
@@ -3213,6 +3271,14 @@
                             star.classList.remove('fas', 'active');
                             star.classList.add('far');
                         });
+                        
+                        // Отправка на почту и в Telegram
+                        sendApplication({
+                            name: name,
+                            email: email,
+                            rating: rating,
+                            message: text
+                        }, 'review-form');
                     }
                 }, 100);
             });
@@ -3228,6 +3294,7 @@
                     document.getElementById('loginForm').style.display = 'none';
                     document.getElementById('adminPanel').classList.add('active');
                     document.getElementById('loginMessage').textContent = '';
+                    saveState();
                 } else {
                     document.getElementById('loginMessage').textContent = 'Неверный логин или пароль!';
                 }
@@ -3238,6 +3305,7 @@
             logoutBtn.addEventListener('click', function() {
                 state.isLoggedIn = false;
                 document.getElementById('adminPanel').classList.remove('active');
+                saveState();
             });
             
             // Переключение админ-панели
@@ -3378,7 +3446,7 @@
                 };
                 
                 // Отправка заявки
-                sendApplication(formData, 'buy');
+                sendApplication(formData, 'buy-house');
                 
                 // Показ сообщения об успехе
                 document.getElementById('buySuccessMessage').style.display = 'block';
@@ -3408,7 +3476,7 @@
                 };
                 
                 // Отправка заявки
-                sendApplication(formData, 'build');
+                sendApplication(formData, 'build-house');
                 
                 // Показ сообщения об успехе
                 document.getElementById('buildSuccessMessage').style.display = 'block';
@@ -3455,6 +3523,71 @@
         // Функция отправки заявки
         function sendApplication(data, type) {
             console.log(`Отправка заявки типа: ${type}`, data);
+            
+            // Отправка в Telegram
+            if (state.telegram.botToken && state.telegram.chatId) {
+                sendToTelegram(data, type);
+            }
+            
+            // Отправка на почту через EmailJS
+            if (state.emailjs.serviceId && state.emailjs.templateId && state.emailjs.userId) {
+                sendToEmail(data, type);
+            }
+        }
+        
+        // Отправка в Telegram
+        async function sendToTelegram(data, type) {
+            const formTypes = {
+                'buy-house': 'Покупка дома',
+                'build-house': 'Постройка дома',
+                'tour': 'Экскурсия',
+                'review-form': 'Отзыв'
+            };
+            
+            let message = `*Новая заявка (${formTypes[type] || type})*\n`;
+            
+            for (const [key, value] of Object.entries(data)) {
+                if (key !== 'houseId') {
+                    message += `*${key}:* ${value}\n`;
+                }
+            }
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${state.telegram.botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: state.telegram.chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                if (!response.ok) {
+                    console.error('Ошибка отправки в Telegram:', await response.text());
+                }
+            } catch (error) {
+                console.error('Ошибка отправки в Telegram:', error);
+            }
+        }
+        
+        // Отправка на почту через EmailJS
+        function sendToEmail(data, type) {
+            const formTypes = {
+                'buy-house': 'Покупка дома',
+                'build-house': 'Постройка дома',
+                'tour': 'Экскурсия',
+                'review-form': 'Отзыв'
+            };
+            
+            const emailData = {
+                form_type: formTypes[type] || type,
+                ...data
+            };
+            
+            emailjs.send(state.emailjs.serviceId, state.emailjs.templateId, emailData)
+                .then(response => console.log('Email отправлен!', response.status, response.text))
+                .catch(error => console.error('Ошибка отправки email:', error));
         }
         
         // Настройка админ-панели
@@ -3463,6 +3596,8 @@
             document.getElementById('bgOpacity').addEventListener('input', function() {
                 const opacityValue = (this.value * 100).toFixed(0);
                 document.getElementById('opacityValue').textContent = opacityValue + '%';
+                state.header.opacity = parseFloat(this.value);
+                updateHeader();
             });
             
             document.getElementById('logoPosition').value = state.header.logoPosition;
@@ -3470,29 +3605,12 @@
             
             document.getElementById('saveHeaderBtn').addEventListener('click', function() {
                 state.header.slogan = document.getElementById('headerSloganInput').value;
-                state.header.opacity = parseFloat(document.getElementById('bgOpacity').value);
                 state.header.logoPosition = document.getElementById('logoPosition').value;
                 state.header.sloganPosition = document.getElementById('sloganPosition').value;
                 
                 updateHeader();
+                saveState();
                 alert('Изменения шапки сайта сохранены!');
-            });
-            
-            // Загрузка логотипа
-            document.getElementById('logoUploadBtn').addEventListener('click', function() {
-                document.getElementById('headerLogo').click();
-            });
-            
-            document.getElementById('headerLogo').addEventListener('change', function(e) {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('logoPreview').src = e.target.result;
-                        document.getElementById('logoPreview').style.display = 'block';
-                        state.header.logo = e.target.result;
-                    }
-                    reader.readAsDataURL(this.files[0]);
-                }
             });
             
             // Загрузка фона
@@ -3507,6 +3625,8 @@
                         document.getElementById('headerBgPreview').src = e.target.result;
                         document.getElementById('headerBgPreview').style.display = 'block';
                         state.header.bgImage = e.target.result;
+                        updateHeader();
+                        saveState();
                     }
                     reader.readAsDataURL(this.files[0]);
                 }
@@ -3524,6 +3644,8 @@
                         document.getElementById('bannerPreview').src = e.target.result;
                         document.getElementById('bannerPreview').style.display = 'block';
                         state.header.banner = e.target.result;
+                        updateHeader();
+                        saveState();
                     }
                     reader.readAsDataURL(this.files[0]);
                 }
@@ -3550,6 +3672,7 @@
                 state.advantages.push(newAdvantage);
                 renderAdvantages();
                 renderAdminAdvantages();
+                saveState();
                 
                 // Очистка формы
                 document.getElementById('advantageIcon').value = '';
@@ -3590,6 +3713,7 @@
                         state.advantages = state.advantages.filter(a => a.id !== id);
                         renderAdminAdvantages();
                         renderAdvantages();
+                        saveState();
                     });
                 });
             }
@@ -3617,6 +3741,7 @@
                 state.workSteps.push(newStep);
                 renderWorkSteps();
                 renderAdminSteps();
+                saveState();
                 
                 // Очистка формы
                 document.getElementById('stepNumber').value = '';
@@ -3664,6 +3789,7 @@
                         state.workSteps = state.workSteps.filter(s => s.id !== id);
                         renderAdminSteps();
                         renderWorkSteps();
+                        saveState();
                     });
                 });
             }
@@ -3708,6 +3834,7 @@
                     state.gallery.push(newItem);
                     renderGallery();
                     renderAdminGallery();
+                    saveState();
                     
                     // Очистка формы
                     document.getElementById('galleryTitle').value = '';
@@ -3747,6 +3874,7 @@
                         state.gallery = state.gallery.filter(g => g.id !== id);
                         renderAdminGallery();
                         renderGallery();
+                        saveState();
                     });
                 });
             }
@@ -3791,6 +3919,7 @@
                     state.promotions.push(newPromo);
                     renderPromotions();
                     renderAdminPromotions();
+                    saveState();
                     
                     // Очистка формы
                     document.getElementById('promoBadge').value = '';
@@ -3828,6 +3957,7 @@
                         state.promotions = state.promotions.filter(p => p.id !== id);
                         renderAdminPromotions();
                         renderPromotions();
+                        saveState();
                     });
                 });
             }
@@ -3874,6 +4004,7 @@
                     state.news.push(newNews);
                     renderNews();
                     renderAdminNews();
+                    saveState();
                     
                     // Очистка формы
                     document.getElementById('newsTitle').value = '';
@@ -3912,6 +4043,7 @@
                         state.news = state.news.filter(n => n.id !== id);
                         renderAdminNews();
                         renderNews();
+                        saveState();
                     });
                 });
             }
@@ -3981,6 +4113,7 @@
                 state.reviews.push(newReview);
                 renderReviews();
                 renderAdminReviews();
+                saveState();
                 
                 // Очистка формы
                 document.getElementById('reviewAuthor').value = '';
@@ -4039,14 +4172,13 @@
                         state.reviews = state.reviews.filter(r => r.id !== id);
                         renderAdminReviews();
                         renderReviews();
+                        saveState();
                     });
                 });
             }
             
             // Интеграция с VK
             document.getElementById('saveVkBtn').addEventListener('click', function() {
-                const groupId = document.getElementById('vkGroupId').value;
-                const token = document.getElementById('vkToken').value;
                 alert('Настройки VK сохранены!');
             });
             
@@ -4054,6 +4186,66 @@
                 alert('Загрузка постов из VK...');
                 // В реальной реализации здесь будет вызов API VK
                 loadVKNews();
+            });
+            
+            // Настройка Telegram
+            document.getElementById('saveTelegramBtn').addEventListener('click', function() {
+                state.telegram.botToken = document.getElementById('telegramBotToken').value;
+                state.telegram.chatId = document.getElementById('telegramChatId').value;
+                saveState();
+                alert('Настройки Telegram сохранены!');
+            });
+            
+            document.getElementById('testTelegramBtn').addEventListener('click', function() {
+                if (!state.telegram.botToken || !state.telegram.chatId) {
+                    alert('Сначала настройте Telegram');
+                    return;
+                }
+                
+                sendToTelegram({test: "Тестовое сообщение от АГстрой"}, 'test');
+                alert('Тестовое сообщение отправлено в Telegram!');
+            });
+            
+            // Определение chat.id автоматически
+            document.getElementById('detectChatIdBtn').addEventListener('click', async function() {
+                const token = document.getElementById('telegramBotToken').value;
+                if (!token) {
+                    alert('Сначала введите токен бота');
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${token}/getUpdates`);
+                    const data = await response.json();
+                    
+                    if (data.ok && data.result.length > 0) {
+                        const chatId = data.result[0].message.chat.id;
+                        document.getElementById('telegramChatId').value = chatId;
+                        document.getElementById('chatIdResult').innerHTML = 
+                            `Найден ID: <strong>${chatId}</strong> (${data.result[0].message.chat.title || 'личные сообщения'})`;
+                    } else {
+                        document.getElementById('chatIdResult').innerHTML = 
+                            'Не найдено активных чатов. Отправьте боту сообщение в нужном чате и попробуйте снова.';
+                    }
+                } catch (error) {
+                    document.getElementById('chatIdResult').innerHTML = 
+                        'Ошибка: ' + error.message;
+                }
+            });
+            
+            // Настройка EmailJS
+            document.getElementById('saveEmailjsBtn').addEventListener('click', function() {
+                state.emailjs.serviceId = document.getElementById('emailjsServiceId').value;
+                state.emailjs.templateId = document.getElementById('emailjsTemplateId').value;
+                state.emailjs.userId = document.getElementById('emailjsUserId').value;
+                
+                // Инициализация EmailJS
+                if (state.emailjs.userId) {
+                    emailjs.init(state.emailjs.userId);
+                }
+                
+                saveState();
+                alert('Настройки EmailJS сохранены!');
             });
             
             // Инициализация рендеринга админских разделов
@@ -4096,6 +4288,7 @@
                 
                 // Добавляем новости в состояние
                 state.news = [...vkNews, ...state.news];
+                saveState();
                 
                 // Рендерим новости
                 renderNews();
