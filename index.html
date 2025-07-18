@@ -3,21 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Агстрой.рф</title>
+    <title>АГстрой - Строительная компания</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <style>
         :root {
-            --primary: #4fc3f7;
-            --secondary: #29b6f6;
-            --accent: #e91e63;
-            --light: #1a1a1a;
-            --dark: #e0e0e0;
+            --primary: #4fc3f7; /* Голубой */
+            --secondary: #29b6f6; /* Более светлый голубой */
+            --accent: #e91e63; /* Акцентный цвет (розовый) */
+            --light: #1a1a1a; /* Осветленный фон (было #121212) */
+            --dark: #e0e0e0; /* Светлый текст */
             --success: #66bb6a;
             --promo: #ffb74d;
-            --header-bg: rgba(35, 35, 35, 0.9);
-            --card-bg: #222222;
-            --border: #3a3a3a;
+            --header-bg: rgba(35, 35, 35, 0.9); /* Осветленный полупрозрачный */
+            --card-bg: #222222; /* Осветленный (было #1e1e1e) */
+            --border: #3a3a3a; /* Осветленный (было #333) */
         }
         
         * {
@@ -34,6 +34,7 @@
             position: relative;
         }
         
+        /* Фоновое изображение */
         .bg-overlay {
             position: fixed;
             top: 0;
@@ -42,21 +43,22 @@
             height: 100%;
             background: url('https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=1920') no-repeat center center;
             background-size: cover;
-            opacity: 0.15;
+            opacity: 0.15; /* Немного осветлили */
             z-index: -1;
         }
         
+        /* Шапка */
         header {
-            background: white;
-            color: #333;
-            padding: 9rem 0 4.5rem;
+            background: var(--header-bg);
+            color: white;
+            padding: 1.5rem 0; /* Увеличили высоту шапки */
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
             position: sticky;
             top: 0;
             z-index: 100;
-            min-height: 350px;
-            position: relative;
+            backdrop-filter: blur(5px); /* Эффект матового стекла */
+            min-height: 120px; /* Минимальная высота шапки */
         }
         
         .header-container {
@@ -64,33 +66,34 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
-            height: 100%;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
         }
         
         .logo-container {
             display: flex;
-            flex-direction: column;
+            justify-content: center;
             align-items: center;
-            margin-bottom: 2rem;
+            margin-bottom: 1rem;
             position: relative;
             transition: all 0.3s ease;
         }
         
-        .slogan {
+        .logo-text {
             font-size: 2.5rem;
             font-weight: bold;
-            margin-bottom: 1.5rem;
-            color: #000;
+            color: var(--primary);
             text-align: center;
+            margin-bottom: 10px;
+            display: none; /* Скрыли текстовый логотип */
         }
         
-        @media (max-width: 768px) {
-            .slogan {
-                font-size: 1.8rem;
-            }
+        .slogan {
+            font-size: 1.2rem;
+            font-weight: 500;
+            margin-top: 0.5rem;
+            color: rgba(255,255,255,0.9);
+            text-shadow: 0 1px 2px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+            display: none; /* Скрыли слоган */
         }
         
         nav {
@@ -98,54 +101,44 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 1.5rem;
-            margin-top: auto;
-            padding-top: 2rem;
+            margin-top: 30px; /* Опустили навигацию ниже */
         }
         
         nav a {
-            color: #000;
+            color: white;
             text-decoration: none;
             font-weight: 500;
-            padding: 0.8rem 1.5rem;
+            padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.1);
-            font-size: 1.1rem;
+            border: 1px solid rgba(255,255,255,0.1);
         }
         
         nav a:hover {
-            background: rgba(79, 195, 247, 0.2);
+            background: rgba(255, 255, 255, 0.15);
             transform: translateY(-2px);
             border-color: var(--secondary);
-            color: #000;
         }
         
+        /* Кнопка админ-панели */
         .admin-link {
-            color: #333;
             position: absolute;
-            top: 20px;
-            right: 20px;
+            top: 12px;
+            right: 15px;
+            color: rgba(255, 255, 255, 0.5);
             transition: all 0.4s ease;
             z-index: 101;
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             text-decoration: none;
-            background: rgba(255, 255, 255, 0.8);
-            padding: 10px;
-            border-radius: 50%;
-            width: 45px;
-            height: 45px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
         }
         
         .admin-link:hover {
             color: var(--secondary);
             opacity: 1;
             transform: rotate(30deg);
-            background: rgba(79, 195, 247, 0.2);
         }
         
+        /* Основной контент */
         .container {
             max-width: 1200px;
             margin: 2rem auto;
@@ -209,6 +202,7 @@
             box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
         }
         
+        /* Герой-секция */
         .hero {
             text-align: center;
             padding: 4rem 1rem;
@@ -223,11 +217,16 @@
             border: 1px solid var(--border);
         }
         
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+        
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-top: 3rem;
+            margin-top: 2.5rem;
             flex-wrap: wrap;
         }
         
@@ -282,6 +281,7 @@
             box-shadow: 0 10px 20px rgba(255, 159, 0, 0.3);
         }
         
+        /* Плавающие кнопки */
         .floating-buttons {
             position: fixed;
             bottom: 30px;
@@ -345,6 +345,7 @@
             opacity: 1;
         }
         
+        /* Преимущества */
         .advantages {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -393,6 +394,7 @@
             color: var(--secondary);
         }
         
+        /* Галерея работ */
         .gallery {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
@@ -468,6 +470,7 @@
             font-weight: bold;
         }
         
+        /* Секция "Как мы работаем" */
         .work-steps {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -540,6 +543,7 @@
             color: #aaa;
         }
         
+        /* Новостной раздел */
         .news-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -605,8 +609,10 @@
             display: inline-flex;
             align-items: center;
             gap: 5px;
+            cursor: pointer;
         }
         
+        /* Отзывы */
         .reviews-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -706,6 +712,7 @@
             object-fit: cover;
         }
         
+        /* Форма отзыва */
         .review-form {
             max-width: 600px;
             margin: 3rem auto 0;
@@ -806,6 +813,7 @@
             background: #b71c1c;
         }
         
+        /* Подвал */
         footer {
             background: #1a1a1a;
             color: white;
@@ -913,6 +921,7 @@
             color: #777;
         }
         
+        /* Админ-панель */
         .admin-panel {
             background: var(--card-bg);
             border-radius: 10px;
@@ -1085,6 +1094,7 @@
             color: var(--primary);
         }
         
+        /* Секция акций */
         .promotion-cards {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
@@ -1117,6 +1127,7 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: bold;
+            z-index: 2;
         }
         
         .promotion-image {
@@ -1150,234 +1161,7 @@
             margin-bottom: 1.5rem;
         }
         
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: var(--card-bg);
-            border-radius: 10px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #777;
-            transition: color 0.3s;
-        }
-        
-        .close-modal:hover {
-            color: var(--accent);
-        }
-        
-        .modal-title {
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            text-align: center;
-        }
-        
-        .houses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 2rem 0;
-        }
-        
-        .house-card {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: var(--card-bg);
-        }
-        
-        .house-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: var(--secondary);
-        }
-        
-        .house-image {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .house-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .house-card:hover .house-image img {
-            transform: scale(1.1);
-        }
-        
-        .house-info {
-            padding: 1rem;
-        }
-        
-        .house-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .house-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #777;
-        }
-        
-        .house-price {
-            font-weight: bold;
-            color: var(--accent);
-            font-size: 1.2rem;
-        }
-        
-        .select-house-btn {
-            width: 100%;
-            text-align: center;
-            padding: 0.75rem;
-            background: var(--secondary);
-            color: var(--light);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .select-house-btn:hover {
-            background: var(--primary);
-        }
-        
-        .form-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-section h4 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #ddd;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #444;
-            border-radius: 4px;
-            font-size: 1rem;
-            background: #1a1a1a;
-            color: #fff;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 1rem;
-        }
-        
-        .submit-btn:hover {
-            background: #c41d58;
-        }
-        
-        .success-message {
-            background: #2e7d32;
-            color: #a5d6a7;
-            padding: 1rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-            text-align: center;
-            display: none;
-        }
-        
-        #about .content {
-            padding: 0 40px;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #aaa;
-        }
-        
-        #about ul {
-            margin: 25px 0;
-            padding-left: 20px;
-            list-style: none;
-        }
-        
-        #about ul li {
-            margin-bottom: 20px;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.1rem;
-        }
-        
-        #about ul li i {
-            position: absolute;
-            left: 0;
-            top: 3px;
-            width: 28px;
-            height: 28px;
-            background: var(--secondary);
-            color: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-        
-        #about .guarantee-box {
-            background: rgba(79, 195, 247, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px 25px;
-            border-radius: 0 8px 8px 0;
-            margin: 30px 0;
-            font-size: 1.15rem;
-            color: #ddd;
-        }
-        
+        /* Стили для загрузки фото в отзывах */
         .photo-upload-container {
             margin: 1.5rem 0;
             text-align: center;
@@ -1440,6 +1224,7 @@
             transition: width 0.3s ease;
         }
         
+        /* Позиционирование логотипа */
         .logo-left .logo-container {
             justify-content: flex-start;
         }
@@ -1475,6 +1260,7 @@
             margin-top: 0;
         }
         
+        /* Баннер шапки */
         .header-banner {
             position: absolute;
             top: 0;
@@ -1491,6 +1277,7 @@
             overflow: hidden;
         }
         
+        /* Загрузчик */
         .loader {
             border: 4px solid rgba(255,255,255,0.1);
             border-top: 4px solid var(--secondary);
@@ -1506,337 +1293,65 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
-        
-        /* Новые стили для управления домами */
-        .houses-manager {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .house-manager-item {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            background: var(--card-bg);
-            position: relative;
-        }
-        
-        .house-manager-image {
-            height: 150px;
-            overflow: hidden;
-        }
-        
-        .house-manager-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .house-manager-info {
-            padding: 15px;
-        }
-        
-        .house-manager-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-        
-        .remove-house-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 0, 0, 0.7);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2;
-        }
-        
-        /* Стили для управления фото в отзывах */
-        .photo-preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .photo-preview-item {
-            position: relative;
-            height: 100px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .photo-preview-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .photo-preview-item .remove-photo-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(255, 0, 0, 0.7);
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-        
-        /* Стили для модального окна новости */
+
+        /* Модальное окно новости */
         .news-modal-content {
-            padding: 20px;
-            color: #ddd;
-            line-height: 1.8;
+            max-width: 800px;
+            padding: 2rem;
         }
         
-        .news-modal-content img {
-            max-width: 100%;
-            height: auto;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
-        
-        .news-modal-content iframe {
-            width: 100%;
+        .news-modal-image {
             height: 400px;
-            margin: 15px 0;
-            border-radius: 8px;
-        }
-        
-        /* Кнопка удаления аватарки */
-        .remove-avatar-btn {
-            display: block;
-            margin: 10px auto;
-            padding: 8px 15px;
-            background: #c62828;
-            color: white;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 0.9rem;
-            transition: background 0.3s;
-        }
-        
-        .remove-avatar-btn:hover {
-            background: #b71c1c;
-        }
-        
-        /* Стили для секции проектов */
-        .projects-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 25px;
-            margin-top: 2rem;
-        }
-        
-        .project-card {
-            background: var(--card-bg);
             border-radius: 10px;
             overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            border: 1px solid var(--border);
+            margin-bottom: 1.5rem;
         }
         
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border-color: var(--secondary);
-        }
-        
-        .project-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .project-image img {
+        .news-modal-image img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: transform 0.5s ease;
         }
         
-        .project-card:hover .project-image img {
-            transform: scale(1.1);
-        }
-        
-        .project-content {
-            padding: 1.5rem;
-        }
-        
-        .project-title {
-            font-size: 1.3rem;
+        .news-modal-title {
+            font-size: 2rem;
             margin-bottom: 1rem;
             color: var(--primary);
         }
         
-        .project-desc {
-            color: #aaa;
+        .news-modal-date {
+            color: var(--secondary);
             margin-bottom: 1.5rem;
         }
         
-        .view-project-btn {
-            display: inline-block;
-            padding: 0.5rem 1rem;
-            background: var(--secondary);
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            transition: background 0.3s;
-        }
-        
-        .view-project-btn:hover {
-            background: var(--primary);
-        }
-        
-        /* Модальное окно проектов */
-        .projects-modal-content {
-            padding: 20px;
+        .news-modal-body {
+            line-height: 1.8;
             color: #ddd;
         }
         
-        .projects-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 2rem 0;
-        }
-        
-        .project-modal-card {
-            border: 1px solid var(--border);
+        .news-modal-body img {
+            max-width: 100%;
             border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: var(--card-bg);
+            margin: 1rem 0;
         }
         
-        .project-modal-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: var(--secondary);
-        }
-        
-        .project-modal-image {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .project-modal-image img {
+        .news-modal-body iframe {
             width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .project-modal-card:hover .project-modal-image img {
-            transform: scale(1.1);
-        }
-        
-        .project-modal-info {
-            padding: 1rem;
-        }
-        
-        .project-modal-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .view-full-project-btn {
-            width: 100%;
-            text-align: center;
-            padding: 0.75rem;
-            background: var(--secondary);
-            color: var(--light);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .view-full-project-btn:hover {
-            background: var(--primary);
-        }
-        
-        /* Стили для модального окна проекта */
-        .project-modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.9);
-            z-index: 1100;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .project-modal-content {
-            background: var(--card-bg);
+            height: 400px;
             border-radius: 10px;
-            max-width: 90%;
-            width: 90%;
-            height: 90vh;
-            overflow-y: auto;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
+            margin: 1.5rem 0;
         }
         
-        .project-pdf-viewer {
-            width: 100%;
-            height: 80vh;
-            border: none;
-            border-radius: 8px;
-        }
-        
-        /* Стили для формы заявки */
-        .project-type-options {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 20px;
-        }
-        
-        .project-type-option {
-            flex: 1;
-            min-width: 200px;
-            background: #333;
-            padding: 15px;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: all 0.3s;
-            text-align: center;
-        }
-        
-        .project-type-option.selected {
-            background: var(--secondary);
-            border: 2px solid white;
-        }
-        
+        /* Адаптивность */
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 gap: 0.5rem;
                 align-items: center;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
             }
             
             .hero-buttons {
@@ -1860,40 +1375,105 @@
             
             .editor-group {
                 min-width: 100%;
-            max-width: 100%;
             width: 100%;
-            flex: 0 0 100%;
             margin-bottom: 15px;
+            flex: none;
+            width: 100%;
+        }
+            
+            .work-steps {
+                grid-template-columns: 1fr;
+            }
+            
+            .advantages {
+                grid-template-columns: 1fr;
+            }
+            
+            .news-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .reviews-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .houses-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .promotion-cards {
+                grid-template-columns: 1fr;
+            }
+            
+            .floating-buttons {
+                bottom: 15px;
+                right: 15px;
+            }
+            
+            .floating-btn {
+                width: 50px;
+                height: 50px;
+                font-size: 1.2rem;
+            }
+        }
+
+        /* Обновленные стили для раздела "О нас" */
+        #about .content {
+            padding: 0 40px;
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #aaa;
         }
         
-        .form-row {
-            flex-direction: column;
-            gap: 1rem;
+        #about ul {
+            margin: 25px 0;
+            padding-left: 20px;
+            list-style: none;
         }
         
-        .houses-grid {
-            grid-template-columns: 1fr;
+        #about ul li {
+            margin-bottom: 20px;
+            padding-left: 40px;
+            position: relative;
+            font-size: 1.1rem;
         }
         
-        .promotion-cards {
-            grid-template-columns: 1fr;
+        #about ul li i {
+            position: absolute;
+            left: 0;
+            top: 3px;
+            width: 28px;
+            height: 28px;
+            background: var(--secondary);
+            color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
         }
         
-        .floating-buttons {
-            bottom: 15px;
-            right: 15px;
-        }
-        
-        .floating-btn {
-            width: 50px;
-            height: 50px;
-            font-size: 1.2rem;
+        #about .guarantee-box {
+            background: rgba(79, 195, 247, 0.1);
+            border-left: 4px solid var(--secondary);
+            padding: 20px 25px;
+            border-radius: 0 8px 8px 0;
+            margin: 30px 0;
+            font-size: 1.15rem;
+            color: #ddd;
         }
     </style>
 </head>
 <body>
+    <!-- Фоновое изображение -->
     <div class="bg-overlay" id="bgOverlay"></div>
     
+    <!-- Шапка сайта -->
     <header id="siteHeader">
         <a href="#" class="admin-link" id="adminToggle" title="Админ-панель">
             <i class="fas fa-cog"></i>
@@ -1901,13 +1481,13 @@
         
         <div class="header-container">
             <div class="logo-container" id="logoContainer">
+                <div class="logo-text">АГстрой</div>
                 <div class="slogan" id="headerSlogan">Качественные решения для вашего комфорта</div>
             </div>
             
             <nav>
                 <a href="#">Главная</a>
                 <a href="#about">О нас</a>
-                <a href="#projects">Проекты</a>
                 <a href="#promotions">Акции</a>
                 <a href="#how-we-work">Как мы работаем</a>
                 <a href="#portfolio">Наши работы</a>
@@ -1917,6 +1497,7 @@
         </div>
     </header>
 
+    <!-- Плавающие кнопки -->
     <div class="floating-buttons" id="floatingButtons">
         <div class="floating-btn tour" id="floatingTourBtn">
             <i class="fas fa-map-marked-alt"></i>
@@ -1932,9 +1513,12 @@
         </div>
     </div>
 
+    <!-- Основное содержимое -->
     <div class="container">
+        <!-- Герой-секция -->
         <section class="hero" id="mainHero">
             <div class="hero-content">
+                <h1>Строительство и ремонт</h1>
                 <p id="heroSlogan">Качественные решения для вашего комфорта</p>
                 
                 <div class="hero-buttons">
@@ -1951,6 +1535,7 @@
             </div>
         </section>
 
+        <!-- Секция "О нас" -->
         <section id="about">
             <div class="section-header">
                 <h2><i class="fas fa-info-circle"></i> О нас</h2>
@@ -1967,6 +1552,7 @@
                     <li><i class="fas fa-hand-holding-usd"></i> Честная фиксированная цена без скрытых платежей</li>
                     <li><i class="fas fa-calendar-check"></i> Строгое соблюдение сроков выполнения работ</li>
                     <li><i class="fas fa-user-friends"></i> Индивидуальный подход к каждому клиенту</li>
+                    <li><i class="fas fa-hard-hat"></i> Технический контроль на всех этапах строительных работ</li>
                 </ul>
                 
                 <div class="guarantee-box">
@@ -1982,91 +1568,7 @@
             </a>
         </section>
 
-        <section id="projects">
-            <div class="section-header">
-                <h2><i class="fas fa-house-user"></i> Наши проекты</h2>
-                <p>Типовые проекты домов, которые мы строим</p>
-            </div>
-            
-            <div class="projects-grid" id="projectsContainer">
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Проект Солнечный">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Проект "Солнечный"</h3>
-                        <p class="project-desc">Современный дом площадью 120 кв.м. с просторной гостиной и террасой.</p>
-                        <a href="#" class="view-project-btn" data-id="1">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Проект Лесной">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Проект "Лесной"</h3>
-                        <p class="project-desc">Двухэтажный коттедж площадью 150 кв.м. с камином и зимним садом.</p>
-                        <a href="#" class="view-project-btn" data-id="2">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600" alt="Проект Речной">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Проект "Речной"</h3>
-                        <p class="project-desc">Компактный одноэтажный дом площадью 85 кв.м. для небольшой семьи.</p>
-                        <a href="#" class="view-project-btn" data-id="3">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600" alt="Проект Горный">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Проект "Горный"</h3>
-                        <p class="project-desc">Просторный дом площадью 180 кв.м. с гаражом на две машины.</p>
-                        <a href="#" class="view-project-btn" data-id="4">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600" alt="Проект Семейный">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Проект "Семейный"</h3>
-                        <p class="project-desc">Дом для большой семьи площадью 200 кв.м. с четырьмя спальнями.</p>
-                        <a href="#" class="view-project-btn" data-id="5">Подробнее</a>
-                    </div>
-                </div>
-                
-                <div class="project-card">
-                    <div class="project-image">
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600" alt="Проект Мини">
-                    </div>
-                    <div class="project-content">
-                        <h3 class="project-title">Проект "Мини"</h3>
-                        <p class="project-desc">Экономичный вариант дома площадью 65 кв.м. для молодой пары.</p>
-                        <a href="#" class="view-project-btn" data-id="6">Подробнее</a>
-                    </div>
-                </div>
-            </div>
-            
-            <div style="text-align: center; margin-top: 30px;">
-                <button class="hero-btn hero-btn-primary" id="viewAllProjectsBtn">
-                    <i class="fas fa-list"></i> Все проекты
-                </button>
-            </div>
-            
-            <a href="#" class="to-top-btn">
-                <i class="fas fa-home"></i> Наверх
-            </a>
-        </section>
-
+        <!-- Секция "Преимущества" -->
         <section id="advantages">
             <div class="section-header">
                 <h2><i class="fas fa-star"></i> Наши преимущества</h2>
@@ -2074,87 +1576,7 @@
             </div>
             
             <div class="advantages" id="advantagesContainer">
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Качественные дома под ключ</h3>
-                        <p>Строительство домов с гарантией качества и соблюдением всех сроков</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-drafting-compass"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Проект индивидуально</h3>
-                        <p>Разрабатываем проекты с учетом всех пожеланий заказчика</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-shield-alt"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Надежность решений</h3>
-                        <p>Используем только проверенные конструктивные решения</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-user-tie"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Квалифицированные кадры</h3>
-                        <p>Все наши специалисты имеют профильное образование и опыт работы</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-handshake"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Честная фиксированная цена</h3>
-                        <p>Никаких скрытых платежей и дополнительных расходов</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-heart"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Человеческое отношение</h3>
-                        <p>Индивидуальный подход к каждому клиенту</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-piggy-bank"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Помогаем сэкономить</h3>
-                        <p>Подберем оптимальные решения для вашего бюджета</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-house-user"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Семейная ипотека</h3>
-                        <p>Поможем оформить льготную ипотеку на строительство</p>
-                    </div>
-                </div>
-                <div class="advantage-item">
-                    <div class="advantage-icon">
-                        <i class="fas fa-clipboard-check"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>Технический контроль на каждом этапе строительства</h3>
-                        <p>Осуществляем строгий контроль качества на всех этапах строительных работ</p>
-                    </div>
-                </div>
+                <!-- Преимущества будут загружены через JS -->
             </div>
             
             <a href="#" class="to-top-btn">
@@ -2162,6 +1584,7 @@
             </a>
         </section>
 
+        <!-- Секция "Как мы работаем" -->
         <section id="how-we-work">
             <div class="section-header">
                 <h2><i class="fas fa-cogs"></i> Как мы работаем</h2>
@@ -2169,54 +1592,7 @@
             </div>
             
             <div class="work-steps" id="workSteps">
-                <div class="work-step">
-                    <div class="step-number">1</div>
-                    <div class="step-icon"><i class="fas fa-phone"></i></div>
-                    <h3>Заявка/звонок</h3>
-                    <div class="work-content">
-                        <p>Вы делаете звонок, мы вас консультируем.</p>
-                    </div>
-                </div>
-                <div class="work-step">
-                    <div class="step-number">2</div>
-                    <div class="step-icon"><i class="fas fa-handshake"></i></div>
-                    <h3>Встреча</h3>
-                    <div class="work-content">
-                        <p>Встречаемся на объекте для осмотра и обсуждения деталей.</p>
-                    </div>
-                </div>
-                <div class="work-step">
-                    <div class="step-number">3</div>
-                    <div class="step-icon"><i class="fas fa-drafting-compass"></i></div>
-                    <h3>Готовим проект</h3>
-                    <div class="work-content">
-                        <p>Предлагаем на выбор готовые проекты или разрабатываем индивидуальный эскизный проект с учетом ваших пожеланий.</p>
-                    </div>
-                </div>
-                <div class="work-step">
-                    <div class="step-number">4</div>
-                    <div class="step-icon"><i class="fas fa-file-invoice-dollar"></i></div>
-                    <h3>Смета</h3>
-                    <div class="work-content">
-                        <p>Подготавливаем и согласовываем смету.</p>
-                    </div>
-                </div>
-                <div class="work-step">
-                    <div class="step-number">5</div>
-                    <div class="step-icon"><i class="fas fa-file-contract"></i></div>
-                    <h3>Договор</h3>
-                    <div class="work-content">
-                        <p>Заключаем договор с прописанными сроками, стоимостью и обязательствами.</p>
-                    </div>
-                </div>
-                <div class="work-step">
-                    <div class="step-number">6</div>
-                    <div class="step-icon"><i class="fas fa-hard-hat"></i></div>
-                    <h3>Выполнение работ</h3>
-                    <div class="work-content">
-                        <p>Строим в срок согласно СНИПам и ГОСТам.</p>
-                    </div>
-                </div>
+                <!-- Шаги работы будут загружены через JS -->
             </div>
             
             <a href="#" class="to-top-btn">
@@ -2224,6 +1600,7 @@
             </a>
         </section>
 
+        <!-- Секция "Наши работы" -->
         <section id="portfolio">
             <div class="section-header">
                 <h2><i class="fas fa-photo-video"></i> Наши работы</h2>
@@ -2231,50 +1608,7 @@
             </div>
             
             <div class="gallery" id="galleryContainer">
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Частный дом">
-                    <div class="overlay">
-                        <h3>Частный дом</h3>
-                        <p>Полная постройка под ключ</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600" alt="Офисное помещение">
-                    <div class="overlay">
-                        <h3>Офисное помещение</h3>
-                        <p>Капитальный ремонт</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Коттеджный поселок">
-                    <div class="overlay">
-                        <h3>Коттеджный поселок</h3>
-                        <p>Комплексное строительство</p>
-                    </div>
-                </div>
-                <div class="gallery-item video-item">
-                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Объект Солнечный" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="video-label">ВИДЕО</div>
-                    <div class="overlay">
-                        <h3>Объект "Солнечный"</h3>
-                        <p>Ход строительства</p>
-                    </div>
-                </div>
-                <div class="gallery-item">
-                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600" alt="Санузел">
-                    <div class="overlay">
-                        <h3>Санузел</h3>
-                        <p>Комплексный ремонт</p>
-                    </div>
-                </div>
-                <div class="gallery-item video-item">
-                    <iframe src="https://www.youtube.com/embed/7wtfhZwyrcc" title="ЖК Лесной" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                    <div class="video-label">ВИДЕО</div>
-                    <div class="overlay">
-                        <h3>ЖК "Лесной"</h3>
-                        <p>Видеообзор готового объекта</p>
-                    </div>
-                </div>
+                <!-- Галерея будет загружена через JS -->
             </div>
             
             <a href="#" class="to-top-btn">
@@ -2282,6 +1616,7 @@
             </a>
         </section>
 
+        <!-- Секция "Акции" -->
         <section id="promotions">
             <div class="section-header">
                 <h2><i class="fas fa-percentage"></i> Акции и специальные предложения</h2>
@@ -2289,67 +1624,7 @@
             </div>
             
             <div class="promotion-cards" id="promotionsContainer">
-                <div class="promotion-card">
-                    <div class="promotion-badge">Скидка 20%</div>
-                    <div class="promotion-image">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600" alt="Скидка на баню или гараж">
-                    </div>
-                    <div class="promotion-content">
-                        <h3 class="promotion-title">Скидка на баню или гараж</h3>
-                        <p class="promotion-desc">При строительстве дома на вашем участке получите скидку 20% на строительство бани или гаража!</p>
-                    </div>
-                </div>
-                <div class="promotion-card">
-                    <div class="promotion-badge">Бесплатно</div>
-                    <极简代码>
-                    <div class="promotion-image">
-                        <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600" alt="Расчет сметы в подарок">
-                    </div>
-                    <div class="promotion-content">
-                        <h3 class="promotion-title">Расчет сметы в подарок</h3>
-                        <p class="promotion-desc">При заключении договора на строительство дома получите бесплатный расчет сметы!</p>
-                    </div>
-                </div>
-                <div class="promotion-card">
-                    <div class="promotion-badge">Бесплатно</div>
-                    <div class="promotion-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Эскизный проект в подарок">
-                    </div>
-                    <div class="promotion-content">
-                        <h3 class="promotion-title">Эскизный проект в подарок</极简代码>
-                        <p class="promotion-desc">При заключении договора на строительство получите бесплатный эскизный проект!</p>
-                    </div>
-                </div>
-                <div class="promotion-card">
-                    <div class="promotion-badge">Специально</div>
-                    <div class="promotion-image">
-                        <img src="https://images.unsplash.com/photo-1549482199-bc1ca6f58502?auto=format&fit=crop&w=600" alt="Специальные условия для молодых семей">
-                    </div>
-                    <div class="promotion-content">
-                        <h3 class="promotion-title">Специальные условия для молодых семей</h3>
-                        <p class="promotion-desc">Молодые семьи получают специальные скидки и условия оплаты при строительстве дома.</p>
-                    </div>
-                </div>
-                <div class="promotion-card">
-                    <div class="promotion-badge">Бесплатно</div>
-                    <div class="promotion-image">
-                        <img src="https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=600" alt="Бесплатный выезд специалиста">
-                    </div>
-                    <div class="promotion-content">
-                        <h3 class="promotion-title">Бесплатный выезд специалиста</h3>
-                        <p class="promotion-desc">Закажите бесплатный выезд нашего специалиста на ваш участок для консультации.</p>
-                    </div>
-                </div>
-                <div class="promotion-card">
-                    <div class="promotion-badge">Скидка</div>
-                    <div class="promotion-image">
-                        <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600" alt="Скидки пенсионерам">
-                    </div>
-                    <div class="promotion-content">
-                        <h3 class="promotion-title">Скидки пенсионерам</h3>
-                        <p class="promotion-desc">Специальные скидки для пенсионеров на все виды строительных работ.</p>
-                    </div>
-                </div>
+                <!-- Акции будут загружены через JS -->
             </div>
             
             <a href="#" class="to-top-btn">
@@ -2357,6 +1632,7 @@
             </a>
         </section>
 
+        <!-- Секция "Новости" -->
         <section id="news">
             <div class="section-header">
                 <h2><i class="fas fa-newspaper"></i> Новости компании</h2>
@@ -2365,28 +1641,7 @@
             
             <div class="loader" id="newsLoader"></div>
             <div class="news-container" id="newsContainer">
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800" alt="Открытие нового офиса в Москве">
-                    </极简代码>
-                    <div class="news-content">
-                        <div class="news-date">15 сентября 2023 г.</div>
-                        <h3 class="news-title">Открытие нового офиса в Москве</h3>
-                        <p class="news-excerpt">Мы рады сообщить об открытии нашего нового представительства в столице!</p>
-                        <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
-                <div class="news-item">
-                    <div class="news-image">
-                        <img src="https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800" alt="Запуск новой линии строительных материалов">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">22 августа 2023 г.</div>
-                        <h3 class="news-title">Запуск новой линии строительных материалов</h3>
-                        <p class="news-excerpt">Представляем инновационные экологичные материалы для строительства</p>
-                        <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                </div>
+                <!-- Новости будут загружены через JS -->
             </div>
             
             <a href="#" class="to-top-btn">
@@ -2394,6 +1649,7 @@
             </a>
         </section>
 
+        <!-- Секция "Отзывы" -->
         <section id="reviews">
             <div class="section-header">
                 <h2><i class="fas fa-comments"></i> Отзывы клиентов</h2>
@@ -2401,9 +1657,10 @@
             </div>
             
             <div class="reviews-container" id="reviewsContainer">
-                <!-- Отзывы будут загружены динамически -->
+                <!-- Отзывы будут загружены через JS -->
             </div>
             
+            <!-- Форма добавления отзыва -->
             <div class="review-form">
                 <h3>Оставить отзыв</h3>
                 <form id="reviewForm">
@@ -2434,6 +1691,7 @@
                         <textarea id="reviewText" class="form-control" rows="5" required></textarea>
                     </div>
                     
+                    <!-- Контейнер для загрузки фото -->
                     <div class="photo-upload-container">
                         <img id="photoPreview" class="photo-preview" alt="Предпросмотр фото">
                         <div class="upload-btn">
@@ -2454,12 +1712,14 @@
             </a>
         </section>
         
+        <!-- Административная панель -->
         <div class="admin-panel" id="adminPanel">
             <div class="admin-header">
                 <h3>Административная панель</h3>
                 <button class="btn btn-primary" id="logoutBtn">Выйти</button>
             </div>
             
+            <!-- Редактор шапки сайта -->
             <div class="admin-section">
                 <h4><i class="fas fa-header"></i> Управление шапкой сайта</h4>
                 <div class="admin-editor">
@@ -2501,7 +1761,7 @@
                         </div>
                         <div class="editor-group">
                             <label for="bgOpacity">Прозрачность фона</label>
-                            <input type="range" id="bg极简代码" class="editor-control" min="0" max="1" step="0.05" value="0.15">
+                            <input type="range" id="bgOpacity" class="editor-control" min="0" max="1" step="0.05" value="0.15">
                             <div id="opacityValue">15%</div>
                         </div>
                     </div>
@@ -2519,6 +1779,7 @@
                 </div>
             </div>
             
+            <!-- Редактор преимуществ -->
             <div class="admin-section">
                 <h4><i class="fas fa-star"></i> Управление преимуществами</h4>
                 <div class="admin-editor">
@@ -2539,9 +1800,12 @@
                     <button class="btn btn-primary" id="addAdvantageBtn">Добавить преимущество</button>
                 </div>
                 
-                <div class="current-items" id="advantagesManager"></div>
+                <div class="current-items" id="advantagesManager">
+                    <!-- Преимущества для управления -->
+                </div>
             </div>
             
+            <!-- Редактор шагов работы -->
             <div class="admin-section">
                 <h4><i class="fas fa-cogs"></i> Управление шагами работы</h4>
                 <div class="admin-editor">
@@ -2568,9 +1832,12 @@
                     <button class="btn btn-primary" id="addStepBtn">Добавить шаг</button>
                 </div>
                 
-                <div class="current-items" id="stepsManager"></div>
+                <div class="current-items" id="stepsManager">
+                    <!-- Шаги для управления -->
+                </div>
             </div>
             
+            <!-- Редактор галереи -->
             <div class="admin-section">
                 <h4><i class="fas fa-photo-video"></i> Управление галереей</h4>
                 <div class="admin-editor">
@@ -2604,50 +1871,12 @@
                     <button class="btn btn-primary" id="addGalleryItemBtn">Добавить в галерею</button>
                 </div>
                 
-                <div class="gallery-manager" id="galleryManager"></div>
-            </div>
-            
-            <div class="admin-section">
-                <h4><i class="fas fa-home"></i> Управление готовыми домами</h4>
-                <div class="admin-editor">
-                    <div class="editor-row">
-                        <div class="editor-group">
-                            <label for="houseName">Название дома</label>
-                            <input type="text" id="houseName" class="editor-control">
-                        </div>
-                        <div class="editor-group">
-                            <label for="houseStage">Стадия строительства</label>
-                            <input type="text" id="houseStage" class="editor-control" placeholder="Готов, Отделка и т.д.">
-                        </div>
-                    </div>
-                    <div class="editor-row">
-                        <div class="editor-group">
-                            <label for="housePrice">Цена</label>
-                            <input type="text" id="housePrice" class="editor-control">
-                        </div>
-                        <div class="editor-group">
-                            <label for="houseArea">Площадь (кв.м.)</label>
-                            <input type="number" id="houseArea" class="editor-control">
-                        </极简代码>
-                    </div>
-                    <div class="editor-group">
-                        <label for="houseDescription">Описание</label>
-                        <textarea id="houseDescription" class="editor-control"></textarea>
-                    </div>
-                    <div class="editor-group">
-                        <label for极简代码="houseImage">Изображение</label>
-                        <input type="file" id="houseImage" class="editor-control">
-                        <div class="upload-btn" id="houseUploadBtn" style="margin-top: 10px;">
-                            <i class="fas fa-upload"></i> Загрузить изображение
-                        </div>
-                    </div>
-                    <img id="housePreview" class="image-preview" alt="Предпросмотр изображения" style="display:none;">
-                    <button class="btn btn-primary" id="addHouseBtn">Добавить дом</button>
+                <div class="gallery-manager" id="galleryManager">
+                    <!-- Галерея для управления -->
                 </div>
-                
-                <div class="houses-manager" id="housesManager"></div>
             </div>
             
+            <!-- Редактор акций -->
             <div class="admin-section">
                 <h4><i class="fas fa-percentage"></i> Управление акциями</h4>
                 <div class="admin-editor">
@@ -2678,9 +1907,12 @@
                     <button class="btn btn-primary" id="addPromoBtn">Добавить акцию</button>
                 </div>
                 
-                <div class="promotion-cards" id="promotionsManager"></div>
+                <div class="promotion-cards" id="promotionsManager">
+                    <!-- Акции для управления -->
+                </div>
             </div>
             
+            <!-- Редактор новостей -->
             <div class="admin-section">
                 <h4><i class="fas fa-newspaper"></i> Управление новостями</h4>
                 <div class="admin-editor">
@@ -2706,7 +1938,7 @@
                         <div class="editor-group">
                             <label for="newsImage">Изображение</label>
                             <input type="file" id="newsImage" class="editor-control">
-                            <div class极简代码="upload-btn" id="newsUploadBtn" style="margin-top: 10px;">
+                            <div class="upload-btn" id="newsUploadBtn" style="margin-top: 10px;">
                                 <i class="fas fa-upload"></i> Загрузить изображение
                             </div>
                         </div>
@@ -2718,9 +1950,12 @@
                     <button class="btn btn-primary" id="addNewsBtn">Добавить новость</button>
                 </div>
                 
-                <div class="news-container" id="newsManager"></div>
+                <div class="news-container" id="newsManager">
+                    <!-- Новости для управления -->
+                </div>
             </div>
             
+            <!-- Редактор отзывов -->
             <div class="admin-section">
                 <h4><i class="fas fa-comments"></i> Управление отзывами</h4>
                 <div class="admin-editor">
@@ -2753,20 +1988,16 @@
                         <div class="upload-btn" id="reviewPhotoUploadBtn" style="margin-top: 10px;">
                             <i class="fas fa-upload"></i> Загрузить фото
                         </div>
-                        <button class="btn btn-danger remove-avatar-btn" id="removeAvatarBtn" style="display: none;">Удалить аватар</button>
                     </div>
                     <div class="editor-group">
                         <img id="reviewPhotoPreview" class="image-preview" alt="Предпросмотр фото">
                     </div>
                     <div class="editor-group">
-                        <label for="reviewPhotosAdmin">Фотографии домов</label>
-                        <input type="file" id="reviewPhotosAdmin" class="editor-control" multiple>
-                        <div class="upload-btn" id="reviewPhotosUploadBtn" style="margin-top: 10px;">
-                            <i class="fas fa-upload"></i> Загрузить фотографии
+                        <label for="reviewObjectPhotos">Фото объекта (можно загрузить несколько)</label>
+                        <input type="file" id="reviewObjectPhotos" class="editor-control" multiple>
+                        <div class="upload-btn" id="reviewObjectUploadBtn" style="margin-top: 10px;">
+                            <i class="fas fa-upload"></i> Загрузить фото объекта
                         </div>
-                    </div>
-                    <div class="editor-group">
-                        <div class="photo-preview-grid" id="reviewPhotosPreview"></div>
                     </div>
                     <div class="editor-group">
                         <label for="reviewContent">Текст отзыва</label>
@@ -2775,19 +2006,71 @@
                     <button class="btn btn-primary" id="addReviewBtn">Добавить отзыв</button>
                 </div>
                 
-                <div class="reviews-container" id="reviewsManager"></div>
+                <div class="reviews-container" id="reviewsManager">
+                    <!-- Отзывы для управления -->
+                </div>
             </div>
             
+            <!-- Управление домами -->
+            <div class="admin-section">
+                <h4><i class="fas fa-home"></i> Управление готовыми домами</h4>
+                <div class="admin-editor">
+                    <div class="editor-row">
+                        <div class="editor-group">
+                            <label for="houseName">Название дома</label>
+                            <input type="text" id="houseName" class="editor-control">
+                        </div>
+                        <div class="editor-group">
+                            <label for="houseStage">Стадия готовности</label>
+                            <input type="text" id="houseStage" class="editor-control" placeholder="Готов, Отделка, Фундамент">
+                        </div>
+                    </div>
+                    <div class="editor-row">
+                        <div class="editor-group">
+                            <label for="housePrice">Цена</label>
+                            <input type="text" id="housePrice" class="editor-control">
+                        </div>
+                        <div class="editor-group">
+                            <label for="houseArea">Площадь</label>
+                            <input type="text" id="houseArea" class="editor-control">
+                        </div>
+                    </div>
+                    <div class="editor-group">
+                        <label for="houseDescription">Описание</label>
+                        <textarea id="houseDescription" class="editor-control"></textarea>
+                    </div>
+                    <div class="editor-row">
+                        <div class="editor-group">
+                            <label for="houseImage">Изображение</label>
+                            <input type="file" id="houseImage" class="editor-control">
+                            <div class="upload-btn" id="houseUploadBtn" style="margin-top: 10px;">
+                                <i class="fas fa-upload"></i> Загрузить изображение
+                            </div>
+                        </div>
+                        <div class="editor-group">
+                            <label>Предпросмотр изображения</label>
+                            <img src="" alt="Предпросмотр" class="image-preview" id="houseImagePreview">
+                        </div>
+                    </div>
+                    <button class="btn btn-primary" id="addHouseBtn">Добавить дом</button>
+                </div>
+                
+                <div class="houses-grid" id="housesManager">
+                    <!-- Дома для управления -->
+                </div>
+            </div>
+            
+            <!-- Интеграция с VK -->
             <div class="admin-section">
                 <h4><i class="fab fa-vk"></i> Интеграция с VK</h4>
                 <div class="admin-editor">
                     <div class="editor-group">
                         <label for="vkGroupId">ID группы VK</label>
-                        <input type="text" id="vkGroupId" class="editor-control" value="147735588">
+                        <input type="text" id="vkGroupId" class="editor-control" placeholder="Введите ID вашей группы" value="147735588">
                     </div>
                     <div class="editor-group">
                         <label for="vkToken">Access Token</label>
-                        <textarea id="vkToken" class="editor-control" rows="4">vk1.a.IwkgUcjTjAyieE9j1BvOmTISVAa0O1极简代码zL5qpgDkP4U2_pZ2M8H-besZ3ViANyMvw1MrJgDfVCySbBpK59FotPksqIu5mkJwru9_hw6eqikiX35f9uyu0UXrw-FSapGbEoni2DSlGWDLk-QkMEeeohhlOe7Khc0rKy2EydG0Ffbbtvx48iyEfVLBXmZWrwlJITvXBsU6Vw-7_ZZvlzYkq3mQ</textarea>
+                        <input type="password" id="vkToken" class="editor-control" placeholder="Введите токен доступа" value="vk1.a.IwkgUcjTjAyieE9j1BvOmTISVAa0O1zL5qpgDkP4U2_pZ2M8H-besZ3ViANyMvw1MrJgDfVCySbBpK59FotPksqIu5mkJwru9_hw6eqikiX35f9uyu0UXrw-FSapGbEoni2DSlGWDLk-QkMEeeohhlOe7Khc0rKy2EydG0Ffbbtvx48iyEfVLBXmZWrwlJITvXBsU6Vw-7_ZZvlzYkq3mQ">
                     </div>
                     <div class="editor-group">
                         <label for="vkCount">Количество постов</label>
@@ -2798,7 +2081,8 @@
                 </div>
             </div>
             
-            <div class极简代码="admin-section">
+            <!-- Настройка Telegram -->
+            <div class="admin-section">
                 <h4><i class="fab fa-telegram"></i> Настройка Telegram</h4>
                 <div class="admin-editor">
                     <div class="editor-group">
@@ -2816,6 +2100,7 @@
                 </div>
             </div>
             
+            <!-- Настройка EmailJS -->
             <div class="admin-section">
                 <h4><i class="fas fa-envelope"></i> Настройка EmailJS</h4>
                 <div class="admin-editor">
@@ -2836,6 +2121,7 @@
             </div>
         </div>
         
+        <!-- Форма входа -->
         <div class="login-form" id="loginForm" style="display: none;">
             <h2>Вход в админ-панель</h2>
             <div class="form-group">
@@ -2851,6 +2137,7 @@
         </div>
     </div>
 
+    <!-- Подвал -->
     <footer>
         <div class="footer-content">
             <div class="footer-section">
@@ -2923,7 +2210,6 @@
                 <div class="footer-links">
                     <a href="#">Главная</a>
                     <a href="#about">О нас</a>
-                    <a href="#projects">Проекты</a>
                     <a href="#promotions">Акции</a>
                     <a href="#how-we-work">Как мы работаем</a>
                     <a href="#portfolio">Наши работы</a>
@@ -2938,68 +2224,14 @@
         </div>
     </footer>
     
+    <!-- Модальные окна для заявок -->
     <div class="modal" id="buyHouseModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
             <h3 class="modal-title">Выберите готовый дом</h3>
             
             <div class="houses-grid" id="housesGrid">
-                <div class="house-card">
-                    <div class="house-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Дом Солнечный">
-                    </div>
-                    <div class="house-info">
-                        <div class="house-title">Дом 'Солнечный'</div>
-                        <div class="house-meta">
-                            <span>Готов</span>
-                            <span>120 кв.м.</span>
-                        </div>
-                        <div class="house-price">3 500 000 руб</div>
-                        <button class="select-house-btn" data-id="1">Выбрать</button>
-                    </div>
-                </div>
-                <div class="house-card">
-                    <div class="house-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w极简代码=600" alt="Дом Лесной">
-                    </div>
-                    <div class="house-info">
-                        <div class="house-title">Дом 'Лесной'</div>
-                        <div class="house-meta">
-                            <span>Отделка</span>
-                            <span>90 кв.м.</span>
-                        </div>
-                        <div class="house-price">2 800 000 руб</div>
-                        <button class="select-house-btn" data-id="2">Выбрать</button>
-                    </div>
-                </div>
-                <div class="house-card">
-                    <div class="house-image">
-                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600" alt="Дом Речной">
-                    </div>
-                    <div class="house-info">
-                        <div class="house-title">Дом 'Речной'</div>
-                        <div class="house-meta">
-                            <span>Фундамент</span>
-                            <span>75 кв.м.</span>
-                        </div>
-                        <div class="house-price">1 200 000 руб</div>
-                        <button class="select-house-btn" data-id="3">Выбрать</button>
-                    </div>
-                </div>
-                <div class="house-card">
-                    <div class="house-image">
-                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600" alt="Дом Горный">
-                    </div>
-                    <div class="house-info">
-                        <div class="house-title">Дом 'Горный'</div>
-                        <div class="house-meta">
-                            <span>Каркас</span>
-                            <span>110 кв.м.</span>
-                        </div>
-                        <div class="house-price">1 800 000 руб</div>
-                        <button class="select-house-btn" data-id="4">Выбрать</button>
-                    </div>
-                </div>
+                <!-- Дома будут загружены через JS -->
             </div>
             
             <div id="selectedHouseForm" style="display: none;">
@@ -3044,33 +2276,6 @@
             <h3 class="modal-title">Заявка на постройку дома</h3>
             
             <div class="form-section">
-                <h4>Выберите тип проекта</h4>
-                <div class="project-type-options">
-                    <div class="project-type-option" data-type="existing">
-                        <i class="fas fa-home fa-2x"></i>
-                        <h4>Готовый проект</h4>
-                        <p>Выберите из наших типовых проектов</p>
-                    </div>
-                    <div class="project-type-option" data-type="own">
-                        <i class="fas fa-file-alt fa-2x"></i>
-                        <h4>Свой проект</h4>
-                        <p>Строительство по вашему проекту</p>
-                    </div>
-                    <div class="project-type-option" data-type="development">
-                        <i class="fas fa-drafting-compass fa-2x"></i>
-                        <h4>Разработка проекта</h4>
-                        <p>Разработаем проект по вашим требованиям</p>
-                    </div>
-                </div>
-                
-                <div id="existingProjectsSelect" style="display: none;">
-                    <label for="existingProject">Выберите проект:</label>
-                    <select id="existingProject" class="form-control">
-                        <option value="">-- Выберите проект --</option>
-                        <!-- Проекты будут загружены динамически -->
-                    </select>
-                </div>
-                
                 <h4>Контактная информация</h4>
                 <form id="buildHouseForm">
                     <div class="form-row">
@@ -3131,6 +2336,7 @@
         </div>
     </div>
     
+    <!-- Модальное окно для записи на экскурсию -->
     <div class="modal" id="tourModal">
         <div class="modal-content">
             <span class="close-modal">&times;</span>
@@ -3193,198 +2399,1219 @@
         </div>
     </div>
     
-    <!-- Новое модальное окно для новостей -->
+    <!-- Модальное окно новости -->
     <div class="modal" id="newsModal">
-        <div class="modal-content">
+        <div class="modal-content news-modal-content">
             <span class="close-modal">&times;</span>
-            <h3 class="modal-title" id="newsModalTitle"></h3>
-            <div class="news-date" id="newsModalDate"></div>
-            <div class="news-modal-content" id="newsModalContent"></div>
-        </div>
-    </div>
-    
-    <!-- Модальное окно всех проектов -->
-    <div class="modal" id="allProjectsModal">
-        <div class="modal-content">
-            <span class="close-modal">&times;</span>
-            <h3 class="modal-title">Все проекты домов</h3>
-            
-            <div class="projects-container" id="allProjectsContainer">
-                <!-- Проекты будут загружены динамически -->
+            <div id="newsModalContent">
+                <!-- Контент новости будет загружен здесь -->
             </div>
         </div>
     </div>
     
-    <!-- Модальное окно просмотра проекта -->
-    <div class="project-modal" id="projectModal">
-        <div class="project-modal-content">
-            <span class="close-modal">&times;</span>
-            <h3 class="modal-title" id="projectTitle">Проект дома</h3>
-            
-            <iframe class="project-pdf-viewer" id="projectPdfViewer"></iframe>
-        </div>
-    </div>
-    
     <script>
-        // Данные проектов
-        const projects = [
-            {
-                id: 1,
-                name: "Проект 'Солнечный'",
-                description: "Современный дом площадью 120 кв.м. с просторной гостиной и террасой.",
-                area: 120,
-                floors: 1,
-                rooms: 4,
-                price: "от 3 500 000 руб",
-                pdfUrl: "PG4-81r.pdf"
+        // Состояние приложения
+        let state = {
+            isLoggedIn: false,
+            news: [
+                {
+                    id: 1,
+                    title: "Открытие нового офиса в Москве",
+                    excerpt: "Мы рады сообщить об открытии нашего нового представительства в столице!",
+                    content: "<p>После нескольких месяцев подготовки мы наконец открыли наш новый офис в самом сердце Москвы. Современное пространство площадью 200 кв.м. позволит нам лучше обслуживать наших клиентов в столичном регионе.</p><img src='https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800' alt='Новый офис'>",
+                    date: "2023-09-15",
+                    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800"
+                },
+                {
+                    id: 2,
+                    title: "Запуск новой линии строительных материалов",
+                    excerpt: "Представляем инновационные экологичные материалы для строительства",
+                    content: "<p>Наша компания запустила производство новой линейки строительных материалов, отвечающих самым строгим экологическим стандартам. Эти материалы не только безопасны для окружающей среды, но и обладают улучшенными теплоизоляционными свойствами.</p><iframe width='100%' height='400' src='https://www.youtube.com/embed/7wtfhZwyrcc' title='Новые материалы' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
+                    date: "2023-08-22",
+                    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800"
+                }
+            ],
+            reviews: [
+                // Удалены старые отзывы
+                
+                // Новые отзывы для Удмуртии
+                {
+                    id: 1,
+                    author: "Сергей Иванов",
+                    text: "Строил дом в КП 'Орловское'. Очень доволен качеством работ. Команда приезжала точно по графику, все материалы были качественные. Особенно понравилось отношение прораба - постоянно был на связи, решал все вопросы оперативно.",
+                    date: "2023-09-18",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Орловское"
+                },
+                {
+                    id: 2,
+                    author: "Ольга Петрова",
+                    text: "Купили готовый дом в 'Тихих зорях' через АГстрой. Дом построен добротно, все коммуникации работают отлично. Соседи тоже довольны - многие здесь строили с этой компанией. Цена/качество на высоте!",
+                    date: "2023-08-30",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Тихие зори"
+                },
+                {
+                    id: 3,
+                    author: "Андрей Семенов",
+                    text: "Строил баню в Орловском. Работы выполнены в срок, бригада аккуратная. Единственное - немного задержали доставку материалов, но это было по вине поставщика. Компания компенсировала задержку скидкой. Рекомендую!",
+                    date: "2023-09-05",
+                    rating: 4,
+                    approved: true,
+                    location: "КП Орловское"
+                },
+                {
+                    id: 4,
+                    author: "Екатерина Волкова",
+                    text: "Живу в 'Тихих зорях' уже год. Дом построен АГстрой - никаких нареканий. Зимой тепло, летом прохладно. Соседи по поселку тоже все хвалят. Очень рада, что выбрала именно эту компанию.",
+                    date: "2023-08-15",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Тихие зори"
+                },
+                {
+                    id: 5,
+                    author: "Дмитрий Козлов",
+                    text: "Строил коттедж в Орловском. Работы начали в срок, закончили даже раньше. Прораб настоящий профессионал - все технические решения были грамотные. По деньгам все четко - никаких доплат. Буду рекомендовать знакомым!",
+                    date: "2023-07-22",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Орловское"
+                },
+                {
+                    id: 6,
+                    author: "Наталья Сидорова",
+                    text: "Переехали в 'Тихие зори' 3 месяца назад. Дом построен качественно, но были небольшие недочеты в отделке. Обратились в компанию - прислали мастеров, все исправили в течение недели. Сервис на высоте!",
+                    date: "2023-09-12",
+                    rating: 4,
+                    approved: true,
+                    location: "КП Тихие зори"
+                },
+                {
+                    id: 7,
+                    author: "Михаил Орлов",
+                    text: "Строился в Орловском через АГстрой. Цены адекватные, качество работ хорошее. Особенно понравилось, что помогли с оформлением документов на участок. Теперь всем знакомым советую эту компанию.",
+                    date: "2023-08-05",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Орловское"
+                },
+                {
+                    id: 8,
+                    author: "Анна Кузнецова",
+                    text: "Купили дом в 'Тихих зорях' год назад. За это время никаких проблем - фундамент не просел, крыша не течет, окна не продувает. Соседи тоже довольны своими домами от АГстрой. Отличное качество за свои деньги!",
+                    date: "2023-07-30",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Тихие зори"
+                },
+                {
+                    id: 9,
+                    author: "Артем Васильев",
+                    text: "Строил дом в Орловском. Процесс контролировал лично. Все этапы выполнены качественно, особенно понравилась работа с электрикой и сантехникой - все разведено грамотно. Сроки соблюдены. Рекомендую компанию!",
+                    date: "2023-09-08",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Орловское"
+                },
+                {
+                    id: 10,
+                    author: "Светлана Николаева",
+                    text: "Переехали в 'Тихие зори' полгода назад. Дом теплый, все продумано до мелочей. Соседи такие же довольные - многие строили с АГстрой. Организовали нам экскурсию по поселку перед покупкой - это помогло с выбором.",
+                    date: "2023-08-20",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Тихие зори"
+                },
+                {
+                    id: 11,
+                    author: "Ирина Смирнова",
+                    text: "Построили дом в Орловском через АГстрой. Процесс строительства контролировал прораб, все вопросы решались оперативно. Дом получился теплый и уютный. Особенно радует качество отделки - все идеально ровно, без дефектов.",
+                    date: "2023-09-15",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=200",
+                    photos: [
+                        "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=400",
+                        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=400",
+                        "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=400"
+                    ],
+                    location: "КП Орловское"
+                },
+                {
+                    id: 12,
+                    author: "Денис Кузнецов",
+                    text: "Заказывал строительство гаража и бани. Работы выполнены качественно, материалы использовали хорошие. Особенно понравилось, что привезли все материалы вовремя и не было простоев. Бригада работала аккуратно, после себя убрали.",
+                    date: "2023-09-10",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200",
+                    photos: [
+                        "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=400"
+                    ],
+                    location: "КП Орловское"
+                },
+                // Дополнительные отзывы для других поселков
+                {
+                    id: 13,
+                    author: "Алексей Петров",
+                    text: "Строил дом в КП 'Екатериненский'. Очень доволен качеством работ и профессионализмом команды. Все этапы строительства были под контролем, сроки соблюдены. Дом получился теплым и уютным.",
+                    date: "2022-05-15",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Екатериненский"
+                },
+                {
+                    id: 14,
+                    author: "Мария Сидорова",
+                    text: "Построила баню в КП 'Славянский'. Очень качественная работа, бригада профессионалов. Материалы использовались хорошие. Рекомендую компанию АГстрой!",
+                    date: "2021-11-20",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Славянский"
+                },
+                {
+                    id: 15,
+                    author: "Иван Николаев",
+                    text: "Купил готовый дом в Ягуле. Дом построен качественно, коммуникации все работают. Особенно понравилось отношение компании к клиенту - всегда на связи, все вопросы решают оперативно.",
+                    date: "2020-08-12",
+                    rating: 5,
+                    approved: true,
+                    location: "Ягул"
+                },
+                {
+                    id: 16,
+                    author: "Ольга Козлова",
+                    text: "Строили дом в КП 'Европа'. Работы выполнены качественно, но были небольшие задержки по срокам. В целом довольны результатом.",
+                    date: "2019-06-25",
+                    rating: 4,
+                    approved: true,
+                    location: "КП Европа"
+                },
+                {
+                    id: 17,
+                    author: "Дмитрий Семенов",
+                    text: "Построил дом в с. Завьялово. Компания показала себя как надежный партнер. Все работы выполнены в срок, качественно. Особенно хочу отметить прораба - настоящий профессионал!",
+                    date: "2018-09-10",
+                    rating: 5,
+                    approved: true,
+                    location: "с. Завьялово"
+                },
+                {
+                    id: 18,
+                    author: "Елена Васильева",
+                    text: "Купила дом в КП 'Норвег'. Очень довольна качеством строительства. Дом теплый, уютный. Соседи тоже все довольны. Спасибо компании АГстрой!",
+                    date: "2017-07-18",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Норвег"
+                },
+                {
+                    id: 19,
+                    author: "Андрей Иванов",
+                    text: "Строил дом в КП 'Архитекторов'. Работы выполнены качественно, но были небольшие недочеты в отделке. После обращения все исправили в течение недели. Сервис на высоте.",
+                    date: "2016-05-22",
+                    rating: 4,
+                    approved: true,
+                    location: "КП Архитекторов"
+                },
+                {
+                    id: 20,
+                    author: "Наталья Петрова",
+                    text: "Построила дом в КП 'Чистопрудный'. Очень довольна результатом. Дом получился именно таким, как я хотела. Особенно понравилось, что учитывали все мои пожелания.",
+                    date: "2015-10-15",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Чистопрудный"
+                },
+                {
+                    id: 21,
+                    author: "Сергей Кузнецов",
+                    text: "Строил дом в КП 'Новые пазелы'. Качество работ хорошее, но сроки немного затянули. В целом доволен результатом.",
+                    date: "2020-03-12",
+                    rating: 4,
+                    approved: true,
+                    location: "КП Новые пазелы"
+                },
+                {
+                    id: 22,
+                    author: "Ирина Орлова",
+                    text: "Построила баню в КП 'Чекирил'. Очень качественная работа, бригада профессионалов. Особенно понравилось отношение к клиенту - всегда на связи, все объясняют.",
+                    date: "2019-11-05",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Чекирил"
+                },
+                {
+                    id: 23,
+                    author: "Александр Николаев",
+                    text: "Купил дом в КП 'Орловское 5'. Дом построен качественно, все коммуникации работают. Особенно радует, что зимой очень тепло, отопление работает отлично.",
+                    date: "2018-08-20",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Орловское 5"
+                },
+                {
+                    id: 24,
+                    author: "Марина Семенова",
+                    text: "Строила дом в Старом Игермане. Компания показала себя с лучшей стороны. Все работы выполнены качественно, в срок. Особенно понравилось, что учитывали все мои пожелания.",
+                    date: "2017-06-15",
+                    rating: 5,
+                    approved: true,
+                    location: "Старый Игерман"
+                },
+                {
+                    id: 25,
+                    author: "Денис Петров",
+                    text: "Построил дом на Юровских дачах. Качество работ хорошее, но были небольшие задержки по срокам. В целом доволен результатом.",
+                    date: "2016-04-10",
+                    rating: 4,
+                    approved: true,
+                    location: "Юровские дачи"
+                },
+                {
+                    id: 26,
+                    author: "Екатерина Иванова",
+                    text: "Купила дом в Западном Квартале. Очень довольна качеством строительства. Дом теплый, уютный. Особенно нравится планировка - все продумано до мелочей.",
+                    date: "2015-09-25",
+                    rating: 5,
+                    approved: true,
+                    location: "Западный Квартал"
+                },
+                {
+                    id: 27,
+                    author: "Алексей Васильев",
+                    text: "Строил дом в КП 'Тихие зори'. Работы выполнены качественно, сроки соблюдены. Особенно понравилось отношение компании к клиенту - всегда на связи, все вопросы решают оперативно.",
+                    date: "2021-07-18",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Тихие зори"
+                },
+                {
+                    id: 28,
+                    author: "Ольга Николаева",
+                    text: "Построила баню в КП 'Орловское'. Очень качественная работа, бригада профессионалов. Особенно понравилось, что использовали качественные материалы.",
+                    date: "2020-05-12",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Орловское"
+                },
+                {
+                    id: 29,
+                    author: "Дмитрий Кузнецов",
+                    text: "Купил дом в КП 'Екатериненский'. Дом построен качественно, все коммуникации работают. Особенно радует, что зимой очень тепло, отопление работает отлично.",
+                    date: "2019-03-05",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Екатериненский"
+                },
+                {
+                    id: 30,
+                    author: "Светлана Орлова",
+                    text: "Строила дом в КП 'Славянский'. Компания показала себя с лучшей стороны. Все работы выполнены качественно, в срок. Особенно понравилось, что учитывали все мои пожелания.",
+                    date: "2018-10-20",
+                    rating: 5,
+                    approved: true,
+                    location: "КП Славянский"
+                }
+            ],
+            advantages: [
+                { 
+                    id: 1,
+                    icon: "fas fa-home", 
+                    title: "Качественные дома под ключ", 
+                    text: "Строительство домов с гарантией качества и соблюдением всех сроков" 
+                },
+                { 
+                    id: 2,
+                    icon: "fas fa-drafting-compass", 
+                    title: "Проект индивидуально", 
+                    text: "Разрабатываем проекты с учетом всех пожеланий заказчика" 
+                },
+                { 
+                    id: 3,
+                    icon: "fas fa-shield-alt", 
+                    title: "Надежность решений", 
+                    text: "Используем только проверенные конструктивные решения" 
+                },
+                { 
+                    id: 4,
+                    icon: "fas fa-user-tie", 
+                    title: "Квалифицированные кадры", 
+                    text: "Все наши специалисты имеют профильное образование и опыт работы" 
+                },
+                { 
+                    id: 5,
+                    icon: "fas fa-handshake", 
+                    title: "Честная фиксированная цена", 
+                    text: "Никаких скрытых платежей и дополнительных расходов" 
+                },
+                { 
+                    id: 6,
+                    icon: "fas fa-heart", 
+                    title: "Человеческое отношение", 
+                    text: "Индивидуальный подход к каждому клиенту" 
+                },
+                { 
+                    id: 7,
+                    icon: "fas fa-piggy-bank", 
+                    title: "Помогаем сэкономить", 
+                    text: "Подберем оптимальные решения для вашего бюджета" 
+                },
+                { 
+                    id: 8,
+                    icon: "fas fa-house-user", 
+                    title: "Семейная ипотека", 
+                    text: "Поможем оформить льготную ипотеку на строительство" 
+                },
+                { 
+                    id: 9,
+                    icon: "fas fa-hard-hat", 
+                    title: "Технический контроль", 
+                    text: "Контроль качества на всех этапах строительных работ" 
+                }
+            ],
+            workSteps: [
+                {
+                    id: 1,
+                    step: 1,
+                    title: "Заявка/звонок",
+                    content: "<p>Вы делаете звонок, мы вас консультируем.</p>",
+                    icon: "fas fa-phone"
+                },
+                {
+                    id: 2,
+                    step: 2,
+                    title: "Встреча",
+                    content: "<p>Встречаемся на объекте для осмотра и обсуждения деталей.</p>",
+                    icon: "fas fa-handshake"
+                },
+                {
+                    id: 3,
+                    step: 3,
+                    title: "Готовим эскизный проект или смотрим готовый проект",
+                    content: "<p>Предлагаем на выбор готовые проекты или разрабатываем индивидуальный эскизный проект с учетом ваших пожеланий.</p>",
+                    icon: "fas fa-drafting-compass"
+                },
+                {
+                    id: 4,
+                    step: 4,
+                    title: "Смета",
+                    content: "<p>Подготавливаем и согласовываем смету.</p>",
+                    icon: "fas fa-file-invoice-dollar"
+                },
+                {
+                    id: 5,
+                    step: 5,
+                    title: "Договор",
+                    content: "<p>Заключаем договор с прописанными сроками, стоимостью и обязательствами.</p>",
+                    icon: "fas fa-file-contract"
+                },
+                {
+                    id: 6,
+                    step: 6,
+                    title: "Выполнение работ",
+                    content: "<p>Строим в срок согласно СНИПам и ГОСТам.</p>",
+                    icon: "fas fa-hard-hat"
+                }
+            ],
+            gallery: [
+                { 
+                    id: 1,
+                    type: 'image', 
+                    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600', 
+                    title: 'Частный дом', 
+                    description: 'Полная постройка под ключ' 
+                },
+                { 
+                    id: 2,
+                    type: 'image', 
+                    src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600', 
+                    title: 'Офисное помещение', 
+                    description: 'Капитальный ремонт' 
+                },
+                { 
+                    id: 3,
+                    type: 'image', 
+                    src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600', 
+                    title: 'Коттеджный поселок', 
+                    description: 'Комплексное строительство' 
+                },
+                { 
+                    id: 4,
+                    type: 'video', 
+                    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', 
+                    title: 'Объект "Солнечный"', 
+                    description: 'Ход строительства' 
+                },
+                { 
+                    id: 5,
+                    type: 'image', 
+                    src: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600', 
+                    title: 'Санузел', 
+                    description: 'Комплексный ремонт' 
+                },
+                { 
+                    id: 6,
+                    type: 'video', 
+                    src: 'https://www.youtube.com/embed/7wtfhZwyrcc', 
+                    title: 'ЖК "Лесной"', 
+                    description: 'Видеообзор готового объекта' 
+                }
+            ],
+            promotions: [
+                {
+                    id: 1,
+                    badge: "Скидка 20%",
+                    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600",
+                    title: "Скидка на баню или гараж",
+                    description: "При строительстве дома на вашем участке получите скидку 20% на строительство бани или гаража!"
+                },
+                {
+                    id: 2,
+                    badge: "Бесплатно",
+                    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600",
+                    title: "Расчет сметы в подарок",
+                    description: "При заключении договора на строительство дома получите бесплатный расчет сметы!"
+                },
+                {
+                    id: 3,
+                    badge: "Бесплатно",
+                    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600",
+                    title: "Эскизный проект в подарок",
+                    description: "При заключении договора на строительство получите бесплатный эскизный проект!"
+                },
+                {
+                    id: 4,
+                    badge: "Специально",
+                    image: "https://images.unsplash.com/photo-1549482199-bc1ca6f58502?auto=format&fit=crop&w=600",
+                    title: "Специальные условия для молодых семей",
+                    description: "Молодые семьи получают специальные скидки и условия оплаты при строительстве дома."
+                },
+                {
+                    id: 5,
+                    badge: "Бесплатно",
+                    image: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=600",
+                    title: "Бесплатный выезд специалиста",
+                    description: "Закажите бесплатный выезд нашего специалиста на ваш участок для консультации."
+                },
+                {
+                    id: 6,
+                    badge: "Скидка",
+                    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600",
+                    title: "Скидки пенсионерам",
+                    description: "Специальные скидки для пенсионеров на все виды строительных работ."
+                }
+            ],
+            houses: [
+                {
+                    id: 1,
+                    name: "Дом 'Солнечный'",
+                    stage: "Готов",
+                    price: "3 500 000 руб",
+                    area: "120 кв.м.",
+                    description: "Просторный двухэтажный дом с террасой и гаражом",
+                    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600"
+                },
+                {
+                    id: 2,
+                    name: "Дом 'Лесной'",
+                    stage: "Отделка",
+                    price: "2 800 000 руб",
+                    area: "90 кв.м.",
+                    description: "Уютный одноэтажный дом в стиле шале",
+                    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600"
+                },
+                {
+                    id: 3,
+                    name: "Дом 'Речной'",
+                    stage: "Фундамент",
+                    price: "1 200 000 руб",
+                    area: "75 кв.м.",
+                    description: "Компактный дом с мансардой для небольшой семьи",
+                    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600"
+                },
+                {
+                    id: 4,
+                    name: "Дом 'Горный'",
+                    stage: "Каркас",
+                    price: "1 800 000 руб",
+                    area: "110 кв.м.",
+                    description: "Современный дом с панорамными окнами",
+                    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600"
+                }
+            ],
+            header: {
+                logo: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=200",
+                slogan: "Качественные решения для вашего комфорта",
+                bgImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200",
+                opacity: 0.15,
+                logoPosition: "center",
+                sloganPosition: "bottom",
+                banner: ""
             },
-            {
-                id: 2,
-                name: "Проект 'Лесной'",
-                description: "Двухэтажный коттедж площадью 150 кв.м. с камином и зимним садом.",
-                area: 150,
-                floors: 2,
-                rooms: 5,
-                price: "от 4 200 000 руб",
-                pdfUrl: "project2.pdf"
+            telegram: {
+                botToken: "7895837790:AAGcCjxt1m1PX1QxCLNcqwoY0Q9PC_vMXWk",
+                chatId: "1240604782"
             },
-            {
-                id: 3,
-                name: "Проект 'Речной'",
-                description: "Компактный одноэтажный дом площадью 85 кв.м. для небольшой семьи.",
-                area: 85,
-                floors: 1,
-                rooms: 3,
-                price: "от 2 800 000 руб",
-                pdfUrl: "project3.pdf"
-            },
-            {
-                id: 4,
-                name: "Проект 'Горный'",
-                description: "Просторный дом площадью 180 кв.м. с гаражом на две машины.",
-                area: 180,
-                floors: 2,
-                rooms: 6,
-                price: "от 4 800 000 руб",
-                pdfUrl: "project4.pdf"
-            },
-            {
-                id: 5,
-                name: "Проект 'Семейный'",
-                description: "Дом для большой семьи площадью 200 кв.м. с четырьмя спальнями.",
-                area: 200,
-                floors: 2,
-                rooms: 7,
-                price: "от 5 500 000 руб",
-                pdf极简代码Url: "project5.pdf"
-            },
-            {
-                id: 6,
-                name: "Проект 'Мини'",
-                description: "Экономичный вариант дома площадью 65 кв.м. для молодой пары.",
-                area: 65,
-                floors: 1,
-                rooms: 2,
-                price: "от 2 200 000 руб",
-                pdfUrl: "project6.pdf"
-            },
-            {
-                id: 7,
-                name: "Проект 'Классический'",
-                description: "Дом в классическом стиле площадью 140 кв.м. с мансардой.",
-                area: 140,
-                floors: 1.5,
-                rooms: 5,
-                price: "от 3 900 000 руб",
-                pdfUrl: "project7.pdf"
-            },
-            {
-                id: 8,
-                name: "Проект 'Современный'",
-                description: "Ультрасовременный дом площадью 160 кв.м. с панорамными окнами.",
-                area: 160,
-                floors: 1,
-                rooms: 4,
-                price: "от 4 500 000 руб",
-                pdfUrl: "project8.pdf"
-            }
-        ];
-
-        document.addEventListener('DOMContentLoaded', function() {
-            // Настройки для отправки заявок
-            const emailjsConfig = {
+            emailjs: {
                 serviceId: "gmail_service",
                 templateId: "template_l4bhp9h",
                 userId: "0Y5XcvC3vwg6QPzZm"
-            };
-            
-            const telegramConfig = {
-                botToken: "7895837790:AAGcCjxt1m1PX1QxCLNcqwoY0Q9PC_vMXWk",
-                chatId: "1240604782"
-            };
-            
-            // Инициализация EmailJS
-            if (emailjsConfig.userId) {
-                emailjs.init(emailjsConfig.userId);
+            }
+        };
+
+        // Инициализация при загрузке страницы
+        document.addEventListener('DOMContentLoaded', function() {
+            // Загрузка состояния из localStorage
+            const savedState = localStorage.getItem('agstroyState');
+            if (savedState) {
+                state = JSON.parse(savedState);
             }
             
-            // Обработчики для проектов
-            setupProjects();
+            // Инициализация EmailJS
+            if (state.emailjs.userId) {
+                emailjs.init(state.emailjs.userId);
+            }
             
-            // Обработчики для формы заявки на строительство
-            setupBuildHouseForm();
-            
-            // Обработчики для модальных окон
+            renderAdvantages();
+            renderWorkSteps();
+            renderGallery();
+            renderNews();
+            renderReviews();
+            renderPromotions();
+            renderHouses();
+            setupEventListeners();
             setupModals();
+            setupAdminPanel();
+            updateHeader();
+            loadVKNews();
         });
 
-        function setupProjects() {
-            // Обработчики для кнопок "Подробнее"
-            document.querySelectorAll('.view-project-btn').forEach(btn => {
-                btn.addEventListener('click', function(e) {
-                    e.preventDefault();
-                    const projectId = this.getAttribute('data-id');
-                    const project = projects.find(p => p.id == projectId);
-                    openProjectModal(project);
-                });
-            });
+        // Сохранение состояния
+        function saveState() {
+            localStorage.setItem('agstroyState', JSON.stringify(state));
+        }
+
+        // Обновление шапки сайта
+        function updateHeader() {
+            document.getElementById('headerSlogan').textContent = state.header.slogan;
+            document.getElementById('heroSlogan').textContent = state.header.slogan;
+            document.getElementById('mainHero').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${state.header.bgImage})`;
+            document.getElementById('bgOverlay').style.opacity = state.header.opacity;
             
-            // Кнопка "Все проекты"
-            document.getElementById('viewAllProjectsBtn').addEventListener('click', function() {
-                openAllProjectsModal();
+            // Применяем позиционирование логотипа и слогана
+            const logoContainer = document.getElementById('logoContainer');
+            logoContainer.className = 'logo-container';
+            
+            // Удаляем предыдущие классы позиционирования
+            logoContainer.classList.remove('logo-left', 'logo-right', 'slogan-top', 'slogan-left', 'slogan-right');
+            
+            // Применяем позиционирование логотипа
+            if (state.header.logoPosition === 'left') {
+                logoContainer.classList.add('logo-left');
+            } else if (state.header.logoPosition === 'right') {
+                logoContainer.classList.add('logo-right');
+            }
+            
+            // Применяем позиционирование слогана
+            if (state.header.sloganPosition === 'top') {
+                logoContainer.classList.add('slogan-top');
+            } else if (state.header.sloganPosition === 'left') {
+                logoContainer.classList.add('slogan-left');
+            } else if (state.header.sloganPosition === 'right') {
+                logoContainer.classList.add('slogan-right');
+            }
+            
+            // Применяем баннер, если он есть
+            const header = document.getElementById('siteHeader');
+            if (state.header.banner) {
+                header.classList.add('header-with-banner');
+                let banner = document.getElementById('headerBanner');
+                if (!banner) {
+                    banner = document.createElement('img');
+                    banner.id = 'headerBanner';
+                    banner.className = 'header-banner';
+                    header.prepend(banner);
+                }
+                banner.src = state.header.banner;
+            } else {
+                header.classList.remove('header-with-banner');
+                const banner = document.getElementById('headerBanner');
+                if (banner) banner.remove();
+            }
+        }
+
+        // Рендер преимуществ
+        function renderAdvantages() {
+            const container = document.getElementById('advantagesContainer');
+            container.innerHTML = '';
+            
+            state.advantages.forEach(item => {
+                const advantageItem = document.createElement('div');
+                advantageItem.className = 'advantage-item';
+                advantageItem.innerHTML = `
+                    <div class="advantage-icon">
+                        <i class="${item.icon}"></i>
+                    </div>
+                    <div class="advantage-text">
+                        <h3>${item.title}</h3>
+                        <p>${item.text}</p>
+                    </div>
+                `;
+                container.appendChild(advantageItem);
+            });
+        }
+
+        // Рендер шагов работы
+        function renderWorkSteps() {
+            const container = document.getElementById('workSteps');
+            container.innerHTML = '';
+            
+            state.workSteps.forEach(step => {
+                const stepElement = document.createElement('div');
+                stepElement.className = 'work-step';
+                stepElement.innerHTML = `
+                    <div class="step-number">${step.step}</div>
+                    <div class="step-icon"><i class="${step.icon}"></i></div>
+                    <h3>${step.title}</h3>
+                    <div class="work-content">${step.content}</div>
+                `;
+                container.appendChild(stepElement);
+            });
+        }
+
+        // Рендер галереи
+        function renderGallery() {
+            const container = document.getElementById('galleryContainer');
+            container.innerHTML = '';
+            
+            state.gallery.forEach(item => {
+                let galleryItem;
+                
+                if (item.type === 'image') {
+                    galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item';
+                    galleryItem.innerHTML = `
+                        <img src="${item.src}" alt="${item.title}">
+                        <div class="overlay">
+                            <h3>${item.title}</h3>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                } else {
+                    galleryItem = document.createElement('div');
+                    galleryItem.className = 'gallery-item video-item';
+                    galleryItem.innerHTML = `
+                        <iframe src="${item.src}" title="${item.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                        <div class="video-label">ВИДЕО</div>
+                        <div class="overlay">
+                            <h3>${item.title}</h3>
+                            <p>${item.description}</p>
+                        </div>
+                    `;
+                }
+                
+                container.appendChild(galleryItem);
+            });
+        }
+
+        // Рендер новостей
+        function renderNews() {
+            const container = document.getElementById('newsContainer');
+            container.innerHTML = '';
+            
+            state.news.forEach(news => {
+                const newsItem = document.createElement('div');
+                newsItem.className = 'news-item';
+                newsItem.innerHTML = `
+                    <div class="news-image">
+                        <img src="${news.image}" alt="${news.title}">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">${formatDate(news.date)}</div>
+                        <h3 class="news-title">${news.title}</h3>
+                        <p class="news-excerpt">${news.excerpt}</p>
+                        <div class="read-more" data-id="${news.id}">
+                            Читать далее <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                `;
+                container.appendChild(newsItem);
+                
+                // Добавляем обработчик для открытия новости
+                newsItem.querySelector('.read-more').addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const id = this.getAttribute('data-id');
+                    openNewsModal(id);
+                });
             });
         }
         
-        function setupBuildHouseForm() {
-            // Выбор типа проекта
-            document.querySelectorAll('.project-type-option').forEach(option => {
-                option.addEventListener('click', function() {
-                    // Убрать выделение со всех вариантов
-                    document.querySelectorAll('.project-type-option').forEach(opt => {
-                        opt.classList.remove('selected');
+        // Открытие модального окна новости
+        function openNewsModal(id) {
+            const news = state.news.find(n => n.id == id);
+            if (!news) return;
+            
+            const modalContent = document.getElementById('newsModalContent');
+            modalContent.innerHTML = `
+                <div class="news-modal-image">
+                    <img src="${news.image}" alt="${news.title}">
+                </div>
+                <h2 class="news-modal-title">${news.title}</h2>
+                <div class="news-modal-date">${formatDate(news.date)}</div>
+                <div class="news-modal-body">${news.content}</div>
+            `;
+            
+            document.getElementById('newsModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Рендер отзывов
+        function renderReviews() {
+            const container = document.getElementById('reviewsContainer');
+            container.innerHTML = '';
+            
+            state.reviews.filter(r => r.approved).forEach(review => {
+                const reviewItem = document.createElement('div');
+                reviewItem.className = 'review-item';
+                
+                // Аватар с фото или инициалами
+                let avatarContent;
+                if (review.photo) {
+                    avatarContent = `<img src="${review.photo}" alt="${review.author}" class="review-avatar-img">`;
+                } else {
+                    avatarContent = `<div class="review-avatar">${review.author.charAt(0)}</div>`;
+                }
+                
+                // Фотографии из отзыва
+                let photosContent = '';
+                if (review.photos && review.photos.length > 0) {
+                    photosContent = '<div class="review-photo-grid">';
+                    review.photos.forEach(photo => {
+                        photosContent += `
+                            <div class="review-photo-item">
+                                <img src="${photo}" alt="Фото от ${review.author}">
+                            </div>
+                        `;
+                    });
+                    photosContent += '</div>';
+                }
+                
+                // Добавляем локацию, если есть
+                let locationContent = '';
+                if (review.location) {
+                    locationContent = `<div class="review-location"><i class="fas fa-map-marker-alt"></i> ${review.location}</div>`;
+                }
+                
+                reviewItem.innerHTML = `
+                    <div class="review-header">
+                        <div class="review-avatar">
+                            ${avatarContent}
+                        </div>
+                        <div>
+                            <div class="review-author">${review.author}</div>
+                            <div class="review-date">${formatDate(review.date)}</div>
+                            ${locationContent}
+                        </div>
+                    </div>
+                    <div class="review-rating">${renderStars(review.rating)}</div>
+                    <div class="review-content">${review.text}</div>
+                    ${photosContent}
+                `;
+                container.appendChild(reviewItem);
+            });
+        }
+
+        // Рендер акций
+        function renderPromotions() {
+            const container = document.getElementById('promotionsContainer');
+            container.innerHTML = '';
+            
+            state.promotions.forEach(promo => {
+                const promoCard = document.createElement('div');
+                promoCard.className = 'promotion-card';
+                promoCard.innerHTML = `
+                    <div class="promotion-badge">${promo.badge}</div>
+                    <div class="promotion-image">
+                        <img src="${promo.image}" alt="${promo.title}">
+                    </div>
+                    <div class="promotion-content">
+                        <h3 class="promotion-title">${promo.title}</h3>
+                        <p class="promotion-desc">${promo.description}</p>
+                    </div>
+                `;
+                container.appendChild(promoCard);
+            });
+        }
+        
+        // Рендер домов
+        function renderHouses() {
+            const container = document.getElementById('housesGrid');
+            container.innerHTML = '';
+            
+            state.houses.forEach(house => {
+                const houseCard = document.createElement('div');
+                houseCard.className = 'house-card';
+                houseCard.innerHTML = `
+                    <div class="house-image">
+                        <img src="${house.image}" alt="${house.name}">
+                    </div>
+                    <div class="house-info">
+                        <div class="house-title">${house.name}</div>
+                        <div class="house-meta">
+                            <span>${house.stage}</span>
+                            <span>${house.area}</span>
+                        </div>
+                        <div class="house-price">${house.price}</div>
+                        <p>${house.description}</p>
+                        <button class="select-house-btn" data-id="${house.id}">Выбрать</button>
+                    </div>
+                `;
+                container.appendChild(houseCard);
+            });
+        }
+
+        // Форматирование даты
+        function formatDate(dateString) {
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            return new Date(dateString).toLocaleDateString('ru-RU', options);
+        }
+
+        // Рендер звезд рейтинга
+        function renderStars(rating) {
+            let stars = '';
+            for (let i = 1; i <= 5; i++) {
+                stars += i <= rating 
+                    ? '<i class="fas fa-star"></i>' 
+                    : '<i class="far fa-star"></i>';
+            }
+            return stars;
+        }
+
+        // Настройка обработчиков событий
+        function setupEventListeners() {
+            // Кнопки "Наверх"
+            document.querySelectorAll('.to-top-btn').forEach(btn => {
+                btn.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+            
+            // Рейтинг в форме отзыва
+            const ratingInput = document.getElementById('ratingInput');
+            ratingInput.querySelectorAll('i').forEach(star => {
+                star.addEventListener('click', function() {
+                    const value = parseInt(this.getAttribute('data-value'));
+                    ratingInput.querySelectorAll('i').forEach((s, i) => {
+                        if (i < value) {
+                            s.classList.remove('far');
+                            s.classList.add('fas', 'active');
+                        } else {
+                            s.classList.remove('fas', 'active');
+                            s.classList.add('far');
+                        }
+                    });
+                });
+            });
+            
+            // Загрузка фото для отзыва
+            const photoUpload = document.getElementById('photoUpload');
+            const uploadBtn = document.querySelector('.upload-btn');
+            const photoPreview = document.getElementById('photoPreview');
+            
+            uploadBtn.addEventListener('click', function(e) {
+                // Открываем диалог выбора файла при клике на кнопку
+                if (e.target !== photoUpload) {
+                    photoUpload.click();
+                }
+            });
+            
+            photoUpload.addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        photoPreview.src = e.target.result;
+                        photoPreview.style.display = 'block';
+                    }
+                    
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // Отправка формы отзыва
+            const reviewForm = document.getElementById('reviewForm');
+            reviewForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('reviewName').value;
+                const email = document.getElementById('reviewEmail').value;
+                const text = document.getElementById('reviewText').value;
+                const rating = document.querySelectorAll('#ratingInput .active').length;
+                const photoFile = photoUpload.files[0];
+                
+                if (!name || !email || !text || rating === 0) {
+                    alert('Пожалуйста, заполните все обязательные поля и поставьте оценку');
+                    return;
+                }
+                
+                // Показываем прогресс загрузки
+                const progressBar = document.getElementById('progressBar');
+                const uploadProgress = document.getElementById('uploadProgress');
+                uploadProgress.style.display = 'block';
+                
+                // Эмуляция загрузки на сервер
+                let progress = 0;
+                const interval = setInterval(() => {
+                    progress += 5;
+                    progressBar.style.width = `${progress}%`;
+                    
+                    if (progress >= 100) {
+                        clearInterval(interval);
+                        
+                        // Создаем фиктивный URL для загруженного фото
+                        const photoUrl = photoFile 
+                            ? `https://agstroy.ru/uploads/${Date.now()}_${photoFile.name}` 
+                            : '';
+                        
+                        // Создаем фиктивные URL для дополнительных фото
+                        const additionalPhotos = [];
+                        if (photoFile) {
+                            for (let i = 0; i < 3; i++) {
+                                additionalPhotos.push(`https://agstroy.ru/uploads/${Date.now()}_${i}_${photoFile.name}`);
+                            }
+                        }
+                        
+                        const newReview = {
+                            id: Date.now(),
+                            author: name,
+                            text: text,
+                            date: new Date().toISOString().split('T')[0],
+                            rating: rating,
+                            approved: false,
+                            photo: photoUrl,
+                            photos: additionalPhotos
+                        };
+                        
+                        state.reviews.push(newReview);
+                        saveState();
+                        alert('Ваш отзыв отправлен на модерацию. Спасибо!');
+                        reviewForm.reset();
+                        
+                        // Скрываем превью и прогресс
+                        photoPreview.style.display = 'none';
+                        uploadProgress.style.display = 'none';
+                        progressBar.style.width = '0%';
+                        
+                        // Сброс рейтинга
+                        ratingInput.querySelectorAll('i').forEach(star => {
+                            star.classList.remove('fas', 'active');
+                            star.classList.add('far');
+                        });
+                        
+                        // Отправка на почту и в Telegram
+                        sendApplication({
+                            name: name,
+                            email: email,
+                            rating: rating,
+                            message: text
+                        }, 'review-form');
+                    }
+                }, 100);
+            });
+            
+            // Вход в админ-панель
+            const loginBtn = document.getElementById('loginBtn');
+            loginBtn.addEventListener('click', function() {
+                const username = document.getElementById('username').value;
+                const password = document.getElementById('password').value;
+                
+                if (username === "admin" && password === "agstroy2023") {
+                    state.isLoggedIn = true;
+                    document.getElementById('loginForm').style.display = 'none';
+                    document.getElementById('adminPanel').classList.add('active');
+                    document.getElementById('loginMessage').textContent = '';
+                    saveState();
+                } else {
+                    document.getElementById('loginMessage').textContent = 'Неверный логин или пароль!';
+                }
+            });
+            
+            // Выход из админ-панели
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function() {
+                state.isLoggedIn = false;
+                document.getElementById('adminPanel').classList.remove('active');
+                saveState();
+            });
+            
+            // Переключение админ-панели
+            const adminToggle = document.getElementById('adminToggle');
+            adminToggle.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                if (state.isLoggedIn) {
+                    document.getElementById('adminPanel').classList.toggle('active');
+                } else {
+                    document.getElementById('loginForm').style.display = 'block';
+                    window.scrollTo(0, document.body.scrollHeight);
+                }
+            });
+            
+            // Плавающие кнопки
+            document.getElementById('floatingTourBtn').addEventListener('click', function() {
+                document.getElementById('tourModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            document.getElementById('floatingBuildBtn').addEventListener('click', function() {
+                document.getElementById('buildHouseModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            document.getElementById('floatingBuyBtn').addEventListener('click', function() {
+                document.getElementById('buyHouseModal').style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+        }
+        
+        // Настройка модальных окон
+        function setupModals() {
+            // Кнопки открытия модальных окон
+            const buyHouseBtn = document.getElementById('buyHouseBtn');
+            const buildHouseBtn = document.getElementById('buildHouseBtn');
+            const tourBtn = document.getElementById('tourBtn');
+            
+            // Модальные окна
+            const buyHouseModal = document.getElementById('buyHouseModal');
+            const buildHouseModal = document.getElementById('buildHouseModal');
+            const tourModal = document.getElementById('tourModal');
+            const newsModal = document.getElementById('newsModal');
+            
+            // Кнопки закрытия
+            const closeButtons = document.querySelectorAll('.close-modal');
+            
+            // Открытие модальных окон
+            buyHouseBtn.addEventListener('click', function() {
+                buyHouseModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            buildHouseBtn.addEventListener('click', function() {
+                buildHouseModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            tourBtn.addEventListener('click', function() {
+                tourModal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+            });
+            
+            // Закрытие модальных окон
+            closeButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    buyHouseModal.style.display = 'none';
+                    buildHouseModal.style.display = 'none';
+                    tourModal.style.display = 'none';
+                    newsModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    
+                    // Сброс формы выбора дома
+                    document.getElementById('selectedHouseForm').style.display = 'none';
+                    document.querySelectorAll('.house-card').forEach(card => {
+                        card.style.display = 'block';
+                    });
+                });
+            });
+            
+            // Закрытие по клику вне модального окна
+            window.addEventListener('click', function(event) {
+                if (event.target === buyHouseModal) {
+                    buyHouseModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === buildHouseModal) {
+                    buildHouseModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === tourModal) {
+                    tourModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+                if (event.target === newsModal) {
+                    newsModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                }
+            });
+            
+            // Обработка выбора дома
+            document.querySelectorAll('.select-house-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const houseId = this.getAttribute('data-id');
+                    const house = state.houses.find(h => h.id == houseId);
+                    
+                    // Скрываем список домов
+                    document.querySelectorAll('.house-card').forEach(card => {
+                        card.style.display = 'none';
                     });
                     
-                    // Выделить текущий вариант
-                    this.classList.add('selected');
+                    // Показываем форму заявки
+                    document.getElementById('selectedHouseForm').style.display = 'block';
                     
-                    // Показать/скрыть выбор проекта
-                    const type = this.getAttribute('data-type');
-                    const selectContainer = document.getElementById('existingProjectsSelect');
+                    // Устанавливаем название выбранного дома в форме
+                    document.querySelector('#selectedHouseForm h4').innerHTML = 
+                        `Заявка на покупку дома: <span style="color: var(--accent);">${house.name}</span>`;
                     
-                    if (type === 'existing') {
-                        selectContainer.style.display = 'block';
-                        populateProjectSelect();
+                    // Добавляем скрытое поле с ID дома
+                    if (!document.getElementById('selectedHouseId')) {
+                        const input = document.createElement('input');
+                        input.type = 'hidden';
+                        input.id = 'selectedHouseId';
+                        input.name = 'houseId';
+                        input.value = houseId;
+                        document.getElementById('buyHouseForm').appendChild(input);
                     } else {
-                        selectContainer.style.display = 'none';
+                        document.getElementById('selectedHouseId').value = houseId;
                     }
                 });
             });
             
-            // Обработчик отправки формы
+            // Отправка формы покупки дома
+            document.getElementById('buyHouseForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const formData = {
+                    name: document.getElementById('buyerName').value,
+                    phone: document.getElementById('buyerPhone').value,
+                    email: document.getElementById('buyerEmail').value,
+                    message: document.getElementById('buyerMessage').value,
+                    houseId: document.getElementById('selectedHouseId').value,
+                    houseName: state.houses.find(h => h.id == document.getElementById('selectedHouseId').value).name
+                };
+                
+                // Отправка заявки
+                sendApplication(formData, 'buy-house');
+                
+                // Показ сообщения об успехе
+                document.getElementById('buySuccessMessage').style.display = 'block';
+                
+                // Скрытие формы через 3 секунды
+                setTimeout(() => {
+                    buyHouseModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    document.getElementById('buySuccessMessage').style.display = 'none';
+                    this.reset();
+                }, 3000);
+            });
+            
+            // Отправка формы постройки дома
             document.getElementById('buildHouseForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
-                // Сбор данных формы
                 const formData = {
                     name: document.getElementById('clientName').value,
                     phone: document.getElementById('clientPhone').value,
@@ -3393,204 +3620,960 @@
                     area: document.getElementById('houseArea').value,
                     type: document.getElementById('houseType').value,
                     budget: document.getElementById('clientBudget').value,
-                    wishes: document.getElementById('clientWishes').value,
-                    projectType: document.querySelector('.project-type-option.selected').getAttribute('data-type')
+                    wishes: document.getElementById('clientWishes').value
                 };
                 
-                // Если выбран готовый проект
-                if (formData.projectType === 'existing') {
-                    const projectSelect = document.getElementById('existingProject');
-                    formData.project = projectSelect.options[projectSelect.selectedIndex].text;
-                }
-                
-                // Отправка данных
+                // Отправка заявки
                 sendApplication(formData, 'build-house');
                 
-                // Показать сообщение об успехе
+                // Показ сообщения об успехе
                 document.getElementById('buildSuccessMessage').style.display = 'block';
                 
-                // Закрыть модальное окно через 3 секунды
+                // Скрытие формы через 3 секунды
                 setTimeout(() => {
-                    document.getElementById('buildHouseModal').style.display = 'none';
+                    buildHouseModal.style.display = 'none';
                     document.body.style.overflow = 'auto';
                     document.getElementById('buildSuccessMessage').style.display = 'none';
                     this.reset();
                 }, 3000);
             });
-        }
-        
-        function setupModals() {
-            // Закрытие модальных окон
-            document.querySelectorAll('.close-modal').forEach(button => {
-                button.addEventListener('click', function() {
-                    document.querySelectorAll('.modal, .project-modal').forEach(modal => {
-                        modal.style.display = 'none';
-                    });
-                    document.body.style.overflow = 'auto';
-                });
-            });
             
-            // Закрытие при клике вне модального окна
-            window.addEventListener('click', function(event) {
-                if (event.target.classList.contains('modal')) {
-                    document.querySelectorAll('.modal, .project-modal').forEach(modal => {
-                        modal.style.display = 'none';
-                    });
-                    document.body.style.overflow = 'auto';
-                }
-            });
-        }
-        
-        function openProjectModal(project) {
-            document.getElementById('projectTitle').textContent = project.name;
-            
-            // Загрузка PDF файла
-            const pdfViewer = document.getElementById('projectPdfViewer');
-            pdfViewer.src = project.pdfUrl;
-            
-            // Показать модальное окно
-            document.getElementById('projectModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function openAllProjectsModal() {
-            const container = document.getElementById('allProjectsContainer');
-            container.innerHTML = '';
-            
-            // Заполнение контейнера проектами
-            projects.forEach(project => {
-                const projectCard = document.createElement('div');
-                projectCard.className = 'project-modal-card';
-                projectCard.innerHTML = `
-                    <div class="project-modal-image">
-                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="${project.name}">
-                    </div>
-                    <div class="project-modal-info">
-                        <div class="project-modal-title">${project.name}</div>
-                        <p>Площадь: ${project.area} кв.м.</p>
-                        <p>Комнат: ${project.rooms}</p>
-                        <p>Этажей: ${project.floors}</p>
-                        <p>Цена: ${project.price}</p>
-                        <button class="view-full-project-btn" data-id="${project.id}">Посмотреть проект</button>
-                    </div>
-                `;
-                container.appendChild(projectCard);
+            // Отправка формы записи на экскурсию
+            document.getElementById('tourForm').addEventListener('submit', function(e) {
+                e.preventDefault();
                 
-                // Обработчик для кнопки просмотра
-                projectCard.querySelector('.view-full-project-btn').addEventListener('click', function() {
-                    const projectId = this.getAttribute('data-id');
-                    const project = projects.find(p => p.id == projectId);
-                    openProjectModal(project);
-                });
-            });
-            
-            // Показать модальное окно
-            document.getElementById('allProjectsModal').style.display = 'flex';
-            document.body.style.overflow = 'hidden';
-        }
-        
-        function populateProjectSelect() {
-            const select = document.getElementById('existingProject');
-            
-            // Очистить существующие опции
-            while (select.options.length > 1) {
-                select.remove(1);
-            }
-            
-            // Добавить проекты в выпадающий список
-            projects.forEach(project => {
-                const option = document.createElement('option');
-                option.value = project.id;
-                option.textContent = project.name;
-                select.appendChild(option);
+                const formData = {
+                    name: document.getElementById('tourName').value,
+                    phone: document.getElementById('tourPhone').value,
+                    email: document.getElementById('tourEmail').value,
+                    date: document.getElementById('tourDate').value,
+                    object: document.getElementById('tourObject').value,
+                    participants: document.getElementById('tourParticipants').value,
+                    comments: document.getElementById('tourComments').value
+                };
+                
+                // Отправка заявки
+                sendApplication(formData, 'tour');
+                
+                // Показ сообщения об успехе
+                document.getElementById('tourSuccessMessage').style.display = 'block';
+                
+                // Скрытие формы через 3 секунды
+                setTimeout(() => {
+                    tourModal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    document.getElementById('tourSuccessMessage').style.display = 'none';
+                    this.reset();
+                }, 3000);
             });
         }
         
+        // Функция отправки заявки
         function sendApplication(data, type) {
-            // Формирование сообщения в зависимости от типа заявки
-            let message = '';
+            console.log(`Отправка заявки типа: ${type}`, data);
             
-            if (type === 'build-house') {
-                message = `Новая заявка на строительство дома!\n\n`;
-                message += `Имя: ${data.name}\n`;
-                message += `Телефон: ${data.phone}\n`;
-                message += `Email: ${data.email}\n`;
-                message += `Местоположение: ${data.location || 'Не указано'}\n`;
-                message += `Тип проекта: ${getProjectTypeText(data.projectType)}\n`;
-                
-                if (data.projectType === 'existing' && data.project) {
-                    message += `Выбранный проект: ${data.project}\n`;
-                }
-                
-                message += `Площадь дома: ${data.area || 'Не указана'} кв.м.\n`;
-                message += `Тип дома: ${data.type || 'Не указан'}\n`;
-                message += `Бюджет: ${data.budget || 'Не указан'} руб.\n`;
-                message += `Пожелания: ${data.wishes || 'Нет'}`;
+            // Добавляем информацию о выбранном доме для типа "buy-house"
+            if (type === 'buy-house' && data.houseName) {
+                data.message = `Дом: ${data.houseName}\n\n${data.message || ''}`;
             }
             
             // Отправка в Telegram
-            sendTelegramMessage(message);
+            if (state.telegram.botToken && state.telegram.chatId) {
+                sendToTelegram(data, type);
+            }
             
-            // Отправка по Email
-            sendEmail(data, type);
-        }
-        
-        function getProjectTypeText(type) {
-            switch (type) {
-                case 'existing': return 'Готовый проект';
-                case 'own': return 'Свой проект';
-                case 'development': return 'Разработка проекта';
-                default: return 'Не указан';
+            // Отправка на почту через EmailJS
+            if (state.emailjs.serviceId && state.emailjs.templateId && state.emailjs.userId) {
+                sendToEmail(data, type);
             }
         }
         
-        function sendTelegramMessage(message) {
-            const botToken = "7895837790:AAGcCjxt1极简代码m1PX1QxCLNcqwoY0Q9PC_vMXWk";
-            const chatId = "1240604782";
-            
-            if (!botToken || !chatId) return;
-            
-            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
-            
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    chat_id: chatId,
-                    text: message
-                })
-            })
-            .then(response => response.json())
-            .then(data => {
-                console.log('Сообщение отправлено в Telegram:', data);
-            })
-            .catch(error => {
-                console.error('Ошибка отправки в Telegram:', error);
-            });
-        }
-        
-        function sendEmail(data, type) {
-            const emailParams = {
-                to_name: "Администратор",
-                from_name: data.name,
-                from_email: data.email,
-                phone: data.phone,
-                message: `Тип заявки: ${type}\n\nДанные: ${JSON.stringify(data, null, 2)}`
+        // Отправка в Telegram
+        async function sendToTelegram(data, type) {
+            const formTypes = {
+                'buy-house': 'Покупка дома',
+                'build-house': 'Постройка дома',
+                'tour': 'Экскурсия',
+                'review-form': 'Отзыв'
             };
             
-            emailjs.send(
-                "gmail_service", 
-                "template_l4bhp9h", 
-                emailParams
-            )
-            .then(response => {
-                console.log('Письмо отправлено!', response.status, response.text);
-            })
-            .catch(error => {
-                console.error('Ошибка отправки письма:', error);
+            let message = `*Новая заявка (${formTypes[type] || type})*\n`;
+            
+            for (const [key, value] of Object.entries(data)) {
+                if (key !== 'houseId' && key !== 'houseName') {
+                    message += `*${key}:* ${value}\n`;
+                }
+            }
+            
+            try {
+                const response = await fetch(`https://api.telegram.org/bot${state.telegram.botToken}/sendMessage`, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        chat_id: state.telegram.chatId,
+                        text: message,
+                        parse_mode: 'Markdown'
+                    })
+                });
+                
+                if (!response.ok) {
+                    console.error('Ошибка отправки в Telegram:', await response.text());
+                }
+            } catch (error) {
+                console.error('Ошибка отправки в Telegram:', error);
+            }
+        }
+        
+        // Отправка на почту через EmailJS
+        function sendToEmail(data, type) {
+            const formTypes = {
+                'buy-house': 'Покупка дома',
+                'build-house': 'Постройка дома',
+                'tour': 'Экскурсия',
+                'review-form': 'Отзыв'
+            };
+            
+            const emailData = {
+                form_type: formTypes[type] || type,
+                ...data
+            };
+            
+            emailjs.send(state.emailjs.serviceId, state.emailjs.templateId, emailData)
+                .then(response => console.log('Email отправлен!', response.status, response.text))
+                .catch(error => console.error('Ошибка отправки email:', error));
+        }
+        
+        // Настройка админ-панели
+        function setupAdminPanel() {
+            // Редактор шапки сайта
+            document.getElementById('bgOpacity').addEventListener('input', function() {
+                const opacityValue = (this.value * 100).toFixed(0);
+                document.getElementById('opacityValue').textContent = opacityValue + '%';
+                state.header.opacity = parseFloat(this.value);
+                updateHeader();
             });
+            
+            document.getElementById('logoPosition').value = state.header.logoPosition;
+            document.getElementById('sloganPosition').value = state.header.sloganPosition;
+            
+            document.getElementById('saveHeaderBtn').addEventListener('click', function() {
+                state.header.slogan = document.getElementById('headerSloganInput').value;
+                state.header.logoPosition = document.getElementById('logoPosition').value;
+                state.header.sloganPosition = document.getElementById('sloganPosition').value;
+                
+                updateHeader();
+                saveState();
+                alert('Изменения шапки сайта сохранены!');
+            });
+            
+            // Загрузка фона
+            document.getElementById('bgUploadBtn').addEventListener('click', function() {
+                document.getElementById('headerBg').click();
+            });
+            
+            document.getElementById('headerBg').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('headerBgPreview').src = e.target.result;
+                        document.getElementById('headerBgPreview').style.display = 'block';
+                        state.header.bgImage = e.target.result;
+                        updateHeader();
+                        saveState();
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // Загрузка баннера
+            document.getElementById('bannerUploadBtn').addEventListener('click', function() {
+                document.getElementById('bannerUpload').click();
+            });
+            
+            document.getElementById('bannerUpload').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('bannerPreview').src = e.target.result;
+                        document.getElementById('bannerPreview').style.display = 'block';
+                        state.header.banner = e.target.result;
+                        updateHeader();
+                        saveState();
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            // Редактор преимуществ
+            document.getElementById('addAdvantageBtn').addEventListener('click', function() {
+                const icon = document.getElementById('advantageIcon').value;
+                const title = document.getElementById('advantageTitle').value;
+                const text = document.getElementById('advantageText').value;
+                
+                if (!icon || !title || !text) {
+                    alert('Пожалуйста, заполните все поля');
+                    return;
+                }
+                
+                const newAdvantage = {
+                    id: Date.now(),
+                    icon: icon,
+                    title: title,
+                    text: text
+                };
+                
+                state.advantages.push(newAdvantage);
+                renderAdvantages();
+                renderAdminAdvantages();
+                saveState();
+                
+                // Очистка формы
+                document.getElementById('advantageIcon').value = '';
+                document.getElementById('advantageTitle').value = '';
+                document.getElementById('advantageText').value = '';
+            });
+            
+            // Рендер преимуществ в админке
+            function renderAdminAdvantages() {
+                const container = document.getElementById('advantagesManager');
+                container.innerHTML = '';
+                
+                state.advantages.forEach(item => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'admin-editor';
+                    itemElement.innerHTML = `
+                        <div class="editor-row">
+                            <div class="editor-group">
+                                <label>Иконка</label>
+                                <input type="text" class="editor-control" value="${item.icon}" disabled>
+                            </div>
+                            <div class="editor-group">
+                                <label>Заголовок</label>
+                                <input type="text" class="editor-control" value="${item.title}" disabled>
+                            </div>
+                        </div>
+                        <div class="editor-group">
+                            <label>Текст</label>
+                            <textarea class="editor-control" disabled>${item.text}</textarea>
+                        </div>
+                        <button class="btn btn-danger" data-id="${item.id}">Удалить</button>
+                    `;
+                    container.appendChild(itemElement);
+                    
+                    // Обработчик удаления
+                    itemElement.querySelector('.btn-danger').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.advantages = state.advantages.filter(a => a.id !== id);
+                        renderAdminAdvantages();
+                        renderAdvantages();
+                        saveState();
+                    });
+                });
+            }
+            
+            // Редактор шагов работы
+            document.getElementById('addStepBtn').addEventListener('click', function() {
+                const step = parseInt(document.getElementById('stepNumber').value);
+                const title = document.getElementById('stepTitle').value;
+                const icon = document.getElementById('stepIcon').value;
+                const content = document.getElementById('stepContent').value;
+                
+                if (!step || !title || !icon || !content) {
+                    alert('Пожалуйста, заполните все поля');
+                    return;
+                }
+                
+                const newStep = {
+                    id: Date.now(),
+                    step: step,
+                    title: title,
+                    icon: icon,
+                    content: content
+                };
+                
+                state.workSteps.push(newStep);
+                renderWorkSteps();
+                renderAdminSteps();
+                saveState();
+                
+                // Очистка формы
+                document.getElementById('stepNumber').value = '';
+                document.getElementById('stepTitle').value = '';
+                document.getElementById('stepIcon').value = '';
+                document.getElementById('stepContent').value = '';
+            });
+            
+            // Рендер шагов в админке
+            function renderAdminSteps() {
+                const container = document.getElementById('stepsManager');
+                container.innerHTML = '';
+                
+                state.workSteps.forEach(step => {
+                    const itemElement = document.createElement('div');
+                    itemElement.className = 'admin-editor';
+                    itemElement.innerHTML = `
+                        <div class="editor-row">
+                            <div class="editor-group">
+                                <label>Номер шага</label>
+                                <input type="number" class="editor-control" value="${step.step}" disabled>
+                            </div>
+                            <div class="editor-group">
+                                <label>Заголовок</label>
+                                <input type="text" class="editor-control" value="${step.title}" disabled>
+                            </div>
+                        </div>
+                        <div class="editor-row">
+                            <div class="editor-group">
+                                <label>Иконка</label>
+                                <input type="text" class="editor-control" value="${step.icon}" disabled>
+                            </div>
+                            <div class="editor-group">
+                                <label>Описание</label>
+                                <textarea class="editor-control" disabled>${step.content}</textarea>
+                            </div>
+                        </div>
+                        <button class="btn btn-danger" data-id="${step.id}">Удалить</button>
+                    `;
+                    container.appendChild(itemElement);
+                    
+                    // Обработчик удаления
+                    itemElement.querySelector('.btn-danger').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.workSteps = state.workSteps.filter(s => s.id !== id);
+                        renderAdminSteps();
+                        renderWorkSteps();
+                        saveState();
+                    });
+                });
+            }
+            
+            // Редактор галереи
+            document.getElementById('galleryUploadBtn').addEventListener('click', function() {
+                document.getElementById('gallerySource').click();
+            });
+            
+            document.getElementById('gallerySource').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('galleryPreview').src = e.target.result;
+                        document.getElementById('galleryPreview').style.display = 'block';
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            document.getElementById('addGalleryItemBtn').addEventListener('click', function() {
+                const type = document.getElementById('galleryType').value;
+                const title = document.getElementById('galleryTitle').value;
+                const description = document.getElementById('galleryDesc').value;
+                const file = document.getElementById('gallerySource').files[0];
+                
+                if (!file || !title || !description) {
+                    alert('Пожалуйста, заполните все поля и загрузите изображение');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newItem = {
+                        id: Date.now(),
+                        type: type,
+                        src: e.target.result,
+                        title: title,
+                        description: description
+                    };
+                    
+                    state.gallery.push(newItem);
+                    renderGallery();
+                    renderAdminGallery();
+                    saveState();
+                    
+                    // Очистка формы
+                    document.getElementById('galleryTitle').value = '';
+                    document.getElementById('galleryDesc').value = '';
+                    document.getElementById('galleryPreview').style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            });
+            
+            // Рендер галереи в админке
+            function renderAdminGallery() {
+                const container = document.getElementById('galleryManager');
+                container.innerHTML = '';
+                
+                state.gallery.forEach(item => {
+                    const preview = document.createElement('div');
+                    preview.className = 'gallery-preview';
+                    
+                    if (item.type === 'image') {
+                        preview.innerHTML = `
+                            <img src="${item.src}" alt="${item.title}">
+                            <div class="remove-btn" data-id="${item.id}">×</div>
+                        `;
+                    } else {
+                        preview.innerHTML = `
+                            <i class="fas fa-video" style="font-size: 2rem;"></i>
+                            <div class="remove-btn" data-id="${item.id}">×</div>
+                        `;
+                    }
+                    
+                    container.appendChild(preview);
+                    
+                    // Обработчик удаления
+                    preview.querySelector('.remove-btn').addEventListener('click', function(e) {
+                        e.stopPropagation();
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.gallery = state.gallery.filter(g => g.id !== id);
+                        renderAdminGallery();
+                        renderGallery();
+                        saveState();
+                    });
+                });
+            }
+            
+            // Редактор акций
+            document.getElementById('promoUploadBtn').addEventListener('click', function() {
+                document.getElementById('promoImage').click();
+            });
+            
+            document.getElementById('promoImage').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('promoPreview').src = e.target.result;
+                        document.getElementById('promoPreview').style.display = 'block';
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            document.getElementById('addPromoBtn').addEventListener('click', function() {
+                const badge = document.getElementById('promoBadge').value;
+                const title = document.getElementById('promoTitle').value;
+                const description = document.getElementById('promoDesc').value;
+                const file = document.getElementById('promoImage').files[0];
+                
+                if (!file || !badge || !title || !description) {
+                    alert('Пожалуйста, заполните все поля и загрузите изображение');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newPromo = {
+                        id: Date.now(),
+                        badge: badge,
+                        image: e.target.result,
+                        title: title,
+                        description: description
+                    };
+                    
+                    state.promotions.push(newPromo);
+                    renderPromotions();
+                    renderAdminPromotions();
+                    saveState();
+                    
+                    // Очистка формы
+                    document.getElementById('promoBadge').value = '';
+                    document.getElementById('promoTitle').value = '';
+                    document.getElementById('promoDesc').value = '';
+                    document.getElementById('promoPreview').style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            });
+            
+            // Рендер акций в админке
+            function renderAdminPromotions() {
+                const container = document.getElementById('promotionsManager');
+                container.innerHTML = '';
+                
+                state.promotions.forEach(promo => {
+                    const promoCard = document.createElement('div');
+                    promoCard.className = 'promotion-card';
+                    promoCard.innerHTML = `
+                        <div class="promotion-badge">${promo.badge}</div>
+                        <div class="promotion-image">
+                            <img src="${promo.image}" alt="${promo.title}">
+                        </div>
+                        <div class="promotion-content">
+                            <h3 class="promotion-title">${promo.title}</h3>
+                            <p class="promotion-desc">${promo.description}</p>
+                            <button class="btn btn-danger" data-id="${promo.id}">Удалить</button>
+                        </div>
+                    `;
+                    container.appendChild(promoCard);
+                    
+                    // Обработчик удаления
+                    promoCard.querySelector('.btn-danger').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.promotions = state.promotions.filter(p => p.id !== id);
+                        renderAdminPromotions();
+                        renderPromotions();
+                        saveState();
+                    });
+                });
+            }
+            
+            // Редактор новостей
+            document.getElementById('newsUploadBtn').addEventListener('click', function() {
+                document.getElementById('newsImage').click();
+            });
+            
+            document.getElementById('newsImage').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('newsImagePreview').src = e.target.result;
+                        document.getElementById('newsImagePreview').style.display = 'block';
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            document.getElementById('addNewsBtn').addEventListener('click', function() {
+                const title = document.getElementById('newsTitle').value;
+                const date = document.getElementById('newsDate').value;
+                const excerpt = document.getElementById('newsExcerpt').value;
+                const content = document.getElementById('newsContent').value;
+                const file = document.getElementById('newsImage').files[0];
+                
+                if (!file || !title || !date || !excerpt || !content) {
+                    alert('Пожалуйста, заполните все поля и загрузите изображение');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newNews = {
+                        id: Date.now(),
+                        title: title,
+                        date: date,
+                        excerpt: excerpt,
+                        content: content,
+                        image: e.target.result
+                    };
+                    
+                    state.news.push(newNews);
+                    renderNews();
+                    renderAdminNews();
+                    saveState();
+                    
+                    // Очистка формы
+                    document.getElementById('newsTitle').value = '';
+                    document.getElementById('newsDate').value = '';
+                    document.getElementById('newsExcerpt').value = '';
+                    document.getElementById('newsContent').value = '';
+                    document.getElementById('newsImagePreview').style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            });
+            
+            // Рендер новостей в админке
+            function renderAdminNews() {
+                const container = document.getElementById('newsManager');
+                container.innerHTML = '';
+                
+                state.news.forEach(news => {
+                    const newsItem = document.createElement('div');
+                    newsItem.className = 'news-item';
+                    newsItem.innerHTML = `
+                        <div class="news-image">
+                            <img src="${news.image}" alt="${news.title}">
+                        </div>
+                        <div class="news-content">
+                            <div class="news-date">${formatDate(news.date)}</div>
+                            <h3 class="news-title">${news.title}</h3>
+                            <p class="news-excerpt">${news.excerpt}</p>
+                            <button class="btn btn-danger" data-id="${news.id}">Удалить</button>
+                        </div>
+                    `;
+                    container.appendChild(newsItem);
+                    
+                    // Обработчик удаления
+                    newsItem.querySelector('.btn-danger').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.news = state.news.filter(n => n.id !== id);
+                        renderAdminNews();
+                        renderNews();
+                        saveState();
+                    });
+                });
+            }
+            
+            // Редактор отзывов в админке
+            document.getElementById('reviewPhotoUploadBtn').addEventListener('click', function() {
+                document.getElementById('reviewPhotoAdmin').click();
+            });
+            
+            document.getElementById('reviewPhotoAdmin').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('reviewPhotoPreview').src = e.target.result;
+                        document.getElementById('reviewPhotoPreview').style.display = 'block';
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            document.getElementById('addReviewBtn').addEventListener('click', function() {
+                const author = document.getElementById('reviewAuthor').value;
+                const date = document.getElementById('reviewDate').value;
+                const rating = parseInt(document.getElementById('reviewRating').value);
+                const status = document.getElementById('reviewStatus').value;
+                const content = document.getElementById('reviewContent').value;
+                const file = document.getElementById('reviewPhotoAdmin').files[0];
+                
+                if (!author || !date || !content) {
+                    alert('Пожалуйста, заполните обязательные поля');
+                    return;
+                }
+                
+                let photoUrl = '';
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        photoUrl = e.target.result;
+                        createReview(author, date, rating, status, content, photoUrl);
+                    }
+                    reader.readAsDataURL(file);
+                } else {
+                    createReview(author, date, rating, status, content, '');
+                }
+            });
+            
+            function createReview(author, date, rating, status, content, photoUrl) {
+                // Фиктивные URL для фото
+                const photos = [];
+                if (photoUrl) {
+                    for (let i = 0; i < 3; i++) {
+                        photos.push(`https://agstroy.ru/uploads/${Date.now()}_${i}.jpg`);
+                    }
+                }
+                
+                const newReview = {
+                    id: Date.now(),
+                    author: author,
+                    text: content,
+                    date: date,
+                    rating: rating,
+                    approved: status === 'approved',
+                    photo: photoUrl,
+                    photos: photos
+                };
+                
+                state.reviews.push(newReview);
+                renderReviews();
+                renderAdminReviews();
+                saveState();
+                
+                // Очистка формы
+                document.getElementById('reviewAuthor').value = '';
+                document.getElementById('reviewDate').value = '';
+                document.getElementById('reviewRating').value = '5';
+                document.getElementById('reviewContent').value = '';
+                document.getElementById('reviewPhotoPreview').style.display = 'none';
+            }
+            
+            // Рендер отзывов в админке
+            function renderAdminReviews() {
+                const container = document.getElementById('reviewsManager');
+                container.innerHTML = '';
+                
+                state.reviews.forEach(review => {
+                    let photosContent = '';
+                    if (review.photos && review.photos.length > 0) {
+                        photosContent = '<div class="review-photo-grid">';
+                        review.photos.forEach(photo => {
+                            photosContent += `
+                                <div class="review-photo-item">
+                                    <img src="${photo}" alt="Фото отзыва">
+                                </div>
+                            `;
+                        });
+                        photosContent += '</div>';
+                    }
+                    
+                    const reviewItem = document.createElement('div');
+                    reviewItem.className = 'review-item';
+                    reviewItem.innerHTML = `
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                ${review.photo 
+                                    ? `<img src="${review.photo}" alt="${review.author}" class="review-avatar-img">` 
+                                    : `<div class="review-avatar">${review.author.charAt(0)}</div>`}
+                            </div>
+                            <div>
+                                <div class="review-author">${review.author}</div>
+                                <div class="review-date">${formatDate(review.date)}</div>
+                                <div class="review-status ${review.approved ? 'approved' : ''}">
+                                    ${review.approved ? 'Одобрен' : 'На модерации'}
+                                </div>
+                            </div>
+                        </div>
+                        <div class="review-rating">${renderStars(review.rating)}</div>
+                        <div class="review-content">${review.text}</div>
+                        ${photosContent}
+                        <button class="btn btn-danger" data-id="${review.id}">Удалить</button>
+                    `;
+                    container.appendChild(reviewItem);
+                    
+                    // Обработчик удаления
+                    reviewItem.querySelector('.btn-danger').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.reviews = state.reviews.filter(r => r.id !== id);
+                        renderAdminReviews();
+                        renderReviews();
+                        saveState();
+                    });
+                });
+            }
+            
+            // Редактор домов
+            document.getElementById('houseUploadBtn').addEventListener('click', function() {
+                document.getElementById('houseImage').click();
+            });
+            
+            document.getElementById('houseImage').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('houseImagePreview').src = e.target.result;
+                        document.getElementById('houseImagePreview').style.display = 'block';
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            document.getElementById('addHouseBtn').addEventListener('click', function() {
+                const name = document.getElementById('houseName').value;
+                const stage = document.getElementById('houseStage').value;
+                const price = document.getElementById('housePrice').value;
+                const area = document.getElementById('houseArea').value;
+                const description = document.getElementById('houseDescription').value;
+                const file = document.getElementById('houseImage').files[0];
+                
+                if (!file || !name || !stage || !price || !area || !description) {
+                    alert('Пожалуйста, заполните все поля и загрузите изображение');
+                    return;
+                }
+                
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const newHouse = {
+                        id: Date.now(),
+                        name: name,
+                        stage: stage,
+                        price: price,
+                        area: area,
+                        description: description,
+                        image: e.target.result
+                    };
+                    
+                    state.houses.push(newHouse);
+                    renderHouses();
+                    renderAdminHouses();
+                    saveState();
+                    
+                    // Очистка формы
+                    document.getElementById('houseName').value = '';
+                    document.getElementById('houseStage').value = '';
+                    document.getElementById('housePrice').value = '';
+                    document.getElementById('houseArea').value = '';
+                    document.getElementById('houseDescription').value = '';
+                    document.getElementById('houseImagePreview').style.display = 'none';
+                }
+                reader.readAsDataURL(file);
+            });
+            
+            // Рендер домов в админке
+            function renderAdminHouses() {
+                const container = document.getElementById('housesManager');
+                container.innerHTML = '';
+                
+                state.houses.forEach(house => {
+                    const houseCard = document.createElement('div');
+                    houseCard.className = 'house-card';
+                    houseCard.innerHTML = `
+                        <div class="house-image">
+                            <img src="${house.image}" alt="${house.name}">
+                        </div>
+                        <div class="house-info">
+                            <div class="house-title">${house.name}</div>
+                            <div class="house-meta">
+                                <span>${house.stage}</span>
+                                <span>${house.area}</span>
+                            </div>
+                            <div class="house-price">${house.price}</div>
+                            <p>${house.description}</p>
+                            <button class="btn btn-danger" data-id="${house.id}">Удалить</button>
+                        </div>
+                    `;
+                    container.appendChild(houseCard);
+                    
+                    // Обработчик удаления
+                    houseCard.querySelector('.btn-danger').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.houses = state.houses.filter(h => h.id !== id);
+                        renderAdminHouses();
+                        renderHouses();
+                        saveState();
+                    });
+                });
+            }
+            
+            // Интеграция с VK
+            document.getElementById('saveVkBtn').addEventListener('click', function() {
+                state.vkGroupId = document.getElementById('vkGroupId').value;
+                state.vkToken = document.getElementById('vkToken').value;
+                saveState();
+                alert('Настройки VK сохранены!');
+            });
+            
+            document.getElementById('loadVkBtn').addEventListener('click', function() {
+                loadVKNews();
+            });
+            
+            // Настройка Telegram
+            document.getElementById('saveTelegramBtn').addEventListener('click', function() {
+                state.telegram.botToken = document.getElementById('telegramBotToken').value;
+                state.telegram.chatId = document.getElementById('telegramChatId').value;
+                saveState();
+                alert('Настройки Telegram сохранены!');
+            });
+            
+            document.getElementById('testTelegramBtn').addEventListener('click', function() {
+                if (!state.telegram.botToken || !state.telegram.chatId) {
+                    alert('Сначала настройте Telegram');
+                    return;
+                }
+                
+                sendToTelegram({test: "Тестовое сообщение от АГстрой"}, 'test');
+                alert('Тестовое сообщение отправлено в Telegram!');
+            });
+            
+            // Определение chat.id автоматически
+            document.getElementById('detectChatIdBtn').addEventListener('click', async function() {
+                const token = document.getElementById('telegramBotToken').value;
+                if (!token) {
+                    alert('Сначала введите токен бота');
+                    return;
+                }
+
+                try {
+                    const response = await fetch(`https://api.telegram.org/bot${token}/getUpdates`);
+                    const data = await response.json();
+                    
+                    if (data.ok && data.result.length > 0) {
+                        const chatId = data.result[0].message.chat.id;
+                        document.getElementById('telegramChatId').value = chatId;
+                        document.getElementById('chatIdResult').innerHTML = 
+                            `Найден ID: <strong>${chatId}</strong> (${data.result[0].message.chat.title || 'личные сообщения'})`;
+                    } else {
+                        document.getElementById('chatIdResult').innerHTML = 
+                            'Не найдено активных чатов. Отправьте боту сообщение в нужном чате и попробуйте снова.';
+                    }
+                } catch (error) {
+                    document.getElementById('chatIdResult').innerHTML = 
+                        'Ошибка: ' + error.message;
+                }
+            });
+            
+            // Настройка EmailJS
+            document.getElementById('saveEmailjsBtn').addEventListener('click', function() {
+                state.emailjs.serviceId = document.getElementById('emailjsServiceId').value;
+                state.emailjs.templateId = document.getElementById('emailjsTemplateId').value;
+                state.emailjs.userId = document.getElementById('emailjsUserId').value;
+                
+                // Инициализация EmailJS
+                if (state.emailjs.userId) {
+                    emailjs.init(state.emailjs.userId);
+                }
+                
+                saveState();
+                alert('Настройки EmailJS сохранены!');
+            });
+            
+            // Инициализация рендеринга админских разделов
+            renderAdminAdvantages();
+            renderAdminSteps();
+            renderAdminGallery();
+            renderAdminPromotions();
+            renderAdminNews();
+            renderAdminReviews();
+            renderAdminHouses();
+        }
+        
+        // Загрузка новостей из VK
+        function loadVKNews() {
+            const newsContainer = document.getElementById('newsContainer');
+            const loader = document.getElementById('newsLoader');
+            
+            // Показываем индикатор загрузки
+            newsContainer.innerHTML = '';
+            loader.style.display = 'block';
+            
+            // Используем CORS-прокси для обхода ограничений
+            const proxyUrl = 'https://cors-anywhere.herokuapp.com/';
+            const apiUrl = `https://api.vk.com/method/wall.get?owner_id=-${state.vkGroupId}&count=${state.vkCount || 5}&access_token=${state.vkToken}&v=5.131`;
+            
+            fetch(proxyUrl + apiUrl)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        throw new Error(data.error.error_msg);
+                    }
+                    
+                    const posts = data.response.items;
+                    const newNews = [];
+                    
+                    posts.forEach(post => {
+                        // Пропускаем рекламные посты и посты без текста
+                        if (post.marked_as_ads || !post.text) return;
+                        
+                        // Получаем первую фотографию из поста, если есть
+                        let imageUrl = '';
+                        if (post.attachments && post.attachments.length > 0) {
+                            const photo = post.attachments.find(a => a.type === 'photo');
+                            if (photo) {
+                                // Берем изображение максимального размера
+                                const sizes = photo.photo.sizes;
+                                const maxSize = sizes.reduce((max, size) => 
+                                    size.width > max.width ? size : max, sizes[0]);
+                                imageUrl = maxSize.url;
+                            }
+                        }
+                        
+                        // Создаем краткое описание (первые 100 символов)
+                        const excerpt = post.text.length > 100 
+                            ? post.text.substring(0, 100) + '...' 
+                            : post.text;
+                        
+                        newNews.push({
+                            id: -post.id, // Используем отрицательный ID для постов из VK
+                            title: `Новость из VK #${Math.abs(post.id)}`,
+                            excerpt: excerpt,
+                            content: post.text,
+                            date: new Date(post.date * 1000).toISOString().split('T')[0],
+                            image: imageUrl || 'https://via.placeholder.com/800x400?text=VK+News'
+                        });
+                    });
+                    
+                    // Добавляем новости в состояние
+                    state.news = [...newNews, ...state.news];
+                    saveState();
+                    
+                    // Рендерим новости
+                    renderNews();
+                })
+                .catch(error => {
+                    console.error('Ошибка загрузки новостей из VK:', error);
+                    alert('Ошибка загрузки новостей из VK: ' + error.message);
+                })
+                .finally(() => {
+                    loader.style.display = 'none';
+                });
         }
     </script>
 </body>
