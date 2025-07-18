@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АГстрой - Строительная компания</title>
+    <title>Агстрой.рф</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <style>
@@ -46,16 +46,17 @@
             z-index: -1;
         }
         
-        /* Обновленные стили для шапки */
         header {
             background: white;
             color: #333;
-            padding: 1.5rem 0 1rem;
+            padding: 9rem 0 4.5rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
             position: sticky;
             top: 0;
             z-index: 100;
+            min-height: 350px;
+            position: relative;
         }
         
         .header-container {
@@ -63,28 +64,32 @@
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
         }
         
         .logo-container {
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-bottom: 1rem;
+            margin-bottom: 2rem;
             position: relative;
             transition: all 0.3s ease;
         }
         
         .slogan {
-            font-size: 1.5rem;
+            font-size: 2.5rem;
             font-weight: bold;
-            margin-top: 0;
+            margin-bottom: 1.5rem;
             color: #000;
             text-align: center;
         }
         
         @media (max-width: 768px) {
             .slogan {
-                font-size: 1.3rem;
+                font-size: 1.8rem;
             }
         }
         
@@ -93,17 +98,19 @@
             justify-content: center;
             flex-wrap: wrap;
             gap: 1.5rem;
-            margin-top: 25px;
+            margin-top: auto;
+            padding-top: 2rem;
         }
         
         nav a {
             color: #000;
             text-decoration: none;
             font-weight: 500;
-            padding: 0.5rem 1rem;
+            padding: 0.8rem 1.5rem;
             border-radius: 4px;
             transition: all 0.3s ease;
             border: 1px solid rgba(0,0,0,0.1);
+            font-size: 1.1rem;
         }
         
         nav a:hover {
@@ -116,18 +123,27 @@
         .admin-link {
             color: #333;
             position: absolute;
-            top: 12px;
-            right: 15px;
+            top: 20px;
+            right: 20px;
             transition: all 0.4s ease;
             z-index: 101;
-            font-size: 1.2rem;
+            font-size: 1.5rem;
             text-decoration: none;
+            background: rgba(255, 255, 255, 0.8);
+            padding: 10px;
+            border-radius: 50%;
+            width: 45px;
+            height: 45px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
         
         .admin-link:hover {
             color: var(--secondary);
             opacity: 1;
             transform: rotate(30deg);
+            background: rgba(79, 195, 247, 0.2);
         }
         
         .container {
@@ -207,16 +223,11 @@
             border: 1px solid var(--border);
         }
         
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-        }
-        
         .hero-buttons {
             display: flex;
             justify-content: center;
             gap: 1.5rem;
-            margin-top: 2.5rem;
+            margin-top: 3rem;
             flex-wrap: wrap;
         }
         
@@ -1106,7 +1117,6 @@
             border-radius: 20px;
             font-size: 0.9rem;
             font-weight: bold;
-            z-index: 2;
         }
         
         .promotion-image {
@@ -1138,22 +1148,6 @@
         .promotion-desc {
             color: #aaa;
             margin-bottom: 1.5rem;
-        }
-        
-        .promotion-link {
-            color: var(--primary);
-            text-decoration: none;
-            font-weight: 500;
-            display: inline-flex;
-            align-items: center;
-            gap: 5px;
-            border-bottom: 1px dashed var(--primary);
-            padding-bottom: 3px;
-        }
-        
-        .promotion-link:hover {
-            color: var(--accent);
-            border-bottom-color: var(--accent);
         }
         
         .modal {
@@ -1566,15 +1560,283 @@
             z-index: 2;
         }
         
+        /* Стили для управления фото в отзывах */
+        .photo-preview-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+        
+        .photo-preview-item {
+            position: relative;
+            height: 100px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .photo-preview-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .photo-preview-item .remove-photo-btn {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            background: rgba(255, 0, 0, 0.7);
+            color: white;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            cursor: pointer;
+        }
+        
+        /* Стили для модального окна новости */
+        .news-modal-content {
+            padding: 20px;
+            color: #ddd;
+            line-height: 1.8;
+        }
+        
+        .news-modal-content img {
+            max-width: 100%;
+            height: auto;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        .news-modal-content iframe {
+            width: 100%;
+            height: 400px;
+            margin: 15px 0;
+            border-radius: 8px;
+        }
+        
+        /* Кнопка удаления аватарки */
+        .remove-avatar-btn {
+            display: block;
+            margin: 10px auto;
+            padding: 8px 15px;
+            background: #c62828;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            transition: background 0.3s;
+        }
+        
+        .remove-avatar-btn:hover {
+            background: #b71c1c;
+        }
+        
+        /* Стили для секции проектов */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 25px;
+            margin-top: 2rem;
+        }
+        
+        .project-card {
+            background: var(--card-bg);
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            border: 1px solid var(--border);
+        }
+        
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            border-color: var(--secondary);
+        }
+        
+        .project-image {
+            height: 200px;
+            overflow: hidden;
+        }
+        
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-card:hover .project-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-content {
+            padding: 1.5rem;
+        }
+        
+        .project-title {
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            color: var(--primary);
+        }
+        
+        .project-desc {
+            color: #aaa;
+            margin-bottom: 1.5rem;
+        }
+        
+        .view-project-btn {
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            background: var(--secondary);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            transition: background 0.3s;
+        }
+        
+        .view-project-btn:hover {
+            background: var(--primary);
+        }
+        
+        /* Модальное окно проектов */
+        .projects-modal-content {
+            padding: 20px;
+            color: #ddd;
+        }
+        
+        .projects-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 2rem 0;
+        }
+        
+        .project-modal-card {
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            background: var(--card-bg);
+        }
+        
+        .project-modal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            border-color: var(--secondary);
+        }
+        
+        .project-modal-image {
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .project-modal-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+        
+        .project-modal-card:hover .project-modal-image img {
+            transform: scale(1.1);
+        }
+        
+        .project-modal-info {
+            padding: 1rem;
+        }
+        
+        .project-modal-title {
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            color: var(--primary);
+        }
+        
+        .view-full-project-btn {
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem;
+            background: var(--secondary);
+            color: var(--light);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        
+        .view-full-project-btn:hover {
+            background: var(--primary);
+        }
+        
+        /* Стили для модального окна проекта */
+        .project-modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1100;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .project-modal-content {
+            background: var(--card-bg);
+            border-radius: 10px;
+            max-width: 90%;
+            width: 90%;
+            height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            border: 1px solid var(--border);
+        }
+        
+        .project-pdf-viewer {
+            width: 100%;
+            height: 80vh;
+            border: none;
+            border-radius: 8px;
+        }
+        
+        /* Стили для формы заявки */
+        .project-type-options {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        
+        .project-type-option {
+            flex: 1;
+            min-width: 200px;
+            background: #333;
+            padding: 15px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-align: center;
+        }
+        
+        .project-type-option.selected {
+            background: var(--secondary);
+            border: 2px solid white;
+        }
+        
         @media (max-width: 768px) {
             nav {
                 flex-direction: column;
                 gap: 0.5rem;
                 align-items: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
             }
             
             .hero-buttons {
@@ -1598,47 +1860,34 @@
             
             .editor-group {
                 min-width: 100%;
-            }
-            
-            .work-steps {
-                grid-template-columns: 1fr;
-            }
-            
-            .advantages {
-                grid-template-columns: 1fr;
-            }
-            
-            .news-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .reviews-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .houses-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .promotion-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .floating-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
+            max-width: 100%;
+            width: 100%;
+            flex: 0 0 100%;
+            margin-bottom: 15px;
+        }
+        
+        .form-row {
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .houses-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .promotion-cards {
+            grid-template-columns: 1fr;
+        }
+        
+        .floating-buttons {
+            bottom: 15px;
+            right: 15px;
+        }
+        
+        .floating-btn {
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -1658,6 +1907,7 @@
             <nav>
                 <a href="#">Главная</a>
                 <a href="#about">О нас</a>
+                <a href="#projects">Проекты</a>
                 <a href="#promotions">Акции</a>
                 <a href="#how-we-work">Как мы работаем</a>
                 <a href="#portfolio">Наши работы</a>
@@ -1685,7 +1935,6 @@
     <div class="container">
         <section class="hero" id="mainHero">
             <div class="hero-content">
-                <h1>Строительство и ремонт</h1>
                 <p id="heroSlogan">Качественные решения для вашего комфорта</p>
                 
                 <div class="hero-buttons">
@@ -1726,6 +1975,91 @@
                 </div>
                 
                 <p>Мы гордимся тем, что большинство наших клиентов обращаются к нам по рекомендациям, что говорит о высоком качестве нашей работы и доверии клиентов.</p>
+            </div>
+            
+            <a href="#" class="to-top-btn">
+                <i class="fas fa-home"></i> Наверх
+            </a>
+        </section>
+
+        <section id="projects">
+            <div class="section-header">
+                <h2><i class="fas fa-house-user"></i> Наши проекты</h2>
+                <p>Типовые проекты домов, которые мы строим</p>
+            </div>
+            
+            <div class="projects-grid" id="projectsContainer">
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Проект Солнечный">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Проект "Солнечный"</h3>
+                        <p class="project-desc">Современный дом площадью 120 кв.м. с просторной гостиной и террасой.</p>
+                        <a href="#" class="view-project-btn" data-id="1">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Проект Лесной">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Проект "Лесной"</h3>
+                        <p class="project-desc">Двухэтажный коттедж площадью 150 кв.м. с камином и зимним садом.</p>
+                        <a href="#" class="view-project-btn" data-id="2">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600" alt="Проект Речной">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Проект "Речной"</h3>
+                        <p class="project-desc">Компактный одноэтажный дом площадью 85 кв.м. для небольшой семьи.</p>
+                        <a href="#" class="view-project-btn" data-id="3">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600" alt="Проект Горный">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Проект "Горный"</h3>
+                        <p class="project-desc">Просторный дом площадью 180 кв.м. с гаражом на две машины.</p>
+                        <a href="#" class="view-project-btn" data-id="4">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=600" alt="Проект Семейный">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Проект "Семейный"</h3>
+                        <p class="project-desc">Дом для большой семьи площадью 200 кв.м. с четырьмя спальнями.</p>
+                        <a href="#" class="view-project-btn" data-id="5">Подробнее</a>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image">
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=600" alt="Проект Мини">
+                    </div>
+                    <div class="project-content">
+                        <h3 class="project-title">Проект "Мини"</h3>
+                        <p class="project-desc">Экономичный вариант дома площадью 65 кв.м. для молодой пары.</p>
+                        <a href="#" class="view-project-btn" data-id="6">Подробнее</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <button class="hero-btn hero-btn-primary" id="viewAllProjectsBtn">
+                    <i class="fas fa-list"></i> Все проекты
+                </button>
             </div>
             
             <a href="#" class="to-top-btn">
@@ -1810,6 +2144,15 @@
                     <div class="advantage-text">
                         <h3>Семейная ипотека</h3>
                         <p>Поможем оформить льготную ипотеку на строительство</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">
+                        <i class="fas fa-clipboard-check"></i>
+                    </div>
+                    <div class="advantage-text">
+                        <h3>Технический контроль на каждом этапе строительства</h3>
+                        <p>Осуществляем строгий контроль качества на всех этапах строительных работ</p>
                     </div>
                 </div>
             </div>
@@ -1954,18 +2297,17 @@
                     <div class="promotion-content">
                         <h3 class="promotion-title">Скидка на баню или гараж</h3>
                         <p class="promotion-desc">При строительстве дома на вашем участке получите скидку 20% на строительство бани или гаража!</p>
-                        <a href="#" class="promotion-link">Подробнее <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="promotion-card">
                     <div class="promotion-badge">Бесплатно</div>
+                    <极简代码>
                     <div class="promotion-image">
                         <img src="https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600" alt="Расчет сметы в подарок">
                     </div>
                     <div class="promotion-content">
                         <h3 class="promotion-title">Расчет сметы в подарок</h3>
                         <p class="promotion-desc">При заключении договора на строительство дома получите бесплатный расчет сметы!</p>
-                        <a href="#" class="promotion-link">Подробнее <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="promotion-card">
@@ -1974,9 +2316,8 @@
                         <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Эскизный проект в подарок">
                     </div>
                     <div class="promotion-content">
-                        <h3 class="promotion-title">Эскизный проект в подарок</h3>
+                        <h3 class="promotion-title">Эскизный проект в подарок</极简代码>
                         <p class="promotion-desc">При заключении договора на строительство получите бесплатный эскизный проект!</p>
-                        <a href="#" class="promotion-link">Подробнее <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="promotion-card">
@@ -1987,7 +2328,6 @@
                     <div class="promotion-content">
                         <h3 class="promotion-title">Специальные условия для молодых семей</h3>
                         <p class="promotion-desc">Молодые семьи получают специальные скидки и условия оплаты при строительстве дома.</p>
-                        <a href="#" class="promotion-link">Подробнее <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="promotion-card">
@@ -1998,7 +2338,6 @@
                     <div class="promotion-content">
                         <h3 class="promotion-title">Бесплатный выезд специалиста</h3>
                         <p class="promotion-desc">Закажите бесплатный выезд нашего специалиста на ваш участок для консультации.</p>
-                        <a href="#" class="promotion-link">Подробнее <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
                 <div class="promotion-card">
@@ -2009,7 +2348,6 @@
                     <div class="promotion-content">
                         <h3 class="promotion-title">Скидки пенсионерам</h3>
                         <p class="promotion-desc">Специальные скидки для пенсионеров на все виды строительных работ.</p>
-                        <a href="#" class="promotion-link">Подробнее <i class="fas fa-arrow-right"></i></a>
                     </div>
                 </div>
             </div>
@@ -2030,7 +2368,7 @@
                 <div class="news-item">
                     <div class="news-image">
                         <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800" alt="Открытие нового офиса в Москве">
-                    </div>
+                    </极简代码>
                     <div class="news-content">
                         <div class="news-date">15 сентября 2023 г.</div>
                         <h3 class="news-title">Открытие нового офиса в Москве</h3>
@@ -2063,63 +2401,7 @@
             </div>
             
             <div class="reviews-container" id="reviewsContainer">
-                <div class="review-item">
-                    <div class="review-header">
-                        <div class="review-avatar">И</div>
-                        <div>
-                            <div class="review-author">Иван Петров</div>
-                            <div class="review-date">10 сентября 2023 г.</div>
-                        </div>
-                    </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-content">
-                        Очень доволен качеством построенного дома. Все работы выполнены в срок, без задержек. Особенно хочу отметить профессионализм прораба Дмитрия.
-                    </div>
-                </div>
-                <div class="review-item">
-                    <div class="review-header">
-                        <div class="review-avatar">М</div>
-                        <div>
-                            <div class="review-author">Мария Сидорова</div>
-                            <div class="review-date">28 августа 2023 г.</div>
-                        </div>
-                    </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                    </div>
-                    <div class="review-content">
-                        Заказывали ремонт в квартире. Сделали всё качественно, учли все наши пожелания. Цена соответствовала результату. Рекомендую!
-                    </div>
-                </div>
-                <div class="review-item">
-                    <div class="review-header">
-                        <div class="review-avatar">А</div>
-                        <div>
-                            <div class="review-author">Алексей Иванов</div>
-                            <div class="review-date">5 сентября 2023 г.</div>
-                        </div>
-                    </div>
-                    <div class="review-rating">
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="fas fa-star"></i>
-                        <i class="far fa-star"></i>
-                    </div>
-                    <div class="review-content">
-                        Построили баню на даче. Качеством доволен, но были небольшие задержки по срокам.
-                    </div>
-                </div>
+                <!-- Отзывы будут загружены динамически -->
             </div>
             
             <div class="review-form">
@@ -2219,7 +2501,7 @@
                         </div>
                         <div class="editor-group">
                             <label for="bgOpacity">Прозрачность фона</label>
-                            <input type="range" id="bgOpacity" class="editor-control" min="0" max="1" step="0.05" value="0.15">
+                            <input type="range" id="bg极简代码" class="editor-control" min="0" max="1" step="0.05" value="0.15">
                             <div id="opacityValue">15%</div>
                         </div>
                     </div>
@@ -2346,14 +2628,14 @@
                         <div class="editor-group">
                             <label for="houseArea">Площадь (кв.м.)</label>
                             <input type="number" id="houseArea" class="editor-control">
-                        </div>
+                        </极简代码>
                     </div>
                     <div class="editor-group">
                         <label for="houseDescription">Описание</label>
                         <textarea id="houseDescription" class="editor-control"></textarea>
                     </div>
                     <div class="editor-group">
-                        <label for="houseImage">Изображение</label>
+                        <label for极简代码="houseImage">Изображение</label>
                         <input type="file" id="houseImage" class="editor-control">
                         <div class="upload-btn" id="houseUploadBtn" style="margin-top: 10px;">
                             <i class="fas fa-upload"></i> Загрузить изображение
@@ -2424,7 +2706,7 @@
                         <div class="editor-group">
                             <label for="newsImage">Изображение</label>
                             <input type="file" id="newsImage" class="editor-control">
-                            <div class="upload-btn" id="newsUploadBtn" style="margin-top: 10px;">
+                            <div class极简代码="upload-btn" id="newsUploadBtn" style="margin-top: 10px;">
                                 <i class="fas fa-upload"></i> Загрузить изображение
                             </div>
                         </div>
@@ -2471,9 +2753,20 @@
                         <div class="upload-btn" id="reviewPhotoUploadBtn" style="margin-top: 10px;">
                             <i class="fas fa-upload"></i> Загрузить фото
                         </div>
+                        <button class="btn btn-danger remove-avatar-btn" id="removeAvatarBtn" style="display: none;">Удалить аватар</button>
                     </div>
                     <div class="editor-group">
                         <img id="reviewPhotoPreview" class="image-preview" alt="Предпросмотр фото">
+                    </div>
+                    <div class="editor-group">
+                        <label for="reviewPhotosAdmin">Фотографии домов</label>
+                        <input type="file" id="reviewPhotosAdmin" class="editor-control" multiple>
+                        <div class="upload-btn" id="reviewPhotosUploadBtn" style="margin-top: 10px;">
+                            <i class="fas fa-upload"></i> Загрузить фотографии
+                        </div>
+                    </div>
+                    <div class="editor-group">
+                        <div class="photo-preview-grid" id="reviewPhotosPreview"></div>
                     </div>
                     <div class="editor-group">
                         <label for="reviewContent">Текст отзыва</label>
@@ -2494,7 +2787,7 @@
                     </div>
                     <div class="editor-group">
                         <label for="vkToken">Access Token</label>
-                        <textarea id="vkToken" class="editor-control" rows="4">vk1.a.IwkgUcjTjAyieE9j1BvOmTISVAa0O1zL5qpgDkP4U2_pZ2M8H-besZ3ViANyMvw1MrJgDfVCySbBpK59FotPksqIu5mkJwru9_hw6eqikiX35f9uyu0UXrw-FSapGbEoni2DSlGWDLk-QkMEeeohhlOe7Khc0rKy2EydG0Ffbbtvx48iyEfVLBXmZWrwlJITvXBsU6Vw-7_ZZvlzYkq3mQ</textarea>
+                        <textarea id="vkToken" class="editor-control" rows="4">vk1.a.IwkgUcjTjAyieE9j1BvOmTISVAa0O1极简代码zL5qpgDkP4U2_pZ2M8H-besZ3ViANyMvw1MrJgDfVCySbBpK59FotPksqIu5mkJwru9_hw6eqikiX35f9uyu0UXrw-FSapGbEoni2DSlGWDLk-QkMEeeohhlOe7Khc0rKy2EydG0Ffbbtvx48iyEfVLBXmZWrwlJITvXBsU6Vw-7_ZZvlzYkq3mQ</textarea>
                     </div>
                     <div class="editor-group">
                         <label for="vkCount">Количество постов</label>
@@ -2505,7 +2798,7 @@
                 </div>
             </div>
             
-            <div class="admin-section">
+            <div class极简代码="admin-section">
                 <h4><i class="fab fa-telegram"></i> Настройка Telegram</h4>
                 <div class="admin-editor">
                     <div class="editor-group">
@@ -2630,6 +2923,7 @@
                 <div class="footer-links">
                     <a href="#">Главная</a>
                     <a href="#about">О нас</a>
+                    <a href="#projects">Проекты</a>
                     <a href="#promotions">Акции</a>
                     <a href="#how-we-work">Как мы работаем</a>
                     <a href="#portfolio">Наши работы</a>
@@ -2666,7 +2960,7 @@
                 </div>
                 <div class="house-card">
                     <div class="house-image">
-                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Дом Лесной">
+                        <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w极简代码=600" alt="Дом Лесной">
                     </div>
                     <div class="house-info">
                         <div class="house-title">Дом 'Лесной'</div>
@@ -2750,6 +3044,33 @@
             <h3 class="modal-title">Заявка на постройку дома</h3>
             
             <div class="form-section">
+                <h4>Выберите тип проекта</h4>
+                <div class="project-type-options">
+                    <div class="project-type-option" data-type="existing">
+                        <i class="fas fa-home fa-2x"></i>
+                        <h4>Готовый проект</h4>
+                        <p>Выберите из наших типовых проектов</p>
+                    </div>
+                    <div class="project-type-option" data-type="own">
+                        <i class="fas fa-file-alt fa-2x"></i>
+                        <h4>Свой проект</h4>
+                        <p>Строительство по вашему проекту</p>
+                    </div>
+                    <div class="project-type-option" data-type="development">
+                        <i class="fas fa-drafting-compass fa-2x"></i>
+                        <h4>Разработка проекта</h4>
+                        <p>Разработаем проект по вашим требованиям</p>
+                    </div>
+                </div>
+                
+                <div id="existingProjectsSelect" style="display: none;">
+                    <label for="existingProject">Выберите проект:</label>
+                    <select id="existingProject" class="form-control">
+                        <option value="">-- Выберите проект --</option>
+                        <!-- Проекты будут загружены динамически -->
+                    </select>
+                </div>
+                
                 <h4>Контактная информация</h4>
                 <form id="buildHouseForm">
                     <div class="form-row">
@@ -2872,851 +3193,198 @@
         </div>
     </div>
     
+    <!-- Новое модальное окно для новостей -->
+    <div class="modal" id="newsModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title" id="newsModalTitle"></h3>
+            <div class="news-date" id="newsModalDate"></div>
+            <div class="news-modal-content" id="newsModalContent"></div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно всех проектов -->
+    <div class="modal" id="allProjectsModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title">Все проекты домов</h3>
+            
+            <div class="projects-container" id="allProjectsContainer">
+                <!-- Проекты будут загружены динамически -->
+            </div>
+        </div>
+    </div>
+    
+    <!-- Модальное окно просмотра проекта -->
+    <div class="project-modal" id="projectModal">
+        <div class="project-modal-content">
+            <span class="close-modal">&times;</span>
+            <h3 class="modal-title" id="projectTitle">Проект дома</h3>
+            
+            <iframe class="project-pdf-viewer" id="projectPdfViewer"></iframe>
+        </div>
+    </div>
+    
     <script>
-        let state = {
-            isLoggedIn: false,
-            news: [
-                {
-                    id: 1,
-                    title: "Открытие нового офиса в Москве",
-                    excerpt: "Мы рады сообщить об открытии нашего нового представительства в столице!",
-                    content: "<p>После нескольких месяцев подготовки мы наконец открыли наш новый офис в самом сердце Москвы. Современное пространство площадью 200 кв.м. позволит нам лучше обслуживать наших клиентов в столичном регионе.</p><img src='https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800' alt='Новый офис'>",
-                    date: "2023-09-15",
-                    image: "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=800"
-                },
-                {
-                    id: 2,
-                    title: "Запуск новой линии строительных материалов",
-                    excerpt: "Представляем инновационные экологичные материалы для строительства",
-                    content: "<p>Наша компания запустила производство новой линейки строительных материалов, отвечающих самым строгим экологическим стандартам. Эти материалы не только безопасны для окружающей среды, но и обладают улучшенными теплоизоляционными свойствами.</p><iframe width='100%' height='400' src='https://www.youtube.com/embed/7wtfhZwyrcc' title='Новые материалы' frameborder='0' allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture' allowfullscreen></iframe>",
-                    date: "2023-08-22",
-                    image: "https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=800"
-                }
-            ],
-            reviews: [
-                {
-                    id: 1,
-                    author: "Иван Петров",
-                    text: "Очень доволен качеством построенного дома. Все работы выполнены в срок, без задержек. Особенно хочу отметить профессионализм прораба Дмитрия.",
-                    date: "2023-09-10",
-                    rating: 5,
-                    approved: true
-                },
-                {
-                    id: 2,
-                    author: "Мария Сидорова",
-                    text: "Заказывали ремонт в квартире. Сделали всё качественно, учли все наши пожелания. Цена соответствовала результату. Рекомендую!",
-                    date: "2023-08-28",
-                    rating: 5,
-                    approved: true
-                },
-                {
-                    id: 3,
-                    author: "Алексей Иванов",
-                    text: "Построили баню на даче. Качеством доволен, но были небольшие задержки по срокам.",
-                    date: "2023-09-05",
-                    rating: 4,
-                    approved: false
-                }
-            ],
-            advantages: [
-                { 
-                    id: 1,
-                    icon: "fas fa-home", 
-                    title: "Качественные дома под ключ", 
-                    text: "Строительство домов с гарантией качества и соблюдением всех сроков" 
-                },
-                { 
-                    id: 2,
-                    icon: "fas fa-drafting-compass", 
-                    title: "Проект индивидуально", 
-                    text: "Разрабатываем проекты с учетом всех пожеланий заказчика" 
-                },
-                { 
-                    id: 3,
-                    icon: "fas fa-shield-alt", 
-                    title: "Надежность решений", 
-                    text: "Используем только проверенные конструктивные решения" 
-                },
-                { 
-                    id: 4,
-                    icon: "fas fa-user-tie", 
-                    title: "Квалифицированные кадры", 
-                    text: "Все наши специалисты имеют профильное образование и опыт работы" 
-                },
-                { 
-                    id: 5,
-                    icon: "fas fa-handshake", 
-                    title: "Честная фиксированная цена", 
-                    text: "Никаких скрытых платежей и дополнительных расходов" 
-                },
-                { 
-                    id: 6,
-                    icon: "fas fa-heart", 
-                    title: "Человеческое отношение", 
-                    text: "Индивидуальный подход к каждому клиенту" 
-                },
-                { 
-                    id: 7,
-                    icon: "fas fa-piggy-bank", 
-                    title: "Помогаем сэкономить", 
-                    text: "Подберем оптимальные решения для вашего бюджета" 
-                },
-                { 
-                    id: 8,
-                    icon: "fas fa-house-user", 
-                    title: "Семейная ипотека", 
-                    text: "Поможем оформить льготную ипотеку на строительство" 
-                }
-            ],
-            workSteps: [
-                {
-                    id: 1,
-                    step: 1,
-                    title: "Заявка/звонок",
-                    content: "<p>Вы делаете звонок, мы вас консультируем.</p>",
-                    icon: "fas fa-phone"
-                },
-                {
-                    id: 2,
-                    step: 2,
-                    title: "Встреча",
-                    content: "<p>Встречаемся на объекте для осмотра и обсуждения деталей.</p>",
-                    icon: "fas fa-handshake"
-                },
-                {
-                    id: 3,
-                    step: 3,
-                    title: "Готовим эскизный проект или смотрим готовый проект",
-                    content: "<p>Предлагаем на выбор готовые проекты или разрабатываем индивидуальный эскизный проект с учетом ваших пожеланий.</p>",
-                    icon: "fas fa-drafting-compass"
-                },
-                {
-                    id: 4,
-                    step: 4,
-                    title: "Смета",
-                    content: "<p>Подготавливаем и согласовываем смету.</p>",
-                    icon: "fas fa-file-invoice-dollar"
-                },
-                {
-                    id: 5,
-                    step: 5,
-                    title: "Договор",
-                    content: "<p>Заключаем договор с прописанными сроками, стоимостью и обязательствами.</p>",
-                    icon: "fas fa-file-contract"
-                },
-                {
-                    id: 6,
-                    step: 6,
-                    title: "Выполнение работ",
-                    content: "<p>Строим в срок согласно СНИПам и ГОСТам.</p>",
-                    icon: "fas fa-hard-hat"
-                }
-            ],
-            gallery: [
-                { 
-                    id: 1,
-                    type: 'image', 
-                    src: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600', 
-                    title: 'Частный дом', 
-                    description: 'Полная постройка под ключ' 
-                },
-                { 
-                    id: 2,
-                    type: 'image', 
-                    src: 'https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600', 
-                    title: 'Офисное помещение', 
-                    description: 'Капитальный ремонт' 
-                },
-                { 
-                    id: 3,
-                    type: 'image', 
-                    src: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600', 
-                    title: 'Коттеджный поселок', 
-                    description: 'Комплексное строительство' 
-                },
-                { 
-                    id: 4,
-                    type: 'video', 
-                    src: 'https://www.youtube.com/embed/dQw4w9WgXcQ', 
-                    title: 'Объект "Солнечный"', 
-                    description: 'Ход строительства' 
-                },
-                { 
-                    id: 5,
-                    type: 'image', 
-                    src: 'https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600', 
-                    title: 'Санузел', 
-                    description: 'Комплексный ремонт' 
-                },
-                { 
-                    id: 6,
-                    type: 'video', 
-                    src: 'https://www.youtube.com/embed/7wtfhZwyrcc', 
-                    title: 'ЖК "Лесной"', 
-                    description: 'Видеообзор готового объекта' 
-                }
-            ],
-            promotions: [
-                {
-                    id: 1,
-                    badge: "Скидка 20%",
-                    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600",
-                    title: "Скидка на баню или гараж",
-                    description: "При строительстве дома на вашем участке получите скидку 20% на строительство бани или гаража!"
-                },
-                {
-                    id: 2,
-                    badge: "Бесплатно",
-                    image: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=600",
-                    title: "Расчет сметы в подарок",
-                    description: "При заключении договора на строительство дома получите бесплатный расчет сметы!"
-                },
-                {
-                    id: 3,
-                    badge: "Бесплатно",
-                    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600",
-                    title: "Эскизный проект в подарок",
-                    description: "При заключении договора на строительство получите бесплатный эскизный проект!"
-                },
-                {
-                    id: 4,
-                    badge: "Специально",
-                    image: "https://images.unsplash.com/photo-1549482199-bc1ca6f58502?auto=format&fit=crop&w=600",
-                    title: "Специальные условия для молодых семей",
-                    description: "Молодые семьи получают специальные скидки и условия оплаты при строительстве дома."
-                },
-                {
-                    id: 5,
-                    badge: "Бесплатно",
-                    image: "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=600",
-                    title: "Бесплатный выезд специалиста",
-                    description: "Закажите бесплатный выезд нашего специалиста на ваш участок для консультации."
-                },
-                {
-                    id: 6,
-                    badge: "Скидка",
-                    image: "https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600",
-                    title: "Скидки пенсионерам",
-                    description: "Специальные скидки для пенсионеров на все виды строительных работ."
-                }
-            ],
-            houses: [
-                {
-                    id: 1,
-                    name: "Дом 'Солнечный'",
-                    stage: "Готов",
-                    price: "3 500 000 руб",
-                    area: "120 кв.м.",
-                    description: "Просторный двухэтажный дом с террасой и гаражом",
-                    image: "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600"
-                },
-                {
-                    id: 2,
-                    name: "Дом 'Лесной'",
-                    stage: "Отделка",
-                    price: "2 800 000 руб",
-                    area: "90 кв.м.",
-                    description: "Уютный одноэтажный дом в стиле шале",
-                    image: "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600"
-                },
-                {
-                    id: 3,
-                    name: "Дом 'Речной'",
-                    stage: "Фундамент",
-                    price: "1 200 000 руб",
-                    area: "75 кв.м.",
-                    description: "Компактный дом с мансардой для небольшой семьи",
-                    image: "https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?auto=format&fit=crop&w=600"
-                },
-                {
-                    id: 4,
-                    name: "Дом 'Горный'",
-                    stage: "Каркас",
-                    price: "1 800 000 руб",
-                    area: "110 кв.м.",
-                    description: "Современный дом с панорамными окнами",
-                    image: "https://images.unsplash.com/photo-1582407947304-fd86f028f716?auto=format&fit=crop&w=600"
-                }
-            ],
-            header: {
-                logo: "https://images.unsplash.com/photo-1600880292089-90a7e086ee0c?auto=format&fit=crop&w=200",
-                slogan: "Качественные решения для вашего комфорта",
-                bgImage: "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=1200",
-                opacity: 0.15,
-                logoPosition: "center",
-                sloganPosition: "bottom",
-                banner: ""
+        // Данные проектов
+        const projects = [
+            {
+                id: 1,
+                name: "Проект 'Солнечный'",
+                description: "Современный дом площадью 120 кв.м. с просторной гостиной и террасой.",
+                area: 120,
+                floors: 1,
+                rooms: 4,
+                price: "от 3 500 000 руб",
+                pdfUrl: "PG4-81r.pdf"
             },
-            telegram: {
-                botToken: "7895837790:AAGcCjxt1m1PX1QxCLNcqwoY0Q9PC_vMXWk",
-                chatId: "1240604782"
+            {
+                id: 2,
+                name: "Проект 'Лесной'",
+                description: "Двухэтажный коттедж площадью 150 кв.м. с камином и зимним садом.",
+                area: 150,
+                floors: 2,
+                rooms: 5,
+                price: "от 4 200 000 руб",
+                pdfUrl: "project2.pdf"
             },
-            emailjs: {
+            {
+                id: 3,
+                name: "Проект 'Речной'",
+                description: "Компактный одноэтажный дом площадью 85 кв.м. для небольшой семьи.",
+                area: 85,
+                floors: 1,
+                rooms: 3,
+                price: "от 2 800 000 руб",
+                pdfUrl: "project3.pdf"
+            },
+            {
+                id: 4,
+                name: "Проект 'Горный'",
+                description: "Просторный дом площадью 180 кв.м. с гаражом на две машины.",
+                area: 180,
+                floors: 2,
+                rooms: 6,
+                price: "от 4 800 000 руб",
+                pdfUrl: "project4.pdf"
+            },
+            {
+                id: 5,
+                name: "Проект 'Семейный'",
+                description: "Дом для большой семьи площадью 200 кв.м. с четырьмя спальнями.",
+                area: 200,
+                floors: 2,
+                rooms: 7,
+                price: "от 5 500 000 руб",
+                pdf极简代码Url: "project5.pdf"
+            },
+            {
+                id: 6,
+                name: "Проект 'Мини'",
+                description: "Экономичный вариант дома площадью 65 кв.м. для молодой пары.",
+                area: 65,
+                floors: 1,
+                rooms: 2,
+                price: "от 2 200 000 руб",
+                pdfUrl: "project6.pdf"
+            },
+            {
+                id: 7,
+                name: "Проект 'Классический'",
+                description: "Дом в классическом стиле площадью 140 кв.м. с мансардой.",
+                area: 140,
+                floors: 1.5,
+                rooms: 5,
+                price: "от 3 900 000 руб",
+                pdfUrl: "project7.pdf"
+            },
+            {
+                id: 8,
+                name: "Проект 'Современный'",
+                description: "Ультрасовременный дом площадью 160 кв.м. с панорамными окнами.",
+                area: 160,
+                floors: 1,
+                rooms: 4,
+                price: "от 4 500 000 руб",
+                pdfUrl: "project8.pdf"
+            }
+        ];
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Настройки для отправки заявок
+            const emailjsConfig = {
                 serviceId: "gmail_service",
                 templateId: "template_l4bhp9h",
                 userId: "0Y5XcvC3vwg6QPzZm"
-            },
-            vkIntegration: {
-                groupId: "147735588",
-                token: "vk1.a.IwkgUcjTjAyieE9j1BvOmTISVAa0O1zL5qpgDkP4U2_pZ2M8H-besZ3ViANyMvw1MrJgDfVCySbBpK59FotPksqIu5mkJwru9_hw6eqikiX35f9uyu0UXrw-FSapGbEoni2DSlGWDLk-QkMEeeohhlOe7Khc0rKy2EydG0Ffbbtvx48iyEfVLBXmZWrwlJITvXBsU6Vw-7_ZZvlzYkq3mQ",
-                count: 5
-            }
-        };
-
-        document.addEventListener('DOMContentLoaded', function() {
-            const savedState = localStorage.getItem('agstroyState');
-            if (savedState) {
-                state = JSON.parse(savedState);
+            };
+            
+            const telegramConfig = {
+                botToken: "7895837790:AAGcCjxt1m1PX1QxCLNcqwoY0Q9PC_vMXWk",
+                chatId: "1240604782"
+            };
+            
+            // Инициализация EmailJS
+            if (emailjsConfig.userId) {
+                emailjs.init(emailjsConfig.userId);
             }
             
-            if (state.emailjs.userId) {
-                emailjs.init(state.emailjs.userId);
-            }
+            // Обработчики для проектов
+            setupProjects();
             
-            renderAdvantages();
-            renderWorkSteps();
-            renderGallery();
-            renderNews();
-            renderReviews();
-            renderPromotions();
-            renderHouses();
-            setupEventListeners();
+            // Обработчики для формы заявки на строительство
+            setupBuildHouseForm();
+            
+            // Обработчики для модальных окон
             setupModals();
-            setupAdminPanel();
-            updateHeader();
-            loadVKNews();
         });
 
-        function saveState() {
-            localStorage.setItem('agstroyState', JSON.stringify(state));
-        }
-
-        function updateHeader() {
-            document.getElementById('headerSlogan').textContent = state.header.slogan;
-            document.getElementById('heroSlogan').textContent = state.header.slogan;
-            document.getElementById('mainHero').style.backgroundImage = `linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url(${state.header.bgImage})`;
-            document.getElementById('bgOverlay').style.opacity = state.header.opacity;
-            
-            const logoContainer = document.getElementById('logoContainer');
-            logoContainer.className = 'logo-container';
-            
-            logoContainer.classList.remove('logo-left', 'logo-right', 'slogan-top', 'slogan-left', 'slogan-right');
-            
-            if (state.header.logoPosition === 'left') {
-                logoContainer.classList.add('logo-left');
-            } else if (state.header.logoPosition === 'right') {
-                logoContainer.classList.add('logo-right');
-            }
-            
-            if (state.header.sloganPosition === 'top') {
-                logoContainer.classList.add('slogan-top');
-            } else if (state.header.sloganPosition === 'left') {
-                logoContainer.classList.add('slogan-left');
-            } else if (state.header.sloganPosition === 'right') {
-                logoContainer.classList.add('slogan-right');
-            }
-            
-            const header = document.getElementById('siteHeader');
-            if (state.header.banner) {
-                header.classList.add('header-with-banner');
-                let banner = document.getElementById('headerBanner');
-                if (!banner) {
-                    banner = document.createElement('img');
-                    banner.id = 'headerBanner';
-                    banner.className = 'header-banner';
-                    header.prepend(banner);
-                }
-                banner.src = state.header.banner;
-            } else {
-                header.classList.remove('header-with-banner');
-                const banner = document.getElementById('headerBanner');
-                if (banner) banner.remove();
-            }
-        }
-
-        function renderAdvantages() {
-            const container = document.getElementById('advantagesContainer');
-            container.innerHTML = '';
-            
-            state.advantages.forEach(item => {
-                const advantageItem = document.createElement('div');
-                advantageItem.className = 'advantage-item';
-                advantageItem.innerHTML = `
-                    <div class="advantage-icon">
-                        <i class="${item.icon}"></i>
-                    </div>
-                    <div class="advantage-text">
-                        <h3>${item.title}</h3>
-                        <p>${item.text}</p>
-                    </div>
-                `;
-                container.appendChild(advantageItem);
-            });
-        }
-
-        function renderWorkSteps() {
-            const container = document.getElementById('workSteps');
-            container.innerHTML = '';
-            
-            state.workSteps.forEach(step => {
-                const stepElement = document.createElement('div');
-                stepElement.className = 'work-step';
-                stepElement.innerHTML = `
-                    <div class="step-number">${step.step}</div>
-                    <div class="step-icon"><i class="${step.icon}"></i></div>
-                    <h3>${step.title}</h3>
-                    <div class="work-content">${step.content}</div>
-                `;
-                container.appendChild(stepElement);
-            });
-        }
-
-        function renderGallery() {
-            const container = document.getElementById('galleryContainer');
-            container.innerHTML = '';
-            
-            state.gallery.forEach(item => {
-                let galleryItem;
-                
-                if (item.type === 'image') {
-                    galleryItem = document.createElement('div');
-                    galleryItem.className = 'gallery-item';
-                    galleryItem.innerHTML = `
-                        <img src="${item.src}" alt="${item.title}">
-                        <div class="overlay">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
-                } else {
-                    galleryItem = document.createElement('div');
-                    galleryItem.className = 'gallery-item video-item';
-                    galleryItem.innerHTML = `
-                        <iframe src="${item.src}" title="${item.title}" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                        <div class="video-label">ВИДЕО</div>
-                        <div class="overlay">
-                            <h3>${item.title}</h3>
-                            <p>${item.description}</p>
-                        </div>
-                    `;
-                }
-                
-                container.appendChild(galleryItem);
-            });
-        }
-
-        function renderNews() {
-            const container = document.getElementById('newsContainer');
-            container.innerHTML = '';
-            
-            state.news.forEach(news => {
-                const newsItem = document.createElement('div');
-                newsItem.className = 'news-item';
-                newsItem.innerHTML = `
-                    <div class="news-image">
-                        <img src="${news.image}" alt="${news.title}">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">${formatDate(news.date)}</div>
-                        <h3 class="news-title">${news.title}</h3>
-                        <p class="news-excerpt">${news.excerpt}</p>
-                        <a href="#" class="read-more">Читать далее <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                `;
-                container.appendChild(newsItem);
-            });
-        }
-
-        function renderReviews() {
-            const container = document.getElementById('reviewsContainer');
-            container.innerHTML = '';
-            
-            state.reviews.filter(r => r.approved).forEach(review => {
-                const reviewItem = document.createElement('div');
-                reviewItem.className = 'review-item';
-                
-                let avatarContent;
-                if (review.photo) {
-                    avatarContent = `<img src="${review.photo}" alt="${review.author}" class="review-avatar-img">`;
-                } else {
-                    avatarContent = `<div class="review-avatar">${review.author.charAt(0)}</div>`;
-                }
-                
-                let photosContent = '';
-                if (review.photos && review.photos.length > 0) {
-                    photosContent = '<div class="review-photo-grid">';
-                    review.photos.forEach(photo => {
-                        photosContent += `
-                            <div class="review-photo-item">
-                                <img src="${photo}" alt="Фото от ${review.author}">
-                            </div>
-                        `;
-                    });
-                    photosContent += '</div>';
-                }
-                
-                reviewItem.innerHTML = `
-                    <div class="review-header">
-                        <div class="review-avatar">
-                            ${avatarContent}
-                        </div>
-                        <div>
-                            <div class="review-author">${review.author}</div>
-                            <div class="review-date">${formatDate(review.date)}</div>
-                        </div>
-                    </div>
-                    <div class="review-rating">${renderStars(review.rating)}</div>
-                    <div class="review-content">${review.text}</div>
-                    ${photosContent}
-                `;
-                container.appendChild(reviewItem);
-            });
-        }
-
-        function renderPromotions() {
-            const container = document.getElementById('promotionsContainer');
-            container.innerHTML = '';
-            
-            state.promotions.forEach(promo => {
-                const promoCard = document.createElement('div');
-                promoCard.className = 'promotion-card';
-                promoCard.innerHTML = `
-                    <div class="promotion-badge">${promo.badge}</div>
-                    <div class="promotion-image">
-                        <img src="${promo.image}" alt="${promo.title}">
-                    </div>
-                    <div class="promotion-content">
-                        <h3 class="promotion-title">${promo.title}</h3>
-                        <p class="promotion-desc">${promo.description}</p>
-                        <a href="#" class="promotion-link">Подробнее <i class="fas fa-arrow-right"></i></a>
-                    </div>
-                `;
-                container.appendChild(promoCard);
-            });
-        }
-
-        function renderHouses() {
-            const container = document.getElementById('housesGrid');
-            if (!container) return;
-            
-            container.innerHTML = '';
-            
-            state.houses.forEach(house => {
-                const houseCard = document.createElement('div');
-                houseCard.className = 'house-card';
-                houseCard.innerHTML = `
-                    <div class="house-image">
-                        <img src="${house.image}" alt="${house.name}">
-                    </div>
-                    <div class="house-info">
-                        <div class="house-title">${house.name}</div>
-                        <div class="house-meta">
-                            <span>${house.stage}</span>
-                            <span>${house.area} кв.м.</span>
-                        </div>
-                        <div class="house-price">${house.price}</div>
-                        <button class="select-house-btn" data-id="${house.id}">Выбрать</button>
-                    </div>
-                `;
-                container.appendChild(houseCard);
-            });
-        }
-
-        function formatDate(dateString) {
-            const options = { year: 'numeric', month: 'long', day: 'numeric' };
-            return new Date(dateString).toLocaleDateString('ru-RU', options);
-        }
-
-        function renderStars(rating) {
-            let stars = '';
-            for (let i = 1; i <= 5; i++) {
-                stars += i <= rating 
-                    ? '<i class="fas fa-star"></i>' 
-                    : '<i class="far fa-star"></i>';
-            }
-            return stars;
-        }
-
-        function setupEventListeners() {
-            document.querySelectorAll('.to-top-btn').forEach(btn => {
+        function setupProjects() {
+            // Обработчики для кнопок "Подробнее"
+            document.querySelectorAll('.view-project-btn').forEach(btn => {
                 btn.addEventListener('click', function(e) {
                     e.preventDefault();
-                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                    const projectId = this.getAttribute('data-id');
+                    const project = projects.find(p => p.id == projectId);
+                    openProjectModal(project);
                 });
             });
             
-            const ratingInput = document.getElementById('ratingInput');
-            ratingInput.querySelectorAll('i').forEach(star => {
-                star.addEventListener('click', function() {
-                    const value = parseInt(this.getAttribute('data-value'));
-                    ratingInput.querySelectorAll('i').forEach((s, i) => {
-                        if (i < value) {
-                            s.classList.remove('far');
-                            s.classList.add('fas', 'active');
-                        } else {
-                            s.classList.remove('fas', 'active');
-                            s.classList.add('far');
-                        }
-                    });
-                });
-            });
-            
-            const photoUpload = document.getElementById('photoUpload');
-            const uploadBtn = document.querySelector('.upload-btn');
-            const photoPreview = document.getElementById('photoPreview');
-            
-            uploadBtn.addEventListener('click', function(e) {
-                if (e.target !== photoUpload) {
-                    photoUpload.click();
-                }
-            });
-            
-            photoUpload.addEventListener('change', function(e) {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-                    
-                    reader.onload = function(e) {
-                        photoPreview.src = e.target.result;
-                        photoPreview.style.display = 'block';
-                    }
-                    
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-            
-            const reviewForm = document.getElementById('reviewForm');
-            reviewForm.addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const name = document.getElementById('reviewName').value;
-                const email = document.getElementById('reviewEmail').value;
-                const text = document.getElementById('reviewText').value;
-                const rating = document.querySelectorAll('#ratingInput .active').length;
-                const photoFile = photoUpload.files[0];
-                
-                if (!name || !email || !text || rating === 0) {
-                    alert('Пожалуйста, заполните все обязательные поля и поставьте оценку');
-                    return;
-                }
-                
-                const progressBar = document.getElementById('progressBar');
-                const uploadProgress = document.getElementById('uploadProgress');
-                uploadProgress.style.display = 'block';
-                
-                let progress = 0;
-                const interval = setInterval(() => {
-                    progress += 5;
-                    progressBar.style.width = `${progress}%`;
-                    
-                    if (progress >= 100) {
-                        clearInterval(interval);
-                        
-                        const photoUrl = photoFile 
-                            ? `https://agstroy.ru/uploads/${Date.now()}_${photoFile.name}` 
-                            : '';
-                        
-                        const additionalPhotos = [];
-                        if (photoFile) {
-                            for (let i = 0; i < 3; i++) {
-                                additionalPhotos.push(`https://agstroy.ru/uploads/${Date.now()}_${i}_${photoFile.name}`);
-                            }
-                        }
-                        
-                        const newReview = {
-                            id: Date.now(),
-                            author: name,
-                            text: text,
-                            date: new Date().toISOString().split('T')[0],
-                            rating: rating,
-                            approved: false,
-                            photo: photoUrl,
-                            photos: additionalPhotos
-                        };
-                        
-                        state.reviews.push(newReview);
-                        saveState();
-                        alert('Ваш отзыв отправлен на модерацию. Спасибо!');
-                        reviewForm.reset();
-                        
-                        photoPreview.style.display = 'none';
-                        uploadProgress.style.display = 'none';
-                        progressBar.style.width = '0%';
-                        
-                        ratingInput.querySelectorAll('i').forEach(star => {
-                            star.classList.remove('fas', 'active');
-                            star.classList.add('far');
-                        });
-                        
-                        sendApplication({
-                            name: name,
-                            email: email,
-                            rating: rating,
-                            message: text
-                        }, 'review-form');
-                    }
-                }, 100);
-            });
-            
-            const loginBtn = document.getElementById('loginBtn');
-            loginBtn.addEventListener('click', function() {
-                const username = document.getElementById('username').value;
-                const password = document.getElementById('password').value;
-                
-                if (username === "admin" && password === "agstroy2023") {
-                    state.isLoggedIn = true;
-                    document.getElementById('loginForm').style.display = 'none';
-                    document.getElementById('adminPanel').classList.add('active');
-                    document.getElementById('loginMessage').textContent = '';
-                    saveState();
-                } else {
-                    document.getElementById('loginMessage').textContent = 'Неверный логин или пароль!';
-                }
-            });
-            
-            const logoutBtn = document.getElementById('logoutBtn');
-            logoutBtn.addEventListener('click', function() {
-                state.isLoggedIn = false;
-                document.getElementById('adminPanel').classList.remove('active');
-                saveState();
-            });
-            
-            const adminToggle = document.getElementById('adminToggle');
-            adminToggle.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                if (state.isLoggedIn) {
-                    document.getElementById('adminPanel').classList.toggle('active');
-                } else {
-                    document.getElementById('loginForm').style.display = 'block';
-                    window.scrollTo(0, document.body.scrollHeight);
-                }
-            });
-            
-            document.getElementById('floatingTourBtn').addEventListener('click', function() {
-                document.getElementById('tourModal').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-            
-            document.getElementById('floatingBuildBtn').addEventListener('click', function() {
-                document.getElementById('buildHouseModal').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-            
-            document.getElementById('floatingBuyBtn').addEventListener('click', function() {
-                document.getElementById('buyHouseModal').style.display = 'flex';
-                document.body.style.overflow = 'hidden';
+            // Кнопка "Все проекты"
+            document.getElementById('viewAllProjectsBtn').addEventListener('click', function() {
+                openAllProjectsModal();
             });
         }
         
-        function setupModals() {
-            const buyHouseBtn = document.getElementById('buyHouseBtn');
-            const buildHouseBtn = document.getElementById('buildHouseBtn');
-            const tourBtn = document.getElementById('tourBtn');
-            
-            const buyHouseModal = document.getElementById('buyHouseModal');
-            const buildHouseModal = document.getElementById('buildHouseModal');
-            const tourModal = document.getElementById('tourModal');
-            
-            const closeButtons = document.querySelectorAll('.close-modal');
-            
-            buyHouseBtn.addEventListener('click', function() {
-                buyHouseModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-            
-            buildHouseBtn.addEventListener('click', function() {
-                buildHouseModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-            
-            tourBtn.addEventListener('click', function() {
-                tourModal.style.display = 'flex';
-                document.body.style.overflow = 'hidden';
-            });
-            
-            closeButtons.forEach(button => {
-                button.addEventListener('click', function() {
-                    buyHouseModal.style.display = 'none';
-                    buildHouseModal.style.display = 'none';
-                    tourModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                    
-                    document.getElementById('selectedHouseForm').style.display = 'none';
-                    document.querySelectorAll('.house-card').forEach(card => {
-                        card.style.display = 'block';
-                    });
-                });
-            });
-            
-            window.addEventListener('click', function(event) {
-                if (event.target === buyHouseModal) {
-                    buyHouseModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-                if (event.target === buildHouseModal) {
-                    buildHouseModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-                if (event.target === tourModal) {
-                    tourModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                }
-            });
-            
-            document.querySelectorAll('.select-house-btn').forEach(button => {
-                button.addEventListener('click', function() {
-                    const houseId = this.getAttribute('data-id');
-                    const house = state.houses.find(h => h.id == houseId);
-                    
-                    document.querySelectorAll('.house-card').forEach(card => {
-                        card.style.display = 'none';
+        function setupBuildHouseForm() {
+            // Выбор типа проекта
+            document.querySelectorAll('.project-type-option').forEach(option => {
+                option.addEventListener('click', function() {
+                    // Убрать выделение со всех вариантов
+                    document.querySelectorAll('.project-type-option').forEach(opt => {
+                        opt.classList.remove('selected');
                     });
                     
-                    document.getElementById('selectedHouseForm').style.display = 'block';
+                    // Выделить текущий вариант
+                    this.classList.add('selected');
                     
-                    document.querySelector('#selectedHouseForm h4').innerHTML = 
-                        `Заявка на покупку дома: <span style="color: var(--accent);">${house.name}</span>`;
+                    // Показать/скрыть выбор проекта
+                    const type = this.getAttribute('data-type');
+                    const selectContainer = document.getElementById('existingProjectsSelect');
                     
-                    if (!document.getElementById('selectedHouseId')) {
-                        const input = document.createElement('input');
-                        input.type = 'hidden';
-                        input.id = 'selectedHouseId';
-                        input.name = 'houseId';
-                        input.value = houseId;
-                        document.getElementById('buyHouseForm').appendChild(input);
+                    if (type === 'existing') {
+                        selectContainer.style.display = 'block';
+                        populateProjectSelect();
                     } else {
-                        document.getElementById('selectedHouseId').value = houseId;
+                        selectContainer.style.display = 'none';
                     }
                 });
             });
             
-            document.getElementById('buyHouseForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = {
-                    name: document.getElementById('buyerName').value,
-                    phone: document.getElementById('buyerPhone').value,
-                    email: document.getElementById('buyerEmail').value,
-                    message: document.getElementById('buyerMessage').value,
-                    houseId: document.getElementById('selectedHouseId').value
-                };
-                
-                sendApplication(formData, 'buy-house');
-                
-                document.getElementById('buySuccessMessage').style.display = 'block';
-                
-                setTimeout(() => {
-                    buyHouseModal.style.display = 'none';
-                    document.body.style.overflow = 'auto';
-                    document.getElementById('buySuccessMessage').style.display = 'none';
-                    this.reset();
-                }, 3000);
-            });
-            
+            // Обработчик отправки формы
             document.getElementById('buildHouseForm').addEventListener('submit', function(e) {
                 e.preventDefault();
                 
+                // Сбор данных формы
                 const formData = {
                     name: document.getElementById('clientName').value,
                     phone: document.getElementById('clientPhone').value,
@@ -3725,547 +3393,204 @@
                     area: document.getElementById('houseArea').value,
                     type: document.getElementById('houseType').value,
                     budget: document.getElementById('clientBudget').value,
-                    wishes: document.getElementById('clientWishes').value
+                    wishes: document.getElementById('clientWishes').value,
+                    projectType: document.querySelector('.project-type-option.selected').getAttribute('data-type')
                 };
                 
+                // Если выбран готовый проект
+                if (formData.projectType === 'existing') {
+                    const projectSelect = document.getElementById('existingProject');
+                    formData.project = projectSelect.options[projectSelect.selectedIndex].text;
+                }
+                
+                // Отправка данных
                 sendApplication(formData, 'build-house');
                 
+                // Показать сообщение об успехе
                 document.getElementById('buildSuccessMessage').style.display = 'block';
                 
+                // Закрыть модальное окно через 3 секунды
                 setTimeout(() => {
-                    buildHouseModal.style.display = 'none';
+                    document.getElementById('buildHouseModal').style.display = 'none';
                     document.body.style.overflow = 'auto';
                     document.getElementById('buildSuccessMessage').style.display = 'none';
                     this.reset();
                 }, 3000);
             });
-            
-            document.getElementById('tourForm').addEventListener('submit', function(e) {
-                e.preventDefault();
-                
-                const formData = {
-                    name: document.getElementById('tourName').value,
-                    phone: document.getElementById('tourPhone').value,
-                    email: document.getElementById('tourEmail').value,
-                    date: document.getElementById('tourDate').value,
-                    object: document.getElementById('tourObject').value,
-                    participants: document.getElementById('tourParticipants').value,
-                    comments: document.getElementById('tourComments').value
-                };
-                
-                sendApplication(formData, 'tour');
-                
-                document.getElementById('tourSuccessMessage').style.display = 'block';
-                
-                setTimeout(() => {
-                    tourModal.style.display = 'none';
+        }
+        
+        function setupModals() {
+            // Закрытие модальных окон
+            document.querySelectorAll('.close-modal').forEach(button => {
+                button.addEventListener('click', function() {
+                    document.querySelectorAll('.modal, .project-modal').forEach(modal => {
+                        modal.style.display = 'none';
+                    });
                     document.body.style.overflow = 'auto';
-                    document.getElementById('tourSuccessMessage').style.display = 'none';
-                    this.reset();
-                }, 3000);
+                });
+            });
+            
+            // Закрытие при клике вне модального окна
+            window.addEventListener('click', function(event) {
+                if (event.target.classList.contains('modal')) {
+                    document.querySelectorAll('.modal, .project-modal').forEach(modal => {
+                        modal.style.display = 'none';
+                    });
+                    document.body.style.overflow = 'auto';
+                }
+            });
+        }
+        
+        function openProjectModal(project) {
+            document.getElementById('projectTitle').textContent = project.name;
+            
+            // Загрузка PDF файла
+            const pdfViewer = document.getElementById('projectPdfViewer');
+            pdfViewer.src = project.pdfUrl;
+            
+            // Показать модальное окно
+            document.getElementById('projectModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function openAllProjectsModal() {
+            const container = document.getElementById('allProjectsContainer');
+            container.innerHTML = '';
+            
+            // Заполнение контейнера проектами
+            projects.forEach(project => {
+                const projectCard = document.createElement('div');
+                projectCard.className = 'project-modal-card';
+                projectCard.innerHTML = `
+                    <div class="project-modal-image">
+                        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="${project.name}">
+                    </div>
+                    <div class="project-modal-info">
+                        <div class="project-modal-title">${project.name}</div>
+                        <p>Площадь: ${project.area} кв.м.</p>
+                        <p>Комнат: ${project.rooms}</p>
+                        <p>Этажей: ${project.floors}</p>
+                        <p>Цена: ${project.price}</p>
+                        <button class="view-full-project-btn" data-id="${project.id}">Посмотреть проект</button>
+                    </div>
+                `;
+                container.appendChild(projectCard);
+                
+                // Обработчик для кнопки просмотра
+                projectCard.querySelector('.view-full-project-btn').addEventListener('click', function() {
+                    const projectId = this.getAttribute('data-id');
+                    const project = projects.find(p => p.id == projectId);
+                    openProjectModal(project);
+                });
+            });
+            
+            // Показать модальное окно
+            document.getElementById('allProjectsModal').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+        
+        function populateProjectSelect() {
+            const select = document.getElementById('existingProject');
+            
+            // Очистить существующие опции
+            while (select.options.length > 1) {
+                select.remove(1);
+            }
+            
+            // Добавить проекты в выпадающий список
+            projects.forEach(project => {
+                const option = document.createElement('option');
+                option.value = project.id;
+                option.textContent = project.name;
+                select.appendChild(option);
             });
         }
         
         function sendApplication(data, type) {
-            console.log(`Отправка заявки типа: ${type}`, data);
+            // Формирование сообщения в зависимости от типа заявки
+            let message = '';
             
-            if (state.telegram.botToken && state.telegram.chatId) {
-                sendToTelegram(data, type);
+            if (type === 'build-house') {
+                message = `Новая заявка на строительство дома!\n\n`;
+                message += `Имя: ${data.name}\n`;
+                message += `Телефон: ${data.phone}\n`;
+                message += `Email: ${data.email}\n`;
+                message += `Местоположение: ${data.location || 'Не указано'}\n`;
+                message += `Тип проекта: ${getProjectTypeText(data.projectType)}\n`;
+                
+                if (data.projectType === 'existing' && data.project) {
+                    message += `Выбранный проект: ${data.project}\n`;
+                }
+                
+                message += `Площадь дома: ${data.area || 'Не указана'} кв.м.\n`;
+                message += `Тип дома: ${data.type || 'Не указан'}\n`;
+                message += `Бюджет: ${data.budget || 'Не указан'} руб.\n`;
+                message += `Пожелания: ${data.wishes || 'Нет'}`;
             }
             
-            if (state.emailjs.serviceId && state.emailjs.templateId && state.emailjs.userId) {
-                sendToEmail(data, type);
+            // Отправка в Telegram
+            sendTelegramMessage(message);
+            
+            // Отправка по Email
+            sendEmail(data, type);
+        }
+        
+        function getProjectTypeText(type) {
+            switch (type) {
+                case 'existing': return 'Готовый проект';
+                case 'own': return 'Свой проект';
+                case 'development': return 'Разработка проекта';
+                default: return 'Не указан';
             }
         }
         
-        async function sendToTelegram(data, type) {
-            const formTypes = {
-                'buy-house': 'Покупка дома',
-                'build-house': 'Постройка дома',
-                'tour': 'Экскурсия',
-                'review-form': 'Отзыв'
-            };
+        function sendTelegramMessage(message) {
+            const botToken = "7895837790:AAGcCjxt1极简代码m1PX1QxCLNcqwoY0Q9PC_vMXWk";
+            const chatId = "1240604782";
             
-            let message = `*Новая заявка (${formTypes[type] || type})*\n`;
+            if (!botToken || !chatId) return;
             
-            for (const [key, value] of Object.entries(data)) {
-                if (key !== 'houseId') {
-                    message += `*${key}:* ${value}\n`;
-                }
-            }
+            const url = `https://api.telegram.org/bot${botToken}/sendMessage`;
             
-            try {
-                const response = await fetch(`https://api.telegram.org/bot${state.telegram.botToken}/sendMessage`, {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({
-                        chat_id: state.telegram.chatId,
-                        text: message,
-                        parse_mode: 'Markdown'
-                    })
-                });
-                
-                if (!response.ok) {
-                    console.error('Ошибка отправки в Telegram:', await response.text());
-                }
-            } catch (error) {
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    chat_id: chatId,
+                    text: message
+                })
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('Сообщение отправлено в Telegram:', data);
+            })
+            .catch(error => {
                 console.error('Ошибка отправки в Telegram:', error);
-            }
+            });
         }
         
-        function sendToEmail(data, type) {
-            const formTypes = {
-                'buy-house': 'Покупка дома',
-                'build-house': 'Постройка дома',
-                'tour': 'Экскурсия',
-                'review-form': 'Отзыв'
+        function sendEmail(data, type) {
+            const emailParams = {
+                to_name: "Администратор",
+                from_name: data.name,
+                from_email: data.email,
+                phone: data.phone,
+                message: `Тип заявки: ${type}\n\nДанные: ${JSON.stringify(data, null, 2)}`
             };
             
-            const emailData = {
-                form_type: formTypes[type] || type,
-                ...data
-            };
-            
-            emailjs.send(state.emailjs.serviceId, state.emailjs.templateId, emailData)
-                .then(response => console.log('Email отправлен!', response.status, response.text))
-                .catch(error => console.error('Ошибка отправки email:', error));
-        }
-        
-        function setupAdminPanel() {
-            document.getElementById('bgOpacity').addEventListener('input', function() {
-                const opacityValue = (this.value * 100).toFixed(0);
-                document.getElementById('opacityValue').textContent = opacityValue + '%';
-                state.header.opacity = parseFloat(this.value);
-                updateHeader();
+            emailjs.send(
+                "gmail_service", 
+                "template_l4bhp9h", 
+                emailParams
+            )
+            .then(response => {
+                console.log('Письмо отправлено!', response.status, response.text);
+            })
+            .catch(error => {
+                console.error('Ошибка отправки письма:', error);
             });
-            
-            document.getElementById('logoPosition').value = state.header.logoPosition;
-            document.getElementById('sloganPosition').value = state.header.sloganPosition;
-            
-            document.getElementById('saveHeaderBtn').addEventListener('click', function() {
-                state.header.slogan = document.getElementById('headerSloganInput').value;
-                state.header.logoPosition = document.getElementById('logoPosition').value;
-                state.header.sloganPosition = document.getElementById('sloganPosition').value;
-                
-                updateHeader();
-                saveState();
-                alert('Изменения шапки сайта сохранены!');
-            });
-            
-            document.getElementById('bgUploadBtn').addEventListener('click', function() {
-                document.getElementById('headerBg').click();
-            });
-            
-            document.getElementById('headerBg').addEventListener('change', function(e) {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('headerBgPreview').src = e.target.result;
-                        document.getElementById('headerBgPreview').style.display = 'block';
-                        state.header.bgImage = e.target.result;
-                        updateHeader();
-                        saveState();
-                    }
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-            
-            document.getElementById('bannerUploadBtn').addEventListener('click', function() {
-                document.getElementById('bannerUpload').click();
-            });
-            
-            document.getElementById('bannerUpload').addEventListener('change', function(e) {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('bannerPreview').src = e.target.result;
-                        document.getElementById('bannerPreview').style.display = 'block';
-                        state.header.banner = e.target.result;
-                        updateHeader();
-                        saveState();
-                    }
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-            
-            document.getElementById('addAdvantageBtn').addEventListener('click', function() {
-                const icon = document.getElementById('advantageIcon').value;
-                const title = document.getElementById('advantageTitle').value;
-                const text = document.getElementById('advantageText').value;
-                
-                if (!icon || !title || !text) {
-                    alert('Пожалуйста, заполните все поля');
-                    return;
-                }
-                
-                const newAdvantage = {
-                    id: Date.now(),
-                    icon: icon,
-                    title: title,
-                    text: text
-                };
-                
-                state.advantages.push(newAdvantage);
-                renderAdvantages();
-                renderAdminAdvantages();
-                saveState();
-                
-                document.getElementById('advantageIcon').value = '';
-                document.getElementById('advantageTitle').value = '';
-                document.getElementById('advantageText').value = '';
-            });
-            
-            function renderAdminAdvantages() {
-                const container = document.getElementById('advantagesManager');
-                container.innerHTML = '';
-                
-                state.advantages.forEach(item => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'admin-editor';
-                    itemElement.innerHTML = `
-                        <div class="editor-row">
-                            <div class="editor-group">
-                                <label>Иконка</label>
-                                <input type="text" class="editor-control" value="${item.icon}" disabled>
-                            </div>
-                            <div class="editor-group">
-                                <label>Заголовок</label>
-                                <input type="text" class="editor-control" value="${item.title}" disabled>
-                            </div>
-                        </div>
-                        <div class="editor-group">
-                            <label>Текст</label>
-                            <textarea class="editor-control" disabled>${item.text}</textarea>
-                        </div>
-                        <button class="btn btn-danger" data-id="${item.id}">Удалить</button>
-                    `;
-                    container.appendChild(itemElement);
-                    
-                    itemElement.querySelector('.btn-danger').addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        state.advantages = state.advantages.filter(a => a.id !== id);
-                        renderAdminAdvantages();
-                        renderAdvantages();
-                        saveState();
-                    });
-                });
-            }
-            
-            document.getElementById('addStepBtn').addEventListener('click', function() {
-                const step = parseInt(document.getElementById('stepNumber').value);
-                const title = document.getElementById('stepTitle').value;
-                const icon = document.getElementById('stepIcon').value;
-                const content = document.getElementById('stepContent').value;
-                
-                if (!step || !title || !icon || !content) {
-                    alert('Пожалуйста, заполните все поля');
-                    return;
-                }
-                
-                const newStep = {
-                    id: Date.now(),
-                    step: step,
-                    title: title,
-                    icon: icon,
-                    content: content
-                };
-                
-                state.workSteps.push(newStep);
-                renderWorkSteps();
-                renderAdminSteps();
-                saveState();
-                
-                document.getElementById('stepNumber').value = '';
-                document.getElementById('stepTitle').value = '';
-                document.getElementById('stepIcon').value = '';
-                document.getElementById('stepContent').value = '';
-            });
-            
-            function renderAdminSteps() {
-                const container = document.getElementById('stepsManager');
-                container.innerHTML = '';
-                
-                state.workSteps.forEach(step => {
-                    const itemElement = document.createElement('div');
-                    itemElement.className = 'admin-editor';
-                    itemElement.innerHTML = `
-                        <div class="editor-row">
-                            <div class="editor-group">
-                                <label>Номер шага</label>
-                                <input type="number" class="editor-control" value="${step.step}" disabled>
-                            </div>
-                            <div class="editor-group">
-                                <label>Заголовок</label>
-                                <input type="text" class="editor-control" value="${step.title}" disabled>
-                            </div>
-                        </div>
-                        <div class="editor-row">
-                            <div class="editor-group">
-                                <label>Иконка</label>
-                                <input type="text" class="editor-control" value="${step.icon}" disabled>
-                            </div>
-                            <div class="editor-group">
-                                <label>Описание</label>
-                                <textarea class="editor-control" disabled>${step.content}</textarea>
-                            </div>
-                        </div>
-                        <button class="btn btn-danger" data-id="${step.id}">Удалить</button>
-                    `;
-                    container.appendChild(itemElement);
-                    
-                    itemElement.querySelector('.btn-danger').addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        state.workSteps = state.workSteps.filter(s => s.id !== id);
-                        renderAdminSteps();
-                        renderWorkSteps();
-                        saveState();
-                    });
-                });
-            }
-            
-            document.getElementById('galleryUploadBtn').addEventListener('click', function() {
-                document.getElementById('gallerySource').click();
-            });
-            
-            document.getElementById('gallerySource').addEventListener('change', function(e) {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('galleryPreview').src = e.target.result;
-                        document.getElementById('galleryPreview').style.display = 'block';
-                    }
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-            
-            document.getElementById('addGalleryItemBtn').addEventListener('click', function() {
-                const type = document.getElementById('galleryType').value;
-                const title = document.getElementById('galleryTitle').value;
-                const description = document.getElementById('galleryDesc').value;
-                const file = document.getElementById('gallerySource').files[0];
-                
-                if (!file || !title || !description) {
-                    alert('Пожалуйста, заполните все поля и загрузите изображение');
-                    return;
-                }
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const newItem = {
-                        id: Date.now(),
-                        type: type,
-                        src: e.target.result,
-                        title: title,
-                        description: description
-                    };
-                    
-                    state.gallery.push(newItem);
-                    renderGallery();
-                    renderAdminGallery();
-                    saveState();
-                    
-                    document.getElementById('galleryTitle').value = '';
-                    document.getElementById('galleryDesc').value = '';
-                    document.getElementById('galleryPreview').style.display = 'none';
-                }
-                reader.readAsDataURL(file);
-            });
-            
-            function renderAdminGallery() {
-                const container = document.getElementById('galleryManager');
-                container.innerHTML = '';
-                
-                state.gallery.forEach(item => {
-                    const preview = document.createElement('div');
-                    preview.className = 'gallery-preview';
-                    
-                    if (item.type === 'image') {
-                        preview.innerHTML = `
-                            <img src="${item.src}" alt="${item.title}">
-                            <div class="remove-btn" data-id="${item.id}">×</div>
-                        `;
-                    } else {
-                        preview.innerHTML = `
-                            <i class="fas fa-video" style="font-size: 2rem;"></i>
-                            <div class="remove-btn" data-id="${item.id}">×</div>
-                        `;
-                    }
-                    
-                    container.appendChild(preview);
-                    
-                    preview.querySelector('.remove-btn').addEventListener('click', function(e) {
-                        e.stopPropagation();
-                        const id = parseInt(this.getAttribute('data-id'));
-                        state.gallery = state.gallery.filter(g => g.id !== id);
-                        renderAdminGallery();
-                        renderGallery();
-                        saveState();
-                    });
-                });
-            }
-            
-            document.getElementById('houseUploadBtn').addEventListener('click', function() {
-                document.getElementById('houseImage').click();
-            });
-            
-            document.getElementById('houseImage').addEventListener('change', function(e) {
-                if (this.files && this.files[0]) {
-                    const reader = new FileReader();
-                    reader.onload = function(e) {
-                        document.getElementById('housePreview').src = e.target.result;
-                        document.getElementById('housePreview').style.display = 'block';
-                    }
-                    reader.readAsDataURL(this.files[0]);
-                }
-            });
-            
-            document.getElementById('addHouseBtn').addEventListener('click', function() {
-                const name = document.getElementById('houseName').value;
-                const stage = document.getElementById('houseStage').value;
-                const price = document.getElementById('housePrice').value;
-                const area = document.getElementById('houseArea').value;
-                const description = document.getElementById('houseDescription').value;
-                const file = document.getElementById('houseImage').files[0];
-                
-                if (!name || !stage || !price || !area || !file) {
-                    alert('Пожалуйста, заполните все обязательные поля');
-                    return;
-                }
-                
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const newHouse = {
-                        id: Date.now(),
-                        name: name,
-                        stage: stage,
-                        price: price,
-                        area: area,
-                        description: description,
-                        image: e.target.result
-                    };
-                    
-                    state.houses.push(newHouse);
-                    renderHouses();
-                    renderAdminHouses();
-                    saveState();
-                    
-                    document.getElementById('houseName').value = '';
-                    document.getElementById('houseStage').value = '';
-                    document.getElementById('housePrice').value = '';
-                    document.getElementById('houseArea').value = '';
-                    document.getElementById('houseDescription').value = '';
-                    document.getElementById('housePreview').style.display = 'none';
-                };
-                reader.readAsDataURL(file);
-            });
-            
-            function renderAdminHouses() {
-                const container = document.getElementById('housesManager');
-                container.innerHTML = '';
-                
-                state.houses.forEach(house => {
-                    const houseItem = document.createElement('div');
-                    houseItem.className = 'house-manager-item';
-                    houseItem.innerHTML = `
-                        <div class="house-manager-image">
-                            <img src="${house.image}" alt="${house.name}">
-                        </div>
-                        <div class="house-manager-info">
-                            <div class="house-manager-title">${house.name}</div>
-                            <p>${house.stage}, ${house.area} кв.м.</p>
-                            <p>${house.price}</p>
-                        </div>
-                        <div class="remove-house-btn" data-id="${house.id}">×</div>
-                    `;
-                    container.appendChild(houseItem);
-                    
-                    houseItem.querySelector('.remove-house-btn').addEventListener('click', function() {
-                        const id = parseInt(this.getAttribute('data-id'));
-                        state.houses = state.houses.filter(h => h.id !== id);
-                        renderAdminHouses();
-                        renderHouses();
-                        saveState();
-                    });
-                });
-            }
-            
-            document.getElementById('saveVkBtn').addEventListener('click', function() {
-                state.vkIntegration.groupId = document.getElementById('vkGroupId').value;
-                state.vkIntegration.token = document.getElementById('vkToken').value;
-                state.vkIntegration.count = parseInt(document.getElementById('vkCount').value);
-                saveState();
-                alert('Настройки VK сохранены!');
-            });
-            
-            document.getElementById('loadVkBtn').addEventListener('click', function() {
-                loadVKNews();
-            });
-            
-            async function loadVKNews() {
-                if (!state.vkIntegration.groupId || !state.vkIntegration.token) return;
-                
-                const loader = document.getElementById('newsLoader');
-                loader.style.display = 'block';
-                
-                try {
-                    const proxyUrl = 'https://api.allorigins.win/raw?url=';
-                    const apiUrl = `https://api.vk.com/method/wall.get?owner_id=-${state.vkIntegration.groupId}&count=${state.vkIntegration.count}&access_token=${state.vkIntegration.token}&v=5.131`;
-                    const url = proxyUrl + encodeURIComponent(apiUrl);
-                    
-                    const response = await fetch(url);
-                    
-                    const contentType = response.headers.get('content-type');
-                    if (!contentType || !contentType.includes('application/json')) {
-                        const text = await response.text();
-                        throw new Error(`Ожидался JSON, получен: ${text.substring(0, 100)}...`);
-                    }
-                    
-                    const data = await response.json();
-                    
-                    if (data.error) {
-                        console.error('VK API Error:', data.error);
-                        alert('Ошибка VK API: ' + data.error.error_msg);
-                        return;
-                    }
-                    
-                    const posts = data.response.items;
-                    const vkNews = posts.map(post => {
-                        let image = '';
-                        if (post.attachments && post.attachments.length > 0) {
-                            const photo = post.attachments.find(a => a.type === 'photo');
-                            if (photo) {
-                                const sizes = photo.photo.sizes;
-                                const imageSize = sizes.find(size => size.type === 'x') || sizes[sizes.length - 1];
-                                image = imageSize.url;
-                            }
-                        }
-                        
-                        return {
-                            id: `vk-${post.id}`,
-                            title: post.text.split('\n')[0].substring(0, 60) + '...',
-                            excerpt: post.text.substring(0, 120) + '...',
-                            content: post.text,
-                            date: new Date(post.date * 1000).toISOString().split('T')[0],
-                            image: image || 'https://via.placeholder.com/800x400'
-                        };
-                    });
-                    
-                    state.news = [...vkNews, ...state.news.filter(n => !n.id.startsWith('vk-'))];
-                    renderNews();
-                    saveState();
-                    
-                } catch (error) {
-                    console.error('Failed to load VK news:', error);
-                    alert('Ошибка загрузки новостей: ' + error.message);
-                } finally {
-                    loader.style.display = 'none';
-                }
-            }
-            
-            renderAdminAdvantages();
-            renderAdminSteps();
-            renderAdminGallery();
-            renderAdminHouses();
         }
     </script>
 </body>
