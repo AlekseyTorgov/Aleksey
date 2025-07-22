@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>АГстрой - Строительная компания</title>
+    <title></title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
     <style>
@@ -40,7 +40,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: url('https://iimg.su/i/zFDqsM') no-repeat center center;
+            background: url('https://i.postimg.cc/T1VQpbRy/photo-1582407947304-fd86f028f716.jpg') no-repeat center center;
             background-size: cover;
             opacity: 0.15;
             z-index: -1;
@@ -48,9 +48,10 @@
         
         /* Обновленные стили для шапки */
       header {
-    background: white;
-    color: black;
-    padding: 8.5rem 0 0;
+    background: url('https://i.postimg.cc/CxL57qW0/Безымянный-1.jpg') no-repeat center center;
+    background-size: cover;
+    color: white;
+    padding: 8.5rem 0 0; 
     text-align: center;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     position: sticky;
@@ -60,7 +61,8 @@
     flex-direction: column;
     justify-content: flex-end;
     min-height: 0;
-    height: 12.50rem;
+    height: 12.5rem; /* Изменено с 25rem на 12.5rem */
+}
 }
         
          .header-container {
@@ -83,8 +85,9 @@
             font-size: 2rem;
             font-weight: bold;
             margin-bottom: 1.5rem;
-            color: #000;
+            color: #fff; /* Белый цвет текста для контраста */
             text-align: center;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.8);
         }
         
         @media (max-width: 768px) {
@@ -102,24 +105,25 @@
         }
         
         nav a {
-            color: #000;
+            color: #fff;
             text-decoration: none;
             font-weight: 500;
             padding: 0.5rem 1rem;
             border-radius: 4px;
             transition: all 0.3s ease;
-            border: 1px solid rgba(0,0,0,0.1);
+            border: 1px solid rgba(255,255,255,0.3);
+            background: rgba(0,0,0,0.3);
         }
         
         nav a:hover {
-            background: rgba(79, 195, 247, 0.2);
+            background: rgba(79, 195, 247, 0.5);
             transform: translateY(-2px);
             border-color: var(--secondary);
-            color: #000;
+            color: #fff;
         }
         
         .admin-link {
-            color: #333;
+            color: #fff;
             position: absolute;
             top: 12px;
             right: 15px;
@@ -127,6 +131,9 @@
             z-index: 101;
             font-size: 1.2rem;
             text-decoration: none;
+            background: rgba(0,0,0,0.5);
+            padding: 8px 12px;
+            border-radius: 50%;
         }
         
         .admin-link:hover {
@@ -198,6 +205,7 @@
             box-shadow: 0 5px 15px rgba(79, 195, 247, 0.3);
         }
         
+        /* Обновленные стили для героя */
         .hero {
             text-align: center;
             padding: 4rem 1rem;
@@ -207,9 +215,8 @@
             position: relative;
             margin-bottom: 2rem;
             background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), 
-                        url('https://iimg.su/i/zFDqsM') no-repeat center center;
+                        url('https://i.postimg.cc/mkf8LjGf/photo-1512917774080-9991f1c4c750.jpg') no-repeat center center;
             background-size: cover;
-            border: 1px solid var(--border);
         }
         
         .hero h1 {
@@ -625,1021 +632,1021 @@
             border-radius: 8px;
             overflow: hidden;
             position: relative;
+    }
+    
+    .review-photo-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .review-form {
+        max-width: 600px;
+        margin: 3rem auto 0;
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border: 1px solid var(--border);
+    }
+    
+    .review-form h3 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+    }
+    
+    .form-row {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-group {
+        flex: 1;
+        margin-bottom: 0;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #ddd;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #444;
+        border-radius: 4px;
+        font-size: 1rem;
+        background: #1a1a1a;
+        color: #fff;
+    }
+    
+    textarea.form-control {
+        min-height: 150px;
+        resize: vertical;
+    }
+    
+    .rating-input {
+        display: flex;
+        gap: 5px;
+        margin-bottom: 1rem;
+    }
+    
+    .rating-input i {
+        cursor: pointer;
+        font-size: 1.5rem;
+        color: #555;
+        transition: color 0.2s;
+    }
+    
+    .rating-input i.active {
+        color: gold;
+    }
+    
+    .btn {
+        padding: 0.75rem 1.5rem;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 1rem;
+        font-weight: 500;
+        transition: all 0.3s ease;
+        display: inline-block;
+    }
+    
+    .btn-primary {
+        background: var(--secondary);
+        color: var(--light);
+    }
+    
+    .btn-primary:hover {
+        background: var(--primary);
+    }
+    
+    .btn-block {
+        display: block;
+        width: 100%;
+    }
+    
+    .btn-danger {
+        background: #c62828;
+        color: white;
+    }
+    
+    .btn-danger:hover {
+        background: #b71c1c;
+    }
+    
+    footer {
+        background: #1a1a1a;
+        color: white;
+        padding: 3rem 0 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid var(--border);
+    }
+    
+    .footer-content {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+    }
+    
+    .footer-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .footer-section h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.5rem;
+        border-bottom: 2px solid rgba(255,255,255,0.1);
+    }
+    
+    .contact-info {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .contact-item {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .contact-icon {
+        width: 36px;
+        height: 36px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 18px;
+        background: rgba(255,255,255,0.1);
+    }
+    
+    .contact-text {
+        flex: 1;
+        color: #aaa;
+    }
+    
+    .contact-text a {
+        color: var(--primary);
+        text-decoration: none;
+        transition: all 0.3s;
+    }
+    
+    .contact-text a:hover {
+        color: var(--secondary);
+        text-decoration: underline;
+    }
+    
+    .social-icons {
+        display: flex;
+        gap: 15px;
+        margin-top: 1rem;
+    }
+    
+    .social-icon {
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: rgba(255,255,255,0.1);
+        color: white;
+        font-size: 1.2rem;
+        transition: all 0.3s ease;
+    }
+    
+    .social-icon:hover {
+        transform: translateY(-5px);
+        background: rgba(255,255,255,0.2);
+    }
+    
+    .vk-icon:hover { background: #4a76a8; }
+    .youtube-icon:hover { background: #ff0000; }
+    .zen-icon:hover { background: #3d9ae8; }
+    .rutube-icon:hover { background: #3f6e99; }
+    .whatsapp-icon:hover { background: #25d366; }
+    .telegram-icon:hover { background: #0088cc; }
+    
+    .copyright {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255,255,255,0.1);
+        color: #777;
+    }
+    
+    .admin-panel {
+        background: var(--card-bg);
+        border-radius: 10px;
+        padding: 2rem;
+        margin: 2rem 0;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        display: none;
+        border: 1px solid var(--border);
+    }
+    
+    .admin-panel.active {
+        display: block;
+    }
+    
+    .admin-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid var(--border);
+    }
+    
+    .admin-section {
+        margin-bottom: 2rem;
+        padding: 1.5rem;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+    }
+    
+    .admin-section h4 {
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.5rem;
+    }
+    
+    .btn-group {
+        display: flex;
+        gap: 1rem;
+        margin-top: 1rem;
+    }
+    
+    .admin-editor {
+        background: #1a1a1a;
+        padding: 1.5rem;
+        border-radius: 8px;
+        margin-bottom: 1.5rem;
+        border: 1px solid var(--border);
+    }
+    
+    .editor-row {
+        display: flex;
+        gap: 15px;
+        margin-bottom: 1rem;
+        flex-wrap: wrap;
+    }
+    
+    .editor-group {
+        flex: 1;
+        min-width: 300px;
+    }
+    
+    .editor-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #ddd;
+    }
+    
+    .editor-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #444;
+        border-radius: 4px;
+        font-size: 1rem;
+        background: #1a1a1a;
+        color: #fff;
+    }
+    
+    textarea.editor-control {
+        min-height: 150px;
+    }
+    
+    .image-preview {
+        width: 100%;
+        max-height: 200px;
+        object-fit: contain;
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        margin-top: 1rem;
+        display: none;
+    }
+    
+    .gallery-manager {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 15px;
+        margin-top: 1rem;
+    }
+    
+    .gallery-preview {
+        position: relative;
+        border-radius: 8px;
+        overflow: hidden;
+        height: 150px;
+        background: #1a1a1a;
+        border: 1px dashed #555;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .gallery-preview img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    
+    .gallery-preview .remove-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(255, 0, 0, 0.7);
+        color: white;
+        width: 24px;
+        height: 24px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+    }
+    
+    .upload-area {
+        border: 2px dashed #555;
+        border-radius: 8px;
+        padding: 2rem;
+        text-align: center;
+        margin-bottom: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    .upload-area:hover {
+        border-color: var(--secondary);
+        background: rgba(79, 195, 247, 0.05);
+    }
+    
+    .upload-area i {
+        font-size: 3rem;
+        color: #555;
+        margin-bottom: 1rem;
+    }
+    
+    .login-form {
+        max-width: 400px;
+        margin: 5rem auto;
+        background: var(--card-bg);
+        padding: 2rem;
+        border-radius: 10px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        border: 1px solid var(--border);
+    }
+    
+    .login-form h2 {
+        text-align: center;
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+    }
+    
+    .promotion-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 25px;
+    }
+    
+    .promotion-card {
+        background: var(--card-bg);
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        transition: all 0.3s ease;
+        position: relative;
+        border: 1px solid var(--border);
+    }
+    
+    .promotion-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        border-color: var(--secondary);
+    }
+    
+    .promotion-badge {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        background: var(--accent);
+        color: white;
+        padding: 5px 15px;
+        border-radius: 20px;
+        font-size: 0.9rem;
+        font-weight: bold;
+    }
+    
+    ..promotion-image {
+    height: 200px;
+    overflow: hidden;
+}
+    
+    .promotion-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+    
+    .promotion-card:hover .promotion-image img {
+        transform: scale(1.1);
+    }
+    
+    .promotion-content {
+        padding: 1.5rem;
+    }
+    
+    .promotion-title {
+        font-size: 1.4rem;
+        margin-bottom: 1rem;
+        color: var(--promo);
+    }
+    
+    .promotion-desc {
+        color: #aaa;
+        margin-bottom: 1.5rem;
+    }
+    
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        z-index: 1000;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .modal-content {
+        background: var(--card-bg);
+        border-radius: 10px;
+        max-width: 600px;
+        width: 90%;
+        max-height: 90vh;
+        overflow-y: auto;
+        padding: 2rem;
+        position: relative;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        border: 1px solid var(--border);
+    }
+    
+    .close-modal {
+        position: absolute;
+        top: 15px;
+        right: 15px;
+        font-size: 1.5rem;
+        cursor: pointer;
+        color: #777;
+        transition: color 0.3s;
+    }
+    
+    .close-modal:hover {
+        color: var(--accent);
+    }
+    
+    .modal-title {
+        margin-bottom: 1.5rem;
+        color: var(--primary);
+        text-align: center;
+    }
+    
+    .houses-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+        gap: 20px;
+        margin: 2rem 0;
+    }
+    
+    .house-card {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        background: var(--card-bg);
+    }
+    
+    .house-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        border-color: var(--secondary);
+    }
+    
+    .house-image {
+        height: 180px;
+        overflow: hidden;
+    }
+    
+    .house-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.5s ease;
+    }
+    
+    .house-card:hover .house-image img {
+        transform: scale(1.1);
+    }
+    
+    .house-info {
+        padding: 1rem;
+    }
+    
+    .house-title {
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+        color: var(--primary);
+    }
+    
+    .house-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+        color: #777;
+    }
+    
+    .house-price {
+        font-weight: bold;
+        color: var(--accent);
+        font-size: 1.2rem;
+    }
+    
+    .select-house-btn {
+        width: 100%;
+        text-align: center;
+        padding: 0.75rem;
+        background: var(--secondary);
+        color: var(--light);
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.3s;
+    }
+    
+    .select-house-btn:hover {
+        background: var(--primary);
+    }
+    
+    .form-section {
+        margin-bottom: 1.5rem;
+    }
+    
+    .form-section h4 {
+        margin-bottom: 1rem;
+        color: var(--primary);
+        border-bottom: 1px solid var(--border);
+        padding-bottom: 0.5rem;
+    }
+    
+    .form-group {
+        margin-bottom: 1rem;
+    }
+    
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+        color: #ddd;
+    }
+    
+    .form-control {
+        width: 100%;
+        padding: 0.75rem;
+        border: 1px solid #444;
+        border-radius: 4px;
+        font-size: 1rem;
+        background: #1a1a1a;
+        color: #fff;
+    }
+    
+    .submit-btn {
+        width: 100%;
+        padding: 1rem;
+        background: var(--accent);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 1.1rem;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background 0.3s;
+        margin-top: 1rem;
+    }
+    
+    .submit-btn:hover {
+        background: #c41d58;
+    }
+    
+    .success-message {
+        background: #2e7d32;
+        color: #a5d6a7;
+        padding: 1rem;
+        border-radius: 4px;
+        margin-top: 1rem;
+        text-align: center;
+        display: none;
+    }
+    
+    #about .content {
+        padding: 0 40px;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #aaa;
+    }
+    
+    #about ul {
+        margin: 25px 0;
+        padding-left: 20px;
+        list-style: none;
+    }
+    
+    #about ul li {
+        margin-bottom: 20px;
+        padding-left: 40px;
+        position: relative;
+        font-size: 1.1rem;
+    }
+    
+    #about ul li i {
+        position: absolute;
+        left: 0;
+        top: 3px;
+        width: 28px;
+        height: 28px;
+        background: var(--secondary);
+        color: var(--light);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1rem;
+    }
+    
+    #about .guarantee-box {
+        background: rgba(79, 195, 247, 0.1);
+        border-left: 4px solid var(--secondary);
+        padding: 20px 25px;
+        border-radius: 0 8px 8px 0;
+        margin: 30px 0;
+        font-size: 1.15rem;
+        color: #ddd;
+    }
+    
+    .photo-upload-container {
+        margin: 1.5rem 0;
+        text-align: center;
+    }
+    
+    .photo-preview {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid var(--secondary);
+        margin: 0 auto 15px;
+        display: none;
+    }
+    
+    .upload-btn {
+        display: inline-block;
+        padding: 10px 20px;
+        background: var(--secondary);
+        color: var(--light);
+        border-radius: 4px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 10px;
+        position: relative;
+    }
+    
+    .upload-btn input[type="file"] {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        cursor: pointer;
+    }
+    
+    .upload-btn:hover {
+        background: var(--primary);
+    }
+    
+    .upload-btn i {
+        margin-right: 8px;
+    }
+    
+    .upload-progress {
+        width: 100%;
+        height: 5px;
+        background: #333;
+        border-radius: 10px;
+        margin-top: 10px;
+        display: none;
+    }
+    
+    .progress-bar {
+        height: 100%;
+        width: 0%;
+        background: var(--accent);
+        border-radius: 10px;
+        transition: width 0.3s ease;
+    }
+    
+    .logo-left .logo-container {
+        justify-content: flex-start;
+    }
+    
+    .logo-right .logo-container {
+        justify-content: flex-end;
+    }
+    
+    .slogan-top .slogan {
+        order: -1;
+        margin-top: 0;
+        margin-bottom: 0.5rem;
+    }
+    
+    .slogan-left {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .slogan-left .slogan {
+        margin-top: 0;
+    }
+    
+    .slogan-right {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        gap: 20px;
+    }
+    
+    .slogan-right .slogan {
+        margin-top: 0;
+    }
+    
+    .header-banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        object-fit: cover;
+    }
+    
+    .header-with-banner {
+        background: rgba(0,0,0,0.5);
+        position: relative;
+        overflow: hidden;
+    }
+    
+    .loader {
+        border: 4px solid rgba(255,255,255,0.1);
+        border-top: 4px solid var(--secondary);
+        border-radius: 50%;
+        width: 40px;
+        height: 40px;
+        animation: spin 1s linear infinite;
+        margin: 20px auto;
+        display: none;
+    }
+    
+    @keyframes spin {
+        0% { transform: rotate(0deg); }
+        100% { transform: rotate(360deg); }
+    }
+    
+    /* Новые стили для управления домами */
+    .houses-manager {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 20px;
+        margin-top: 20px;
+    }
+    
+    .house-manager-item {
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        overflow: hidden;
+        background: var(--card-bg);
+        position: relative;
+    }
+    
+    .house-manager-image {
+        height: 150px;
+        overflow: hidden;
+    }
+    
+    .house-manager-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .house-manager-info {
+        padding: 15px;
+    }
+    
+    .house-manager-title {
+        font-weight: bold;
+        margin-bottom: 5px;
+        color: var(--primary);
+    }
+    
+    .remove-house-btn {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background: rgba(255, 0, 0, 0.7);
+        color: white;
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        z-index: 2;
+    }
+    
+    /* Стили для управления фото в отзывах */
+    .photo-preview-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+        gap: 10px;
+        margin-top: 10px;
+    }
+    
+    .photo-preview-item {
+        position: relative;
+        height: 100px;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    
+    .photo-preview-item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+    
+    .photo-preview-item .remove-photo-btn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+        background: rgba(255, 0, 0, 0.7);
+        color: white;
+        width: 20px;
+        height: 20px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 0.8rem;
+        cursor: pointer;
+    }
+    
+    /* Стили для кнопок управления */
+    .admin-controls {
+        display: flex;
+        gap: 10px;
+        margin-top: 15px;
+    }
+    
+    .edit-btn {
+        background: var(--secondary);
+        color: white;
+    }
+    
+    .delete-btn {
+        background: var(--accent);
+        color: white;
+    }
+    
+    .item-actions {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        display: flex;
+        gap: 5px;
+        z-index: 10;
+    }
+    
+    .action-btn {
+        width: 30px;
+        height: 30px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        font-size: 14px;
+    }
+    
+    .edit-action {
+        background: var(--secondary);
+    }
+    
+    .delete-action {
+        background: var(--accent);
+    }
+    
+    @media (max-width: 768px) {
+        nav {
+            flex-direction: column;
+            gap: 0.5rem;
+            align-items: center;
         }
         
-        .review-photo-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
+        .hero h1 {
+            font-size: 2.5rem;
         }
         
-        .review-form {
-            max-width: 600px;
-            margin: 3rem auto 0;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid var(--border);
-        }
-        
-        .review-form h3 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .form-row {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-group {
-            flex: 1;
-            margin-bottom: 0;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #ddd;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #444;
-            border-radius: 4px;
-            font-size: 1rem;
-            background: #1a1a1a;
-            color: #fff;
-        }
-        
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-        
-        .rating-input {
-            display: flex;
-            gap: 5px;
-            margin-bottom: 1rem;
-        }
-        
-        .rating-input i {
-            cursor: pointer;
-            font-size: 1.5rem;
-            color: #555;
-            transition: color 0.2s;
-        }
-        
-        .rating-input i.active {
-            color: gold;
-        }
-        
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-size: 1rem;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            display: inline-block;
-        }
-        
-        .btn-primary {
-            background: var(--secondary);
-            color: var(--light);
-        }
-        
-        .btn-primary:hover {
-            background: var(--primary);
-        }
-        
-        .btn-block {
-            display: block;
-            width: 100%;
-        }
-        
-        .btn-danger {
-            background: #c62828;
-            color: white;
-        }
-        
-        .btn-danger:hover {
-            background: #b71c1c;
-        }
-        
-        footer {
-            background: #1a1a1a;
-            color: white;
-            padding: 3rem 0 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid var(--border);
-        }
-        
-        .footer-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-        
-        .footer-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .footer-section h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1.5rem;
-            padding-bottom: 0.5rem;
-            border-bottom: 2px solid rgba(255,255,255,0.1);
-        }
-        
-        .contact-info {
-            display: flex;
+        .hero-buttons {
             flex-direction: column;
             gap: 1rem;
         }
         
-        .contact-item {
-            display: flex;
-            align-items: flex-start;
-            gap: 10px;
-        }
-        
-        .contact-icon {
-            width: 36px;
-            height: 36px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
+        .hero-btn {
+            width: 100%;
             justify-content: center;
-            flex-shrink: 0;
-            font-size: 18px;
-            background: rgba(255,255,255,0.1);
         }
         
-        .contact-text {
-            flex: 1;
-            color: #aaa;
-        }
-        
-        .contact-text a {
-            color: var(--primary);
-            text-decoration: none;
-            transition: all 0.3s;
-        }
-        
-        .contact-text a:hover {
-            color: var(--secondary);
-            text-decoration: underline;
-        }
-        
-        .social-icons {
-            display: flex;
-            gap: 15px;
-            margin-top: 1rem;
-        }
-        
-        .social-icon {
-            width: 45px;
-            height: 45px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(255,255,255,0.1);
-            color: white;
-            font-size: 1.2rem;
-            transition: all 0.3s ease;
-        }
-        
-        .social-icon:hover {
-            transform: translateY(-5px);
-            background: rgba(255,255,255,0.2);
-        }
-        
-        .vk-icon:hover { background: #4a76a8; }
-        .youtube-icon:hover { background: #ff0000; }
-        .zen-icon:hover { background: #3d9ae8; }
-        .rutube-icon:hover { background: #3f6e99; }
-        .whatsapp-icon:hover { background: #25d366; }
-        .telegram-icon:hover { background: #0088cc; }
-        
-        .copyright {
-            text-align: center;
-            padding-top: 2rem;
-            margin-top: 2rem;
-            border-top: 1px solid rgba(255,255,255,0.1);
-            color: #777;
-        }
-        
-        .admin-panel {
-            background: var(--card-bg);
-            border-radius: 10px;
-            padding: 2rem;
-            margin: 2rem 0;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            display: none;
-            border: 1px solid var(--border);
-        }
-        
-        .admin-panel.active {
-            display: block;
-        }
-        
-        .admin-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 1.5rem;
-            padding-bottom: 1rem;
-            border-bottom: 1px solid var(--border);
-        }
-        
-        .admin-section {
-            margin-bottom: 2rem;
-            padding: 1.5rem;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-        }
-        
-        .admin-section h4 {
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-        }
-        
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
-        }
-        
-        .admin-editor {
-            background: #1a1a1a;
-            padding: 1.5rem;
-            border-radius: 8px;
-            margin-bottom: 1.5rem;
-            border: 1px solid var(--border);
+        .video-item {
+            grid-column: span 1;
+            height: 250px;
         }
         
         .editor-row {
-            display: flex;
-            gap: 15px;
-            margin-bottom: 1rem;
-            flex-wrap: wrap;
+            flex-direction: column;
         }
         
         .editor-group {
-            flex: 1;
-            min-width: 300px;
+            min-width: 100%;
         }
         
-        .editor-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #ddd;
+        .work-steps {
+            grid-template-columns: 1fr;
         }
         
-        .editor-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #444;
-            border-radius: 4px;
-            font-size: 1rem;
-            background: #1a1a1a;
-            color: #fff;
+        .advantages {
+            grid-template-columns: 1fr;
         }
         
-        textarea.editor-control {
-            min-height: 150px;
+        .reviews-container {
+            grid-template-columns: 1fr;
         }
         
-        .image-preview {
-            width: 100%;
-            max-height: 200px;
-            object-fit: contain;
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            margin-top: 1rem;
-            display: none;
-        }
-        
-        .gallery-manager {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-            gap: 15px;
-            margin-top: 1rem;
-        }
-        
-        .gallery-preview {
-            position: relative;
-            border-radius: 8px;
-            overflow: hidden;
-            height: 150px;
-            background: #1a1a1a;
-            border: 1px dashed #555;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        .gallery-preview img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-        
-        .gallery-preview .remove-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(255, 0, 0, 0.7);
-            color: white;
-            width: 24px;
-            height: 24px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        
-        .upload-area {
-            border: 2px dashed #555;
-            border-radius: 8px;
-            padding: 2rem;
-            text-align: center;
-            margin-bottom: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-        
-        .upload-area:hover {
-            border-color: var(--secondary);
-            background: rgba(79, 195, 247, 0.05);
-        }
-        
-        .upload-area i {
-            font-size: 3rem;
-            color: #555;
-            margin-bottom: 1rem;
-        }
-        
-        .login-form {
-            max-width: 400px;
-            margin: 5rem auto;
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            border: 1px solid var(--border);
-        }
-        
-        .login-form h2 {
-            text-align: center;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-        
-        .promotion-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-        
-        .promotion-card {
-            background: var(--card-bg);
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: all 0.3s ease;
-            position: relative;
-            border: 1px solid var(--border);
-        }
-        
-        .promotion-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            border-color: var(--secondary);
-        }
-        
-        .promotion-badge {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: var(--accent);
-            color: white;
-            padding: 5px 15px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-            font-weight: bold;
-        }
-        
-        .promotion-image {
-            height: 200px;
-            overflow: hidden;
-        }
-        
-        .promotion-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .promotion-card:hover .promotion-image img {
-            transform: scale(1.1);
-        }
-        
-        .promotion-content {
-            padding: 1.5rem;
-        }
-        
-        .promotion-title {
-            font-size: 1.4rem;
-            margin-bottom: 1rem;
-            color: var(--promo);
-        }
-        
-        .promotion-desc {
-            color: #aaa;
-            margin-bottom: 1.5rem;
-        }
-        
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.8);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .modal-content {
-            background: var(--card-bg);
-            border-radius: 10px;
-            max-width: 600px;
-            width: 90%;
-            max-height: 90vh;
-            overflow-y: auto;
-            padding: 2rem;
-            position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid var(--border);
-        }
-        
-        .close-modal {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #777;
-            transition: color 0.3s;
-        }
-        
-        .close-modal:hover {
-            color: var(--accent);
-        }
-        
-        .modal-title {
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-            text-align: center;
+        .form-row {
+            flex-direction: column;
+            gap: 1rem;
         }
         
         .houses-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-            gap: 20px;
-            margin: 2rem 0;
+            grid-template-columns: 1fr;
         }
         
-        .house-card {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-            background: var(--card-bg);
+        .promotion-cards {
+            grid-template-columns: 1fr;
         }
         
-        .house-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-            border-color: var(--secondary);
+        .floating-buttons {
+            bottom: 15px;
+            right: 15px;
         }
         
-        .house-image {
-            height: 180px;
-            overflow: hidden;
-        }
-        
-        .house-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .house-card:hover .house-image img {
-            transform: scale(1.1);
-        }
-        
-        .house-info {
-            padding: 1rem;
-        }
-        
-        .house-title {
-            font-weight: bold;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-        
-        .house-meta {
-            display: flex;
-            justify-content: space-between;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-            color: #777;
-        }
-        
-        .house-price {
-            font-weight: bold;
-            color: var(--accent);
+        .floating-btn {
+            width: 50px;
+            height: 50px;
             font-size: 1.2rem;
         }
-        
-        .select-house-btn {
-            width: 100%;
-            text-align: center;
-            padding: 0.75rem;
-            background: var(--secondary);
-            color: var(--light);
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
-        
-        .select-house-btn:hover {
-            background: var(--primary);
-        }
-        
-        .form-section {
-            margin-bottom: 1.5rem;
-        }
-        
-        .form-section h4 {
-            margin-bottom: 1rem;
-            color: var(--primary);
-            border-bottom: 1px solid var(--border);
-            padding-bottom: 0.5rem;
-        }
-        
-        .form-group {
-            margin-bottom: 1rem;
-        }
-        
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: #ddd;
-        }
-        
-        .form-control {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #444;
-            border-radius: 4px;
-            font-size: 1rem;
-            background: #1a1a1a;
-            color: #fff;
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 1rem;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 4px;
-            font-size: 1.1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: background 0.3s;
-            margin-top: 1rem;
-        }
-        
-        .submit-btn:hover {
-            background: #c41d58;
-        }
-        
-        .success-message {
-            background: #2e7d32;
-            color: #a5d6a7;
-            padding: 1rem;
-            border-radius: 4px;
-            margin-top: 1rem;
-            text-align: center;
-            display: none;
-        }
-        
-        #about .content {
-            padding: 0 40px;
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #aaa;
-        }
-        
-        #about ul {
-            margin: 25px 0;
-            padding-left: 20px;
-            list-style: none;
-        }
-        
-        #about ul li {
-            margin-bottom: 20px;
-            padding-left: 40px;
-            position: relative;
-            font-size: 1.1rem;
-        }
-        
-        #about ul li i {
-            position: absolute;
-            left: 0;
-            top: 3px;
-            width: 28px;
-            height: 28px;
-            background: var(--secondary);
-            color: var(--light);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1rem;
-        }
-        
-        #about .guarantee-box {
-            background: rgba(79, 195, 247, 0.1);
-            border-left: 4px solid var(--secondary);
-            padding: 20px 25px;
-            border-radius: 0 8px 8px 0;
-            margin: 30px 0;
-            font-size: 1.15rem;
-            color: #ddd;
-        }
-        
-        .photo-upload-container {
-            margin: 1.5rem 0;
-            text-align: center;
-        }
-        
-        .photo-preview {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid var(--secondary);
-            margin: 0 auto 15px;
-            display: none;
-        }
-        
-        .upload-btn {
-            display: inline-block;
-            padding: 10px 20px;
-            background: var(--secondary);
-            color: var(--light);
-            border-radius: 4px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            margin-top: 10px;
-            position: relative;
-        }
-        
-        .upload-btn input[type="file"] {
-            position: absolute;
-            left: 0;
-            top: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-        
-        .upload-btn:hover {
-            background: var(--primary);
-        }
-        
-        .upload-btn i {
-            margin-right: 8px;
-        }
-        
-        .upload-progress {
-            width: 100%;
-            height: 5px;
-            background: #333;
-            border-radius: 10px;
-            margin-top: 10px;
-            display: none;
-        }
-        
-        .progress-bar {
-            height: 100%;
-            width: 0%;
-            background: var(--accent);
-            border-radius: 10px;
-            transition: width 0.3s ease;
-        }
-        
-        .logo-left .logo-container {
-            justify-content: flex-start;
-        }
-        
-        .logo-right .logo-container {
-            justify-content: flex-end;
-        }
-        
-        .slogan-top .slogan {
-            order: -1;
-            margin-top: 0;
-            margin-bottom: 0.5rem;
-        }
-        
-        .slogan-left {
-            display: flex;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .slogan-left .slogan {
-            margin-top: 0;
-        }
-        
-        .slogan-right {
-            display: flex;
-            flex-direction: row-reverse;
-            align-items: center;
-            gap: 20px;
-        }
-        
-        .slogan-right .slogan {
-            margin-top: 0;
-        }
-        
-        .header-banner {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            object-fit: cover;
-        }
-        
-        .header-with-banner {
-            background: rgba(0,0,0,0.5);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .loader {
-            border: 4px solid rgba(255,255,255,0.1);
-            border-top: 4px solid var(--secondary);
-            border-radius: 50%;
-            width: 40px;
-            height: 40px;
-            animation: spin 1s linear infinite;
-            margin: 20px auto;
-            display: none;
-        }
-        
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-        
-        /* Новые стили для управления домами */
-        .houses-manager {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
-        }
-        
-        .house-manager-item {
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            overflow: hidden;
-            background: var(--card-bg);
-            position: relative;
-        }
-        
-        .house-manager-image {
-            height: 150px;
-            overflow: hidden;
-        }
-        
-        .house-manager-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .house-manager-info {
-            padding: 15px;
-        }
-        
-        .house-manager-title {
-            font-weight: bold;
-            margin-bottom: 5px;
-            color: var(--primary);
-        }
-        
-        .remove-house-btn {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            background: rgba(255, 0, 0, 0.7);
-            color: white;
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            z-index: 2;
-        }
-        
-        /* Стили для управления фото в отзывах */
-        .photo-preview-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
-            gap: 10px;
-            margin-top: 10px;
-        }
-        
-        .photo-preview-item {
-            position: relative;
-            height: 100px;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        
-        .photo-preview-item img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        .photo-preview-item .remove-photo-btn {
-            position: absolute;
-            top: 5px;
-            right: 5px;
-            background: rgba(255, 0, 0, 0.7);
-            color: white;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 0.8rem;
-            cursor: pointer;
-        }
-        
-        /* Стили для кнопок управления */
-        .admin-controls {
-            display: flex;
-            gap: 10px;
-            margin-top: 15px;
-        }
-        
-        .edit-btn {
-            background: var(--secondary);
-            color: white;
-        }
-        
-        .delete-btn {
-            background: var(--accent);
-            color: white;
-        }
-        
-        .item-actions {
-            position: absolute;
-            top: 10px;
-            right: 10px;
-            display: flex;
-            gap: 5px;
-            z-index: 10;
-        }
-        
-        .action-btn {
-            width: 30px;
-            height: 30px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-            font-size: 14px;
-        }
-        
-        .edit-action {
-            background: var(--secondary);
-        }
-        
-        .delete-action {
-            background: var(--accent);
-        }
-        
-        @media (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                gap: 0.5rem;
-                align-items: center;
-            }
-            
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-buttons {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .hero-btn {
-                width: 100%;
-                justify-content: center;
-            }
-            
-            .video-item {
-                grid-column: span 1;
-                height: 250px;
-            }
-            
-            .editor-row {
-                flex-direction: column;
-            }
-            
-            .editor-group {
-                min-width: 100%;
-            }
-            
-            .work-steps {
-                grid-template-columns: 1fr;
-            }
-            
-            .advantages {
-                grid-template-columns: 1fr;
-            }
-            
-            .reviews-container {
-                grid-template-columns: 1fr;
-            }
-            
-            .form-row {
-                flex-direction: column;
-                gap: 1rem;
-            }
-            
-            .houses-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .promotion-cards {
-                grid-template-columns: 1fr;
-            }
-            
-            .floating-buttons {
-                bottom: 15px;
-                right: 15px;
-            }
-            
-            .floating-btn {
-                width: 50px;
-                height: 50px;
-                font-size: 1.2rem;
-            }
-        }
-    </style>
+    }
+</style>
 </head>
 <body>
     <div class="bg-overlay" id="bgOverlay"></div>
@@ -1651,7 +1658,7 @@
         
         <div class="header-container">
             <div class="logo-container" id="logoContainer">
-                <div class="slogan" id="headerSlogan">Качественные решения для вашего комфорта</div>
+                <div class="slogan" id="headerSlogan">Профессиональное строительство домов под ключ</div>
             </div>
             
             <nav>
@@ -1683,7 +1690,8 @@
     <div class="container">
         <section class="hero" id="mainHero">
             <div class="hero-content">
-                <h1>АГстрой</h1>
+               
+                
                 <div class="hero-buttons">
                     <a class="hero-btn hero-btn-primary" id="buyHouseBtn">
                         <i class="fas fa-home"></i> Купить готовый дом
@@ -1692,7 +1700,7 @@
                         <i class="fas fa-hammer"></i> Построить дом
                     </a>
                     <a class="hero-btn hero-btn-tour" id="tourBtn">
-                        <i class="fas fa-map-marked-alt"></i> Записаться на экскурсию
+                        <i class="fas fa-map-marked-alt"></i> Получить консультацию, экскурсия
                     </a>
                 </div>
             </div>
@@ -1813,7 +1821,7 @@
                         <i class="fas fa-clipboard-check"></i>
                     </div>
                     <div class="advantage-text">
-                        <h3>Технический контроль на каждом этапе строительства</h3>
+                        <h3>Технический контроль на каждом этапе</h3>
                         <p>Осуществляем строгий контроль качества на всех этапах строительных работ</p>
                     </div>
                 </div>
@@ -1893,7 +1901,50 @@
             </div>
             
             <div class="gallery" id="galleryContainer">
-                <!-- Галерея будет загружена динамически -->
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=600" alt="Частный дом">
+                    <div class="overlay">
+                        <h3>Частный дом</h3>
+                        <p>Полная постройка под ключ</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=600" alt="Офисное помещение">
+                    <div class="overlay">
+                        <h3>Офисное помещение</h3>
+                        <p>Капитальный ремонт</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=600" alt="Коттеджный поселок">
+                    <div class="overlay">
+                        <h3>Коттеджный поселок</h3>
+                        <p>Комплексное строительство</p>
+                    </div>
+                </div>
+                <div class="gallery-item video-item">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="Объект Солнечный" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-label">ВИДЕО</div>
+                    <div class="overlay">
+                        <h3>Объект "Солнечный"</h3>
+                        <p>Ход строительства</p>
+                    </div>
+                </div>
+                <div class="gallery-item">
+                    <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=600" alt="Санузел">
+                    <div class="overlay">
+                        <h3>Санузел</h3>
+                        <p>Комплексный ремонт</p>
+                    </div>
+                </div>
+                <div class="gallery-item video-item">
+                    <iframe src="https://www.youtube.com/embed/7wtfhZwyrcc" title="ЖК Лесной" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                    <div class="video-label">ВИДЕО</div>
+                    <div class="overlay">
+                        <h3>ЖК "Лесной"</h3>
+                        <p>Видеообзор готового объекта</p>
+                    </div>
+                </div>
             </div>
             
             <a href="#" class="to-top-btn">
@@ -1902,19 +1953,78 @@
         </section>
 
         <section id="promotions">
-            <div class="section-header">
-                <h2><i class="fas fa-percentage"></i> Акции и специальные предложения</h2>
-                <p>Выгодные условия для наших клиентов</p>
+    <div class="section-header">
+        <h2><i class="fas fa-percentage"></i> Акции и специальные предложения</h2>
+        <p>Выгодные условия для наших клиентов</p>
+    </div>
+    
+    <div class="promotion-cards" id="promotionsContainer">
+        <div class="promotion-card">
+            <div class="promotion-badge">Скидка 20%</div>
+            <div class="promotion-image">
+                <img src="https://i.postimg.cc/kgR2D54C/image.jpg" alt="Скидка на баню или гараж">
             </div>
-            
-            <div class="promotion-cards" id="promotionsContainer">
-                <!-- Акции будут загружены динамически -->
+            <div class="promotion-content">
+                <h3 class="promotion-title">Скидка на баню или гараж</h3>
+                <p class="promotion-desc">При строительстве дома на вашем участке получите скидку 20% на строительство бани или гаража!</p>
             </div>
-            
-            <a href="#" class="to-top-btn">
-                <i class="fas fa-home"></i> Наверх
-            </a>
-        </section>
+        </div>
+        <div class="promotion-card">
+            <div class="promotion-badge">Бесплатно</div>
+            <div class="promotion-image">
+                <img src="https://i.postimg.cc/W4P136Cm/image.jpg" alt="Расчет сметы в подарок">
+            </div>
+            <div class="promotion-content">
+                <h3 class="promotion-title">Расчет сметы в подарок</h3>
+                <p class="promotion-desc">При заключении договора на строительство дома получите бесплатный расчет сметы!</p>
+            </div>
+        </div>
+        <div class="promotion-card">
+            <div class="promotion-badge">Бесплатно</div>
+            <div class="promotion-image">
+                <img src="https://i.postimg.cc/4d0CKXnC/image.jpg" alt="Эскизный проект в подарок">
+            </div>
+            <div class="promotion-content">
+                <h3 class="promotion-title">Эскизный проект в подарок</h3>
+                <p class="promotion-desc">При заключении договора на строительство получите бесплатный эскизный проект!</p>
+            </div>
+        </div>
+        <div class="promotion-card">
+            <div class="promotion-badge">Специально</div>
+            <div class="promotion-image">
+                <img src="https://i.postimg.cc/c4sjsKFK/image.jpg" alt="Специальные условия для молодых семей">
+            </div>
+            <div class="promotion-content">
+                <h3 class="promotion-title">Специальные условия для молодых семей</h3>
+                <p class="promotion-desc">Молодые семьи получают специальные скидки и условия оплаты при строительстве дома.</p>
+            </div>
+        </div>
+        <div class="promotion-card">
+            <div class="promotion-badge">Бесплатно</div>
+            <div class="promotion-image">
+                <img src="https://i.postimg.cc/fLn21k3R/image.jpg" alt="Бесплатный выезд специалиста">
+            </div>
+            <div class="promotion-content">
+                <h3 class="promotion-title">Бесплатный выезд специалиста</h3>
+                <p class="promotion-desc">Закажите бесплатный выезд нашего специалиста на ваш участок для консультации.</p>
+            </div>
+        </div>
+        <div class="promotion-card">
+            <div class="promotion-badge">Скидка</div>
+            <div class="promotion-image">
+                <img src="https://i.postimg.cc/2yCH8J7p/image.jpg" alt="Скидки пенсионерам">
+            </div>
+            <div class="promotion-content">
+                <h3 class="promotion-title">Скидки пенсионерам</h3>
+                <p class="promotion-desc">Специальные скидки для пенсионеров на все виды строительных работ.</p>
+            </div>
+        </div>
+    </div>
+    
+    <a href="#" class="to-top-btn">
+        <i class="fas fa-home"></i> Наверх
+    </a>
+</section>
 
         <section id="reviews">
             <div class="section-header">
@@ -1988,7 +2098,7 @@
                     <div class="editor-row">
                         <div class="editor-group">
                             <label for="headerSlogan">Слоган</label>
-                            <input type="text" id="headerSloganInput" class="editor-control" value="Качественные решения для вашего комфорта">
+                            <input type="text" id="headerSloganInput" class="editor-control" value=" ">
                         </div>
                     </div>
                     
@@ -2201,6 +2311,62 @@
                 </div>
                 
                 <div class="promotion-cards" id="promotionsManager"></div>
+            </div>
+            
+            <div class="admin-section">
+                <h4><i class="fas fa-comments"></i> Управление отзывами</h4>
+                <div class="admin-editor">
+                    <div class="editor-row">
+                        <div class="editor-group">
+                            <label for="reviewAuthor">Автор</label>
+                            <input type="text" id="reviewAuthor" class="editor-control">
+                        </div>
+                        <div class="editor-group">
+                            <label for="reviewDate">Дата</label>
+                            <input type="date" id="reviewDate" class="editor-control">
+                        </div>
+                    </div>
+                    <div class="editor-row">
+                        <div class="editor-group">
+                            <label for="reviewRating">Рейтинг</label>
+                            <input type="number" id="reviewRating" class="editor-control" min="1" max="5" value="5">
+                        </div>
+                        <div class="editor-group">
+                            <label for="reviewStatus">Статус</label>
+                            <select id="reviewStatus" class="editor-control">
+                                <option value="approved">Одобрен</option>
+                                <option value="pending">На модерации</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="editor-group">
+                        <label for="reviewPhotoAdmin">Фото автора</label>
+                        <input type="file" id="reviewPhotoAdmin" class="editor-control">
+                        <div class="upload-btn" id="reviewPhotoUploadBtn" style="margin-top: 10px;">
+                            <i class="fas fa-upload"></i> Загрузить фото
+                        </div>
+                    </div>
+                    <div class="editor-group">
+                        <img id="reviewPhotoPreview" class="image-preview" alt="Предпросмотр фото">
+                    </div>
+                    <div class="editor-group">
+                        <label for="reviewPhotosAdmin">Фотографии домов</label>
+                        <input type="file" id="reviewPhotosAdmin" class="editor-control" multiple>
+                        <div class="upload-btn" id="reviewPhotosUploadBtn" style="margin-top: 10px;">
+                            <i class="fas fa-upload"></i> Загрузить фотографии
+                        </div>
+                    </div>
+                    <div class="editor-group">
+                        <div class="photo-preview-grid" id="reviewPhotosPreview"></div>
+                    </div>
+                    <div class="editor-group">
+                        <label for="reviewContent">Текст отзыва</label>
+                        <textarea id="reviewContent" class="editor-control" rows="4"></textarea>
+                    </div>
+                    <button class="btn btn-primary" id="addReviewBtn">Добавить отзыв</button>
+                </div>
+                
+                <div class="reviews-container" id="reviewsManager"></div>
             </div>
             
             <div class="admin-section">
@@ -2506,12 +2672,26 @@
                     <div class="form-group">
                         <label for="tourObject">Выберите объект для экскурсии</label>
                         <select id="tourObject" class="form-control" required>
-                            <option value="">Выберите объект</option>
-                            <option value="ЖК 'Лесной'">ЖК "Лесной" (строительство завершено)</option>
-                            <option value="ЖК 'Речной'">ЖК "Речной" (стадия отделки)</option>
-                            <option value="ЖК 'Солнечный'">ЖК "Солнечный" (стадия фундамента)</option>
-                            <option value="Коттеджный поселок 'Тайга'">Коттеджный поселок "Тайга"</option>
-                            <option value="Строительство частного дома в Подмосковье">Строительство частного дома в Подмосковье</option>
+                            <option value="Выехать на ваш участок">Выехать на ваш участок, дать подробную консультацию бесплатно</option>
+                            <option value="КП Тихие зори">КП "Тихие зори"</option>
+                            <option value="КП Орловское">КП "Орловское"</option>
+                            <option value="КП Екатериненский">КП "Екатериненский"</option>
+                            <option value="КП Ближняя усадьба">КП "Ближняя усадьба"</option>
+                            <option value="КП Славянский">КП "Славянский"</option>
+                            <option value="д. Старомихайловское">д. Старомихайловское</option>
+                            <option value="Ягул">Ягул</option>
+                            <option value="КП Европа">КП "Европа"</option>
+                            <option value="с. Завьялово">с. Завьялово</option>
+                            <option value="КП Новое Завьялово">КП "Новое Завьялово"</option>
+                            <option value="КП Норвег">КП "Норвег"</option>
+                            <option value="КП Архитекторов">КП "Архитекторов"</option>
+                            <option value="КП Чистопрудный">КП "Чистопрудный"</option>
+                            <option value="КП Новые пазелы">КП "Новые пазелы"</option>
+                            <option value="КП Чекирил">КП "Чекирил"</option>
+                            <option value="КП Орловское 5">КП "Орловское 5"</option>
+                            <option value="Старый Игерман">Старый Игерман</option>
+                            <option value="Юровские дачи">Юровские дачи</option>
+                            <option value="Западный Квартал">Западный Квартал</option>
                         </select>
                     </div>
                     
@@ -2536,10 +2716,372 @@
     </div>
     
     <script>
-        // Часть 1: Инициализация состояния приложения
+        // ================== Часть 2: Начало JavaScript ==================
         let state = {
             isLoggedIn: false,
-            reviews: [],
+            reviews: [
+                {
+                    id: 1,
+                    author: "Анна Смирнова",
+                    text: "Строили дом в КП 'Тихие зори'. Работали с компанией АГстрой от фундамента до крыши. Все сделали качественно, без задержек. Особенно понравилось отношение прораба - всегда на связи, все вопросы решались оперативно.",
+                    date: "2023-07-12",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://i.postimg.cc/ph6GXtvD/1.jpg",
+                    photos: ["https://i.postimg.cc/N5cZ8qCG/2014-06-04-11-50-52.jpg"]
+                },
+                {
+                    id: 2,
+                    author: "Дмитрий Волков",
+                    text: "Заказывал строительство бани в КП 'Орловское'. Сделали за 3 недели, хотя обещали месяц. Качеством доволен, но небольшие недочеты в отделке пришлось исправлять. В целом рекомендую.",
+                    date: "2023-06-28",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/vxxP4S8C/126456576-800x600.jpg",
+                    
+                },
+                {
+                    id: 3,
+                    author: "Ольга Иванова",
+                    text: "Построили дом в КП 'Екатериненский'. Отличная работа! Все сделали быстро и качественно. Особенно хочу отметить отделку - все идеально ровно и аккуратно. Спасибо бригаде отделочников!",
+                    date: "2023-08-15",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 4,
+                    author: "Сергей Петров",
+                    text: "Строили дом в КП 'Ближняя усадьба'. В целом доволен, но были небольшие задержки со сроками из-за погодных условий. Качество работ на высоте, особенно понравилась работа с кровлей.",
+                    date: "2023-05-20",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/1487740M/154128731-800x600.jpg",
+                    photos: ["https://i.postimg.cc/1fr2JCbG/2015-10-17-13-27-53.jpg"]
+                },
+                {
+                    id: 5,
+                    author: "Елена Сидорова",
+                    text: "Заказывали строительство дома в КП 'Славянский'. Очень довольны результатом! Все этапы контролировал прораб, регулярно присылал фотоотчеты. Дом сдали на месяц раньше срока!",
+                    date: "2023-09-01",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://i.postimg.cc/WF3Yv1BN/2017-Jan-Sec-Op-HOrmone-Health.jpg",
+                    
+                },
+                {
+                    id: 6,
+                    author: "Алексей Кузнецов",
+                    text: "Строительство дома в д. Старомихайловское. Работали с компанией первый раз. Есть небольшие претензии к срокам, но качество на высоте. Особенно понравилось отношение к клиенту - все пожелания учитывали.",
+                    date: "2023-07-30",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 7,
+                    author: "Марина Васильева",
+                    text: "Построили дом в Ягуле. Очень довольны! Отличное соотношение цена-качество. Бригада работала профессионально, все вопросы решались оперативно. Особенно хочу поблагодарить прораба за внимательность.",
+                    date: "2023-06-10",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 8,
+                    author: "Игорь Николаев",
+                    text: "Купили готовый дом в КП 'Европа'. Качеством доволен, но пришлось немного дорабатывать отделку. Компания оперативно отреагировала на замечания и все исправила. В целом рекомендую.",
+                    date: "2023-08-22",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/VJsTT9c3/67.jpg"]
+                },
+                {
+                    id: 9,
+                    author: "Татьяна Федорова",
+                    text: "Строительство дома в с. Завьялово. Отличная работа! Все сделали в срок, качественно. Особенно понравилось, что использовали только качественные материалы. Буду рекомендовать вашу компанию знакомым.",
+                    date: "2023-07-05",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/4KDWJVr4/64S08479.jpg"]
+                },
+                {
+                    id: 10,
+                    author: "Владимир Соколов",
+                    text: "Построили дом в КП 'Новое Завьялово'. Работой доволен, но были небольшие задержки с поставкой материалов. В остальном все отлично, особенно хочу отметить качество фундаментных работ.",
+                    date: "2023-05-15",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/MvRPx4FQ/1789394507-huge.jpg",
+                    
+                    
+                },
+                {
+                    id: 11,
+                    author: "Наталья Морозова",
+                    text: "Дом в КП 'Норвег' построен на совесть! Все этапы контролировали, регулярно консультировали. Особенно понравилось, что учли все наши пожелания по планировке. Спасибо!",
+                    date: "2023-08-10",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://i.postimg.cc/34d85e238a25517980a144ff6bd7.jpg",
+                    
+                },
+                {
+                    id: 12,
+                    author: "Артем Белов",
+                    text: "Строительство в КП 'Архитекторов'. Качеством работ доволен, но сроки немного затянулись из-за сложностей с доставкой материалов. В целом компания заслуживает доверия.",
+                    date: "2023-06-05",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/MM1dXXS7/64S08489.jpg"]
+                },
+                {
+                    id: 13,
+                    author: "Юлия Ковалева",
+                    text: "Дом в КП 'Чистопрудный' построен быстро и качественно! Отделка на высшем уровне. Особенно хочу поблагодарить дизайнера за помощь в выборе материалов. Очень довольны результатом!",
+                    date: "2023-09-05",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://i.postimg.cc/9588acd4007c3dc07eb116a4a772.jpg",
+                    
+                },
+                {
+                    id: 14,
+                    author: "Денис Павлов",
+                    text: "Купили готовый дом в КП 'Новые пазелы'. Качество хорошее, но пришлось немного переделывать сантехнику. Компания оперативно отреагировала и все исправила. В целом впечатление положительное.",
+                    date: "2023-07-18",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/VSsDqNLq/enlarged-prostate-does.jpg",
+                    photos: ["https://i.postimg.cc/ykf47pnV/64S08495.jpg"]
+                },
+                {
+                    id: 15,
+                    author: "Екатерина Воробьева",
+                    text: "Строили дом в КП 'Чекирил'. Очень довольны! Все сделали в срок, качественно. Особенно понравилось отношение к клиенту - всегда на связи, все пожелания учитывали. Буду рекомендовать!",
+                    date: "2023-08-28",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 16,
+                    author: "Михаил Лебедев",
+                    text: "Дом в КП 'Орловское 5'. Качеством доволен, но были небольшие проблемы с электрикой. Компания быстро все исправила. В целом работа хорошая, особенно понравилась отделка фасада.",
+                    date: "2023-06-20",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 17,
+                    author: "Алина Семенова",
+                    text: "Построили дом в Старом Игермане. Отличная работа! Все этапы контролировали, регулярно консультировали. Особенно понравилось качество окон и дверей. Спасибо за теплый дом!",
+                    date: "2023-07-25",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/SnJ0RLtc/64S08504.jpg"]
+                },
+                {
+                    id: 18,
+                    author: "Андрей Григорьев",
+                    text: "Строительство в Юровских дачах. В целом доволен, но сроки немного затянулись. Качество работ хорошее, особенно хочу отметить кровельные работы. Рекомендую компанию.",
+                    date: "2023-05-30",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 19,
+                    author: "Светлана Титова",
+                    text: "Дом в Западном Квартале построен на отлично! Все сделали качественно и в срок. Особенно понравилась работа с дизайном интерьера. Огромное спасибо всей команде!",
+                    date: "2023-08-05",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 20,
+                    author: "Виктор Жуков",
+                    text: "Построили дом в КП 'Тихие зори'. Качеством доволен, но были небольшие недочеты в сантехнике. Компания оперативно все исправила. В целом работа хорошая, рекомендую.",
+                    date: "2023-06-15",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 21,
+                    author: "Людмила Крылова",
+                    text: "Строительство дома в КП 'Орловское'. Отличная работа! Все сделали быстро и качественно. Особенно понравилось отношение бригады - вежливые, профессиональные. Спасибо!",
+                    date: "2023-09-10",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 22,
+                    author: "Геннадий Орлов",
+                    text: "Дом в КП 'Екатериненский'. Качеством доволен, но сроки немного затянулись. В остальном все отлично, особенно хочу отметить качество отделочных работ. Рекомендую компанию.",
+                    date: "2023-07-08",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/zyrdfjsP/1898815187-huge.jpg",
+                    photos: ["https://i.postimg.cc/WFmCC5hc/attachment-2.jpg"]
+                },
+                {
+                    id: 23,
+                    author: "Валентина Степанова",
+                    text: "Построили дом в КП 'Ближняя усадьба'. Очень довольны! Все сделали качественно и в срок. Особенно понравилась работа с электрикой - все продумано до мелочей. Спасибо!",
+                    date: "2023-08-18",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://i.postimg.cc/mPym19RZ/1996763089-huge.jpg",
+                    
+                },
+                {
+                    id: 24,
+                    author: "Роман Борисов",
+                    text: "Строительство в КП 'Славянский'. В целом доволен, но были небольшие проблемы с вентиляцией. Компания быстро все исправила. Качество работ хорошее, рекомендую.",
+                    date: "2023-06-25",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/rR83k5r0/IMG-5280.jpg"]
+                },
+                {
+                    id: 25,
+                    author: "Оксана Филиппова",
+                    text: "Дом в д. Старомихайловское построен на отлично! Все этапы контролировали, регулярно консультировали. Особенно понравилось качество материалов. Огромное спасибо!",
+                    date: "2023-07-30",
+                    rating: 5,
+                    approved: true,
+                    photo: "https://i.postimg.cc/34d85e238a25517980a144ff6bd7.jpg",
+                    
+                },
+                {
+                    id: 26,
+                    author: "Николай Дмитриев",
+                    text: "Купили готовый дом в Ягуле. Качеством доволен, но пришлось немного дорабатывать отопление. Компания оперативно отреагировала и все исправила. В целом рекомендую.",
+                    date: "2023-08-25",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/9588acd4007c3dc07eb116a4a772.jpg",
+                    photos: ["https://i.postimg.cc/xXk7nfcR/IMG-8842.jpg"]
+                },
+                {
+                    id: 27,
+                    author: "Ирина Макарова",
+                    text: "Строили дом в КП 'Европа'. Отличная работа! Все сделали быстро и качественно. Особенно понравилось отношение к клиенту - всегда на связи, все пожелания учитывали. Спасибо!",
+                    date: "2023-07-12",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 28,
+                    author: "Анатолий Виноградов",
+                    text: "Дом в с. Завьялово. Качеством доволен, но сроки немного затянулись. В остальном все отлично, особенно хочу отметить качество кровельных работ. Рекомендую компанию.",
+                    date: "2023-06-08",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/VSsDqNLq/enlarged-prostate-does.jpg",
+                    
+                },
+                {
+                    id: 29,
+                    author: "Лариса Сорокина",
+                    text: "Построили дом в КП 'Новое Завьялово'. Очень довольны! Все сделали качественно и в срок. Особенно понравилась работа с ландшафтным дизайном. Огромное спасибо!",
+                    date: "2023-08-30",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/R6mb7wGs/3.jpg"]
+                },
+                {
+                    id: 30,
+                    author: "Василий Поляков",
+                    text: "Строительство в КП 'Норвег'. В целом доволен, но были небольшие проблемы с утеплением. Компания быстро все исправила. Качество работ хорошее, рекомендую.",
+                    date: "2023-07-15",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 31,
+                    author: "Галина Медведева",
+                    text: "Дом в КП 'Архитекторов' построен на отлично! Все этапы контролировали, регулярно консультировали. Особенно понравилось качество окон - дом очень теплый. Спасибо!",
+                    date: "2023-08-08",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/G8jgq95c/1.jpg"]
+                },
+                {
+                    id: 32,
+                    author: "Станислав Козлов",
+                    text: "Купили готовый дом в КП 'Чистопрудный'. Качеством доволен, но пришлось немного переделывать электропроводку. Компания оперативно отреагировала и все исправила. В целом рекомендую.",
+                    date: "2023-06-28",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 33,
+                    author: "Эльвира Новикова",
+                    text: "Строили дом в КП 'Новые пазелы'. Отличная работа! Все сделали быстро и качественно. Особенно понравилось отношение бригады - вежливые, профессиональные. Спасибо!",
+                    date: "2023-07-22",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    
+                },
+                {
+                    id: 34,
+                    author: "Юрий Морозов",
+                    text: "Дом в КП 'Чекирил'. Качеством доволен, но сроки немного затянулись. В остальном все отлично, особенно хочу отметить качество отделочных работ. Рекомендую компанию.",
+                    date: "2023-08-12",
+                    rating: 4,
+                    approved: true,
+                    photo: "https://i.postimg.cc/RqXbt6td/1.jpg",
+                    photos: ["https://i.postimg.cc/RqXbt6td/1.jpg"]
+                },
+                {
+                    id: 35,
+                    author: "Зоя Петренко",
+                    text: "Построили дом в КП 'Орловское 5'. Очень довольны! Все сделали качественно и в срок. Особенно понравилась работа с дизайном интерьера. Огромное спасибо всей команде!",
+                    date: "2023-07-05",
+                    rating: 5,
+                    approved: true,
+                    photo: "",
+                    photos: ["https://i.postimg.cc/18LdzkFZ/1.jpg"]
+                },
+                {
+                    id: 36,
+                    author: "Вячеслав Савельев",
+                    text: "Строительство в Старом Игермане. В целом доволен, но были небольшие проблемы с водоснабжением. Компания быстро все исправила. Качество работ хорошее, рекомендую.",
+                    date: "2023-08-20",
+                    rating: 4,
+                    approved: true,
+                    photo: "",
+                    
+                }
+            ],
             advantages: [
                 { 
                     id: 1,
@@ -2592,7 +3134,7 @@
                 { 
                     id: 9,
                     icon: "fas fa-clipboard-check", 
-                    title: "Технический контроль этапов строительных работ", 
+                    title: "Технический контроль на каждом этапе", 
                     text: "Осуществляем строгий контроль качества на всех этапах строительных работ" 
                 }
             ],
@@ -2644,152 +3186,285 @@
                 { 
                     id: 1,
                     type: 'image', 
-                    src: 'https://iimg.su/i/GpneAr', 
-                    title: 'Дом в КП Тихие зори', 
-                    description: 'Одноэтажный каменный дом с террасой' 
+                    src: 'https://i.postimg.cc/N5cZ8qCG/2014-06-04-11-50-52.jpg', 
+                    title: 'Частный дом в КП "Тихие зори"', 
+                    description: 'Полная постройка под ключ' 
                 },
                 { 
                     id: 2,
                     type: 'image', 
-                    src: 'https://iimg.su/i/ChcuRI', 
-                    title: 'Особняк в КП Орловское', 
-                    description: 'Двухэтажный дом с панорамными окнами' 
+                    src: 'https://i.postimg.cc/XBMmDTV8/2015-10-07-11-29-45-1.jpg', 
+                    title: 'Дом в КП "Орловское"', 
+                    description: 'Качественная отделка фасада' 
                 },
                 { 
                     id: 3,
                     type: 'image', 
-                    src: 'https://iimg.su/i/UhVOZ3', 
-                    title: 'Коттедж в КП Екатериненский', 
-                    description: 'Современный дом с плоской крышей' 
+                    src: 'https://i.postimg.cc/7Jgdvmhy/2015-10-17-13-26-24.jpg', 
+                    title: 'Коттедж в КП "Екатериненский"', 
+                    description: 'Современный дизайн' 
                 },
                 { 
                     id: 4,
                     type: 'image', 
-                    src: 'https://iimg.su/i/kkG61s', 
-                    title: 'Резиденция в КП Ближняя усадьба', 
-                    description: 'Просторный дом с зимним садом' 
+                    src: 'https://i.postimg.cc/1fr2JCbG/2015-10-17-13-27-53.jpg', 
+                    title: 'Дом в КП "Ближняя усадьба"', 
+                    description: 'Качественные строительные решения' 
                 },
                 { 
                     id: 5,
                     type: 'image', 
-                    src: 'https://iimg.su/i/Yob7eP', 
-                    title: 'Таунхаус в КП Славянский', 
-                    description: 'Современный комплекс таунхаусов' 
+                    src: 'https://i.postimg.cc/PNZB8r4F/3952662224.jpg', 
+                    title: 'Дом в КП "Славянский"', 
+                    description: 'Энергоэффективное строительство' 
                 },
                 { 
                     id: 6,
                     type: 'image', 
-                    src: 'https://iimg.su/i/XAsEsW', 
-                    title: 'Особняк в д. Старомихайловское', 
-                    description: 'Дом в классическом стиле с колоннами' 
+                    src: 'https://i.postimg.cc/RWP8z3Sq/image.jpg', 
+                    title: 'Коттедж в д. Старомихайловское', 
+                    description: 'Индивидуальный проект' 
                 },
                 { 
                     id: 7,
                     type: 'image', 
-                    src: 'https://iimg.su/i/CVaZCR', 
-                    title: 'Коттедж в Ягул', 
-                    description: 'Уютный дом с камином' 
+                    src: 'https://i.postimg.cc/06b458jn/image.jpg', 
+                    title: 'Дом в Ягуле', 
+                    description: 'Современные технологии строительства' 
                 },
                 { 
                     id: 8,
                     type: 'image', 
-                    src: 'https://iimg.su/i/LW7N9n', 
-                    title: 'Вилла в КП Европа', 
-                    description: 'Роскошная вилла с бассейном' 
+                    src: 'https://i.postimg.cc/VJsTT9c3/67.jpg', 
+                    title: 'Дом в КП "Европа"', 
+                    description: 'Европейское качество' 
                 },
                 { 
                     id: 9,
                     type: 'image', 
-                    src: 'https://iimg.su/i/AnGMnX', 
+                    src: 'https://i.postimg.cc/4KDWJVr4/64S08479.jpg', 
                     title: 'Дом в с. Завьялово', 
-                    description: 'Традиционный дом с мансардой' 
+                    description: 'Традиции и современность' 
                 },
                 { 
                     id: 10,
                     type: 'image', 
-                    src: 'https://iimg.su/i/qedUTi', 
-                    title: 'Особняк в КП Новое Завьялово', 
-                    description: 'Современный дом с террасой на крыше' 
+                    src: 'https://i.postimg.cc/06MtRcXH/64S08481.jpg', 
+                    title: 'Дом в КП "Новое Завьялово"', 
+                    description: 'Качественные материалы' 
                 },
                 { 
                     id: 11,
                     type: 'image', 
-                    src: 'https://iimg.su/i/0GqLtj', 
-                    title: 'Дом в КП Норвег', 
-                    description: 'Скандинавский стиль с натуральным деревом' 
+                    src: 'https://i.postimg.cc/1VPMFPmL/64S08486.jpg', 
+                    title: 'Дом в КП "Норвег"', 
+                    description: 'Скандинавский стиль' 
                 },
                 { 
                     id: 12,
                     type: 'image', 
-                    src: 'https://iimg.su/i/Tn4nA1', 
-                    title: 'Резиденция в КП Архитекторов', 
-                    description: 'Авторский проект с необычными формами' 
+                    src: 'https://i.postimg.cc/MM1dXXS7/64S08489.jpg', 
+                    title: 'Дом в КП "Архитекторов"', 
+                    description: 'Авторский проект' 
                 },
                 { 
                     id: 13,
                     type: 'image', 
-                    src: 'https://iimg.su/i/cPCZXU', 
-                    title: 'Комплекс в КП Чистопрудный', 
-                    description: 'Экологичное строительство с панорамными окнами' 
+                    src: 'https://i.postimg.cc/sGcm9811/64S08493.jpg', 
+                    title: 'Дом в КП "Чистопрудный"', 
+                    description: 'Экологичные материалы' 
                 },
                 { 
                     id: 14,
                     type: 'image', 
-                    src: 'https://iimg.su/i/tqMLBt', 
-                    title: 'Таунхаус в КП Новые пазелы', 
-                    description: 'Современный комплекс с общей территорией' 
+                    src: 'https://i.postimg.cc/ykf47pnV/64S08495.jpg', 
+                    title: 'Дом в КП "Новые пазелы"', 
+                    description: 'Современный дизайн' 
                 },
                 { 
                     id: 15,
                     type: 'image', 
-                    src: 'https://iimg.su/i/yBaIMM', 
-                    title: 'Коттедж в КП Чекирил', 
-                    description: 'Дом в стиле минимализм с большими окнами' 
+                    src: 'https://i.postimg.cc/qzBHVHsb/64S08498.jpg', 
+                    title: 'Дом в КП "Чекирил"', 
+                    description: 'Качественное исполнение' 
                 },
                 { 
                     id: 16,
                     type: 'image', 
-                    src: 'https://iimg.su/i/WtesQR', 
-                    title: 'Особняк в КП Орловское 5', 
-                    description: 'Роскошный дом с зимним садом' 
+                    src: 'https://i.postimg.cc/grHbT2ZL/64S08501.jpg', 
+                    title: 'Дом в КП "Орловское 5"', 
+                    description: 'Надежные конструкции' 
                 },
                 { 
                     id: 17,
                     type: 'image', 
-                    src: 'https://iimg.su/i/qOStz4', 
-                    title: 'Дом в Старый Игерман', 
-                    description: 'Традиционный дом с камином и верандой' 
+                    src: 'https://i.postimg.cc/SnJ0RLtc/64S08504.jpg', 
+                    title: 'Дом в Старом Игермане', 
+                    description: 'Долговечные материалы' 
                 },
                 { 
                     id: 18,
                     type: 'image', 
-                    src: 'https://iimg.su/i/Srt7uB', 
-                    title: 'Коттедж в Юровские дачи', 
-                    description: 'Современный дом с панорамным остеклением' 
+                    src: 'https://i.postimg.cc/TLvBtz2c/64S08507.jpg', 
+                    title: 'Дом в Юровских дачах', 
+                    description: 'Индивидуальный подход' 
                 },
                 { 
                     id: 19,
                     type: 'image', 
-                    src: 'https://iimg.su/i/FJugHo', 
-                    title: 'Вилла в Западный Квартал', 
-                    description: 'Эксклюзивный проект с бассейном и сауной' 
+                    src: 'https://i.postimg.cc/RW8kH3jy/A7S00001.jpg', 
+                    title: 'Дом в Западном Квартале', 
+                    description: 'Современные решения' 
+                },
+                { 
+                    id: 20,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/VSC3Bfw6/A7S00007.jpg', 
+                    title: 'Дом в КП "Тихие зори"', 
+                    description: 'Качественная отделка' 
+                },
+                { 
+                    id: 21,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/9zpsBg6G/A7S00012.jpg', 
+                    title: 'Дом в КП "Орловское"', 
+                    description: 'Надежные конструкции' 
+                },
+                { 
+                    id: 22,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/WFmCC5hc/attachment-2.jpg', 
+                    title: 'Дом в КП "Екатериненский"', 
+                    description: 'Европейские стандарты' 
+                },
+                { 
+                    id: 23,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/F1m23XBr/IMG-3761.jpg', 
+                    title: 'Дом в КП "Ближняя усадьба"', 
+                    description: 'Качественные материалы' 
+                },
+                { 
+                    id: 24,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/rR83k5r0/IMG-5280.jpg', 
+                    title: 'Дом в КП "Славянский"', 
+                    description: 'Традиции и качество' 
+                },
+                { 
+                    id: 25,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/MvpN3bwg/IMG-5604.jpg', 
+                    title: 'Дом в д. Старомихайловское', 
+                    description: 'Индивидуальный проект' 
+                },
+                { 
+                    id: 26,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/xXk7nfcR/IMG-8842.jpg', 
+                    title: 'Дом в Ягуле', 
+                    description: 'Современные технологии' 
+                },
+                { 
+                    id: 27,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/p9z65sQ5/IMG-8856.jpg', 
+                    title: 'Дом в КП "Европа"', 
+                    description: 'Европейское качество' 
+                },
+                { 
+                    id: 28,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/18LdzkFZ/1.jpg', 
+                    title: 'Дом в с. Завьялово', 
+                    description: 'Традиции и современность' 
+                },
+                { 
+                    id: 29,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/R6mb7wGs/3.jpg', 
+                    title: 'Дом в КП "Новое Завьялово"', 
+                    description: 'Качественные материалы' 
+                },
+                { 
+                    id: 30,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/0bjX0kds/v2.png', 
+                    title: 'Дом в КП "Норвег"', 
+                    description: 'Скандинавский стиль' 
+                },
+                { 
+                    id: 31,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/G8jgq95c/1.jpg', 
+                    title: 'Дом в КП "Архитекторов"', 
+                    description: 'Авторский проект' 
+                },
+                { 
+                    id: 32,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/wRTfPHCD/2.jpg', 
+                    title: 'Дом в КП "Чистопрудный"', 
+                    description: 'Экологичные материалы' 
+                },
+                { 
+                    id: 33,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/LhHbhBJh/1.jpg', 
+                    title: 'Дом в КП "Новые пазелы"', 
+                    description: 'Современный дизайн' 
+                },
+                { 
+                    id: 34,
+                    type: 'image', 
+                    src: 'https://i.postimg.cc/RqXbt6td/1.jpg', 
+                    title: 'Дом в КП "Чекирил"', 
+                    description: 'Качественное исполнение' 
                 }
             ],
             promotions: [
                 {
-                    id: 1,
-                    badge: "Скидка 20%",
-                    image: "https://iimg.su/i/t7o2z2",
-                    title: "Скидка на баню или гараж",
-                    description: "При строительстве дома на вашем участке получите скидку 20% на строительство бани или гаража!"
-                },
-                {
-                    id: 2,
-                    badge: "Бесплатно",
-                    image: "https://iimg.su/i/uHUgY2",
-                    title: "Расчет сметы в подарок",
-                    description: "При заключении договора на строительство дома получите бесплатный расчет сметы!"
-                }
+        id: 1,
+        badge: "Скидка 20%",
+        image: "https://i.postimg.cc/kgR2D54C/image.jpg",
+        title: "Скидка на баню или гараж",
+        description: "При строительстве дома на вашем участке получите скидку 20% на строительство бани или гаража!"
+    },
+    {
+        id: 2,
+        badge: "Бесплатно",
+        image: "https://i.postimg.cc/W4P136Cm/image.jpg",
+        title: "Расчет сметы в подарок",
+        description: "При заключении договора на строительство дома получите бесплатный расчет сметы!"
+    },
+    {
+        id: 3,
+        badge: "Бесплатно",
+        image: "https://i.postimg.cc/4d0CKXnC/image.jpg",
+        title: "Эскизный проект в подарок",
+        description: "При заключении договора на строительство получите бесплатный эскизный проект!"
+    },
+    {
+        id: 4,
+        badge: "Специально",
+        image: "https://i.postimg.cc/c4sjsKFK/image.jpg",
+        title: "Специальные условия для молодых семей",
+        description: "Молодые семьи получают специальные скидки и условия оплаты при строительстве дома."
+    },
+    {
+        id: 5,
+        badge: "Бесплатно",
+        image: "https://i.postimg.cc/fLn21k3R/image.jpg",
+        title: "Бесплатный выезд специалиста",
+        description: "Закажите бесплатный выезд нашего специалиста на ваш участок для консультации."
+    },
+    {
+        id: 6,
+        badge: "Скидка",
+        image: "https://i.postimg.cc/2yCH8J7p/image.jpg",
+        title: "Скидки пенсионерам",
+        description: "Специальные скидки для пенсионеров на все виды строительных работ."
+    }
             ],
             houses: [
                 {
@@ -2799,7 +3474,7 @@
                     price: "3 500 000 руб",
                     area: "120 кв.м.",
                     description: "Просторный двухэтажный дом с террасой и гаражом",
-                    image: "https://iimg.su/i/VN6aIZ"
+                    image: "https://i.postimg.cc/N5cZ8qCG/2014-06-04-11-50-52.jpg"
                 },
                 {
                     id: 2,
@@ -2808,17 +3483,17 @@
                     price: "2 800 000 руб",
                     area: "90 кв.м.",
                     description: "Уютный одноэтажный дом в стиле шале",
-                    image: "https://iimg.su/i/Vff0GZ"
+                    image: "https://i.postimg.cc/XBMmDTV8/2015-10-07-11-29-45-1.jpg"
                 }
             ],
             header: {
-                logo: "https://iimg.su/i/zFDqsM",
-                slogan: "Качественные решения для вашего комфорта",
-                bgImage: "https://iimg.su/i/zFDqsM",
+                logo: "https://i.postimg.cc/PNZB8r4F/3952662224.jpg",
+                slogan: " ",
+                bgImage: "https://i.postimg.cc/mkf8LjGf/photo-1512917774080-9991f1c4c750.jpg",
                 opacity: 0.15,
                 logoPosition: "center",
                 sloganPosition: "bottom",
-                banner: ""
+                banner: "https://i.postimg.cc/sgTnmsCv/image.jpg"
             },
             telegram: {
                 botToken: "7895837790:AAGcCjxt1m1PX1QxCLNcqwoY0Q9PC_vMXWk",
@@ -2835,106 +3510,10 @@
                 count: 5
             },
             editingGalleryId: null,
-            editingNewsId: null,
             editingHouseId: null,
             editingReviewId: null
         };
 
-        // Часть 2: Генерация отзывов
-        const settlements = [
-            "КП Тихие зори", "КП Орловское", "КП Екатериненский", 
-            "КП Ближняя усадьба", "КП Славянский", "д. Старомихайловское", 
-            "Ягул", "КП Европа", "с. Завьялово", "КП Новое Завьялово", 
-            "КП Норвег", "КП Архитекторов", "КП Чистопрудный", 
-            "КП Новые пазелы", "КП Чекирил", "КП Орловское 5", 
-            "Старый Игерман", "Юровские дачи", "Западный Квартал"
-        ];
-        
-        const names = [
-            "Иван Иванов", "Мария Петрова", "Алексей Смирнов", "Екатерина Васильева", 
-            "Дмитрий Кузнецов", "Ольга Новикова", "Сергей Волков", "Анна Козлова", 
-            "Андрей Соколов", "Наталья Морозова", "Павел Павлов", "Елена Лебедева", 
-            "Михаил Орлов", "Татьяна Алексеева", "Николай Николаев", "Юлия Захарова", 
-            "Артем Степанов", "Ирина Виноградова", "Александр Богданов", "Светлана Романова"
-        ];
-        
-        const reviewsText = [
-            "Строили дом в {settlement}. Все очень понравилось! Качество работ на высшем уровне, сроки соблюдены.",
-            "Заказывали строительство дома в {settlement}. Работали оперативно, учли все пожелания. Рекомендую!",
-            "Построили двухэтажный дом в {settlement}. Качеством довольны, небольшие недочеты исправили быстро.",
-            "Строительство дома под ключ в {settlement}. Цена/качество отличные, бригада работала профессионально.",
-            "Обратились в АГстрой для строительства дома в {settlement}. Остались довольны результатом, все по договору.",
-            "Строили дом в {settlement}. Процесс контролировали на каждом этапе, результат превзошел ожидания.",
-            "Заказывали строительство коттеджа в {settlement}. Сделали все качественно, но были небольшие задержки.",
-            "Дом в {settlement} построен отлично! Учтены все нюансы, использованы качественные материалы.",
-            "Строительство в {settlement} завершили раньше срока. Качество на высоте, рекомендую компанию.",
-            "Доверили строительство дома в {settlement}. Работы выполнены качественно, но пришлось вносить дополнительные правки.",
-            "Отличная работа в {settlement}! Дом построен крепко, все коммуникации продуманы до мелочей.",
-            "Строили дом в {settlement}. В целом доволен, но были проблемы с поставкой материалов.",
-            "Заказывали строительство под ключ в {settlement}. Профессиональный подход, качественные материалы, довольны результатом.",
-            "Дом в {settlement} построен на совесть. Спасибо бригаде за внимательное отношение к деталям.",
-            "Строительство в {settlement} завершили с небольшим опозданием, но качество работ отличное.",
-            "Доволен результатом в {settlement}. Дом теплый, крепкий, все по современным стандартам.",
-            "Работали с АГстрой в {settlement}. Проект реализован на 100%, но были накладки по срокам.",
-            "Строили дом в {settlement}. Отличное качество, но стоимость вышла немного выше планируемой.",
-            "Рекомендую компанию! Дом в {settlement} построен качественно, все этапы контролировали.",
-            "Доволен сотрудничеством в {settlement}. Профессиональная команда, качественные материалы."
-        ];
-        
-        const photoLinks = [
-            "https://iimg.su/i/GpneAr", "https://iimg.su/i/ChcuRI", "https://iimg.su/i/UhVOZ3", 
-            "https://iimg.su/i/kkG61s", "https://iimg.su/i/Yob7eP", "https://iimg.su/i/XAsEsW", 
-            "https://iimg.su/i/CVaZCR", "https://iimg.su/i/LW7N9n", "https://iimg.su/i/AnGMnX", 
-            "https://iimg.su/i/qedUTi", "https://iimg.su/i/0GqLtj", "https://iimg.su/i/Tn4nA1", 
-            "https://iimg.su/i/cPCZXU", "https://iimg.su/i/tqMLBt", "https://iimg.su/i/yBaIMM", 
-            "https://iimg.su/i/WtesQR", "https://iimg.su/i/qOStz4", "https://iimg.su/i/Srt7uB", 
-            "https://iimg.su/i/FJugHo", "https://iimg.su/i/t7o2z2", "https://iimg.su/i/uHUgY2", 
-            "https://iimg.su/i/VN6aIZ", "https://iimg.su/i/Vff0GZ", "https://iimg.su/i/BVP9Ub", 
-            "https://iimg.su/i/AViSkD", "https://iimg.su/i/RNsw14", "https://iimg.su/i/1lIV9F", 
-            "https://iimg.su/i/FZrfGo", "https://iimg.su/i/nQzW66", "https://iimg.su/i/pZFqsp", 
-            "https://iimg.su/i/gCM6tO", "https://iimg.su/i/6qBaav", "https://iimg.su/i/RnORVo", 
-            "https://iimg.su/i/ZPebb7", "https://iimg.su/i/ZieK5F", "https://iimg.su/i/g1zUud", 
-            "https://iimg.su/i/7P2YpH", "https://iimg.su/i/i7vq8a", "https://iimg.su/i/hYxEQt", 
-            "https://iimg.su/i/OY9uBQ", "https://iimg.su/i/A65zjV", "https://iimg.su/i/gy1Ukh", 
-            "https://iimg.su/i/4nG2Cd", "https://iimg.su/i/xUmMTh", "https://iimg.su/i/SfQ4qT"
-        ];
-        
-        // Генерация 36 отзывов
-        for (let i = 0; i < 36; i++) {
-            const settlement = settlements[Math.floor(Math.random() * settlements.length)];
-            const name = names[Math.floor(Math.random() * names.length)];
-            const text = reviewsText[Math.floor(Math.random() * reviewsText.length)].replace("{settlement}", settlement);
-            
-            // Генерация даты (последние 2 года)
-            const randomDate = new Date();
-            randomDate.setMonth(randomDate.getMonth() - Math.floor(Math.random() * 24));
-            const dateStr = randomDate.toISOString().split('T')[0];
-            
-            // Генерация рейтинга (в основном 4 и 5)
-            const rating = Math.random() > 0.8 ? 3 : Math.random() > 0.3 ? 4 : 5;
-            
-            // Генерация фотографий (в 60% отзывов)
-            const photos = [];
-            if (Math.random() > 0.4) {
-                const photoCount = Math.floor(Math.random() * 3) + 1;
-                for (let j = 0; j < photoCount; j++) {
-                    photos.push(photoLinks[Math.floor(Math.random() * photoLinks.length)]);
-                }
-            }
-            
-            state.reviews.push({
-                id: i + 1,
-                author: name,
-                text: text,
-                date: dateStr,
-                rating: rating,
-                approved: true,
-                photo: "",
-                photos: photos
-            });
-        }
-
-        // Часть 3: Основные функции приложения
         function saveState() {
             localStorage.setItem('agstroyState', JSON.stringify(state));
         }
@@ -2953,7 +3532,30 @@
             }
             return stars;
         }
-        
+       
+        // ================== Часть 3: Основная логика JavaScript ==================
+        document.addEventListener('DOMContentLoaded', function() {
+            const savedState = localStorage.getItem('agstroyState');
+            if (savedState) {
+                state = JSON.parse(savedState);
+            }
+            
+            if (state.emailjs.userId) {
+                emailjs.init(state.emailjs.userId);
+            }
+            
+            renderAdvantages();
+            renderWorkSteps();
+            renderGallery();
+            renderReviews();
+            renderPromotions();
+            renderHouses();
+            setupEventListeners();
+            setupModals();
+            setupAdminPanel();
+            updateHeader();
+        });
+
         function renderAdvantages() {
             const container = document.getElementById('advantagesContainer');
             container.innerHTML = '';
@@ -3029,7 +3631,7 @@
             const container = document.getElementById('reviewsContainer');
             container.innerHTML = '';
             
-            state.reviews.filter(r => r.approved).forEach(review => {
+            state.reviews.forEach(review => {
                 const reviewItem = document.createElement('div');
                 reviewItem.className = 'review-item';
                 
@@ -3037,7 +3639,8 @@
                 if (review.photo) {
                     avatarContent = `<img src="${review.photo}" alt="${review.author}" class="review-avatar-img">`;
                 } else {
-                    avatarContent = `<div class="review-avatar">${review.author.charAt(0)}</div>`;
+                    const firstLetter = review.author.charAt(0);
+                    avatarContent = `<div class="review-avatar">${firstLetter}</div>`;
                 }
                 
                 let photosContent = '';
@@ -4088,9 +4691,8 @@
                         };
                     });
                     
-                    // Обновляем state новостей (но у нас удален раздел новостей)
-                    // state.news = [...vkNews, ...state.news.filter(n => !n.id.startsWith('vk-'))];
-                    // renderNews();
+                    state.news = [...vkNews, ...state.news.filter(n => !n.id.startsWith('vk-'))];
+                    renderNews();
                     saveState();
                     
                 } catch (error) {
@@ -4101,33 +4703,199 @@
                 }
             }
             
-            // Инициализация приложения
-            document.addEventListener('DOMContentLoaded', function() {
-                const savedState = localStorage.getItem('agstroyState');
-                if (savedState) {
-                    state = JSON.parse(savedState);
-                }
-                
-                if (state.emailjs.userId) {
-                    emailjs.init(state.emailjs.userId);
-                }
-                
-                renderAdvantages();
-                renderWorkSteps();
-                renderGallery();
-                renderReviews();
-                renderPromotions();
-                renderHouses();
-                setupEventListeners();
-                setupModals();
-                setupAdminPanel();
-                updateHeader();
-                // loadVKNews(); // Убрали загрузку новостей VK
+            document.getElementById('reviewPhotoUploadBtn').addEventListener('click', function() {
+                document.getElementById('reviewPhotoAdmin').click();
             });
+            
+            document.getElementById('reviewPhotoAdmin').addEventListener('change', function(e) {
+                if (this.files && this.files[0]) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        document.getElementById('reviewPhotoPreview').src = e.target.result;
+                        document.getElementById('reviewPhotoPreview').style.display = 'block';
+                    }
+                    reader.readAsDataURL(this.files[0]);
+                }
+            });
+            
+            document.getElementById('reviewPhotosUploadBtn').addEventListener('click', function() {
+                document.getElementById('reviewPhotosAdmin').click();
+            });
+            
+            document.getElementById('reviewPhotosAdmin').addEventListener('change', function(e) {
+                const files = this.files;
+                if (!files || files.length === 0) return;
+                
+                const previewContainer = document.getElementById('reviewPhotosPreview');
+                previewContainer.innerHTML = '';
+                
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    const reader = new FileReader();
+                    
+                    reader.onload = function(e) {
+                        const previewItem = document.createElement('div');
+                        previewItem.className = 'photo-preview-item';
+                        previewItem.innerHTML = `
+                            <img src="${e.target.result}" alt="Preview">
+                            <div class="remove-photo-btn">×</div>
+                        `;
+                        previewContainer.appendChild(previewItem);
+                        
+                        previewItem.querySelector('.remove-photo-btn').addEventListener('click', function() {
+                            previewItem.remove();
+                        });
+                    }
+                    
+                    reader.readAsDataURL(file);
+                }
+            });
+            
+            document.getElementById('addReviewBtn').addEventListener('click', function() {
+                const author = document.getElementById('reviewAuthor').value;
+                const date = document.getElementById('reviewDate').value;
+                const rating = parseInt(document.getElementById('reviewRating').value);
+                const status = document.getElementById('reviewStatus').value;
+                const content = document.getElementById('reviewContent').value;
+                
+                const authorPhotoFile = document.getElementById('reviewPhotoAdmin').files[0];
+                let authorPhotoUrl = '';
+                if (authorPhotoFile) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        authorPhotoUrl = e.target.result;
+                        saveReviewItem(authorPhotoUrl, author, date, rating, status, content);
+                    }
+                    reader.readAsDataURL(authorPhotoFile);
+                } else {
+                    if (state.editingReviewId) {
+                        const existingReview = state.reviews.find(r => r.id === state.editingReviewId);
+                        if (existingReview) {
+                            authorPhotoUrl = existingReview.photo;
+                        }
+                    }
+                    saveReviewItem(authorPhotoUrl, author, date, rating, status, content);
+                }
+            });
+            
+            function saveReviewItem(authorPhotoUrl, author, date, rating, status, content) {
+                const newReview = {
+                    id: state.editingReviewId || Date.now(),
+                    author: author,
+                    text: content,
+                    date: date,
+                    rating: rating,
+                    approved: status === 'approved',
+                    photo: authorPhotoUrl,
+                    photos: []
+                };
+                
+                if (state.editingReviewId) {
+                    const index = state.reviews.findIndex(r => r.id === state.editingReviewId);
+                    if (index !== -1) {
+                        newReview.photos = state.reviews[index].photos || [];
+                        state.reviews[index] = newReview;
+                    }
+                    state.editingReviewId = null;
+                    document.getElementById('addReviewBtn').textContent = 'Добавить отзыв';
+                } else {
+                    state.reviews.push(newReview);
+                }
+                
+                renderReviews();
+                renderAdminReviews();
+                saveState();
+                
+                document.getElementById('reviewAuthor').value = '';
+                document.getElementById('reviewDate').value = '';
+                document.getElementById('reviewRating').value = '5';
+                document.getElementById('reviewContent').value = '';
+                document.getElementById('reviewPhotoPreview').style.display = 'none';
+                document.getElementById('reviewPhotoAdmin').value = '';
+                document.getElementById('reviewPhotosPreview').innerHTML = '';
+            }
+            
+            function renderAdminReviews() {
+                const container = document.getElementById('reviewsManager');
+                container.innerHTML = '';
+                
+                state.reviews.forEach(review => {
+                    const reviewElement = document.createElement('div');
+                    reviewElement.className = 'review-item';
+                    reviewElement.innerHTML = `
+                        <div class="review-header">
+                            <div class="review-avatar">
+                                ${review.photo 
+                                    ? `<img src="${review.photo}" alt="${review.author}" class="review-avatar-img" style="width:60px;height:60px;">` 
+                                    : `<div class="review-avatar">${review.author.charAt(0)}</div>`}
+                            </div>
+                            <div>
+                                <div class="review-author">${review.author}</div>
+                                <div class="review-date">${formatDate(review.date)}</div>
+                            </div>
+                            <div class="review-status ${review.approved ? 'approved' : ''}">
+                                ${review.approved ? 'Одобрен' : 'На модерации'}
+                            </div>
+                        </div>
+                        <div class="review-rating">${renderStars(review.rating)}</div>
+                        <div class="review-content">${review.text}</div>
+                        <div class="admin-controls">
+                            <button class="btn edit-review" data-id="${review.id}">Редактировать</button>
+                            <button class="btn delete-review" data-id="${review.id}">Удалить</button>
+                        </div>
+                    `;
+                    container.appendChild(reviewElement);
+                    
+                    reviewElement.querySelector('.edit-review').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        const review = state.reviews.find(r => r.id === id);
+                        
+                        if (review) {
+                            state.editingReviewId = id;
+                            document.getElementById('reviewAuthor').value = review.author;
+                            document.getElementById('reviewDate').value = review.date;
+                            document.getElementById('reviewRating').value = review.rating;
+                            document.getElementById('reviewStatus').value = review.approved ? 'approved' : 'pending';
+                            document.getElementById('reviewContent').value = review.text;
+                            
+                            if (review.photo) {
+                                document.getElementById('reviewPhotoPreview').src = review.photo;
+                                document.getElementById('reviewPhotoPreview').style.display = 'block';
+                            }
+                            
+                            const photosPreview = document.getElementById('reviewPhotosPreview');
+                            photosPreview.innerHTML = '';
+                            if (review.photos && review.photos.length > 0) {
+                                review.photos.forEach(photo => {
+                                    const previewItem = document.createElement('div');
+                                    previewItem.className = 'photo-preview-item';
+                                    previewItem.innerHTML = `<img src="${photo}" alt="Preview">`;
+                                    photosPreview.appendChild(previewItem);
+                                });
+                            }
+                            
+                            document.getElementById('addReviewBtn').textContent = 'Обновить отзыв';
+                            
+                            document.getElementById('reviewAuthor').scrollIntoView({ behavior: 'smooth' });
+                        }
+                    });
+                    
+                    reviewElement.querySelector('.delete-review').addEventListener('click', function() {
+                        const id = parseInt(this.getAttribute('data-id'));
+                        state.reviews = state.reviews.filter(r => r.id !== id);
+                        renderAdminReviews();
+                        renderReviews();
+                        saveState();
+                    });
+                });
+            }
+            
+            renderAdminAdvantages();
+            renderAdminSteps();
+            renderAdminGallery();
+            renderAdminHouses();
+            renderAdminReviews();
         }
-        
-        // Инициализация панели администратора
-        setupAdminPanel();
     </script>
 </body>
 </html>
